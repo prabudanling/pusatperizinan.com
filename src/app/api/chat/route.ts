@@ -128,7 +128,7 @@ export async function POST(req: NextRequest) {
       {
         success: false,
         error:
-          "Mohon maaf, sistem sedang sibuk. Silakan coba lagi atau hubungi WhatsApp kami langsung di 0811-100-2025.",
+          "Mohon maaf, sistem sedang sibuk. Silakan coba lagi atau hubungi WhatsApp kami langsung di 0813-3339-7223.",
       },
       { status: 500 }
     );

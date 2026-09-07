@@ -130,7 +130,7 @@ export function LicenseChecker() {
       .filter(Boolean)
       .join("\n");
     window.open(
-      `https://wa.me/628111002025?text=${encodeURIComponent(text)}`,
+      `https://wa.me/6281333397223?text=${encodeURIComponent(text)}`,
       "_blank",
       "noopener"
     );

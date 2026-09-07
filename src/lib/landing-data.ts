@@ -310,5 +310,8 @@ export const SECTORS = [
   "Lainnya",
 ];
 
-export const WHATSAPP_NUMBER = "628111002025"; // Nomor WA bisnis
-export const WHATSAPP_DISPLAY = "0811-1002-025";
+export const WHATSAPP_NUMBER = "6281333397223"; // Nomor WA bisnis
+export const WHATSAPP_DISPLAY = "0813-3339-7223";
+export const OFFICE_NAME = "PusatPerizinan.com — Kantor Pusat SCBD";
+export const OFFICE_ADDRESS = "Indonesia Stock Exchange Building, Tower 2, Lantai 5, SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190";
+export const OFFICE_SHORT = "SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190";

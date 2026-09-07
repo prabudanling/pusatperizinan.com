@@ -1,0 +1,222 @@
+// ============================================================
+// PUSATPERIZINAN.COM — JSON-LD Structured Data
+// Server component (tanpa "use client") untuk SEO maksimal
+// ============================================================
+
+import { SERVICES, FAQS, TESTIMONIALS } from "@/lib/landing-data";
+import { PERMIT_GUIDES, SECTOR_GUIDES } from "@/lib/seo-content";
+
+const SITE_URL = "https://pusatperizinan.com";
+
+function JsonLd({ data }: { data: object }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function SeoJsonLd() {
+  // 1. Organization + ProfessionalService (local SEO)
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${SITE_URL}/#organization`,
+    name: "PusatPerizinan.com",
+    alternateName: "PT Pusat Perizinan Digital Nusantara",
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
+    image: `${SITE_URL}/logo.svg`,
+    description:
+      "Konsultan perizinan usaha #1 Indonesia. Jasa pengurusan NIB, pendirian PT/CV/PMA, OSS-RBA, sertifikasi halal, izin BPOM, PBG/SLF, AMDAL, dengan garansi 100% uang kembali.",
+    telephone: "+62-813-3339-7223",
+    email: "halo@pusatperizinan.com",
+    foundingDate: "2024",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "Indonesia Stock Exchange Building, Tower 2, Lantai 5, SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53",
+      addressLocality: "Jakarta Selatan",
+      addressRegion: "DKI Jakarta",
+      postalCode: "12190",
+      addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.2249,
+      longitude: 106.809,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "08:00",
+        closes: "20:00",
+      },
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+    priceRange: "Rp 350.000 - Rp 25.000.000",
+    currenciesAccepted: "IDR",
+    paymentAccepted: "Bank Transfer",
+    sameAs: [],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      reviewCount: "890",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Layanan Perizinan Usaha",
+      itemListElement: SERVICES.map((s, i) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: s.title,
+          description: s.desc,
+          serviceType: s.title,
+        },
+        priceCurrency: "IDR",
+        price: s.price.replace(/[^\d]/g, "") || "0",
+        position: i + 1,
+      })),
+    },
+  };
+
+  // 2. WebSite + SearchAction
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: "PusatPerizinan.com",
+    inLanguage: "id-ID",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  // 3. FAQPage (harus cocok dengan konten FAQ section yang terlihat)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/#faq`,
+    mainEntity: [
+      ...FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+      // FAQ dari panduan izin (juga tampil di halaman)
+      ...PERMIT_GUIDES.flatMap((g) =>
+        g.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        }))
+      ),
+    ],
+  };
+
+  // 4. ItemList panduan izin (knowledge hub)
+  const guideSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/#guides`,
+    name: "Panduan Lengkap Perizinan Usaha Indonesia",
+    description:
+      "Panduan mendalam NIB, PT, CV, PMA, Sertifikasi Halal, BPOM, PBG/SLF, Izin Lingkungan, OSS-RBA, Klinik, dan Pajak Usaha di Indonesia.",
+    itemListElement: PERMIT_GUIDES.map((g, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Article",
+        headline: `Panduan Lengkap ${g.name} Indonesia`,
+        description: g.short,
+        articleSection: "Perizinan Usaha",
+        author: { "@id": `${SITE_URL}/#organization` },
+        about: { "@type": "Thing", name: g.name },
+      },
+    })),
+  };
+
+  // 5. ItemList sektor
+  const sectorSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}/#sectors`,
+    name: "Perizinan per Bidang Usaha",
+    itemListElement: SECTOR_GUIDES.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Article",
+        headline: `Izin Usaha ${s.name} — Lengkap & Terkini`,
+        description: s.desc,
+      },
+    })),
+  };
+
+  // 6. Reviews (testimoni terverifikasi)
+  const reviewsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: TESTIMONIALS.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: String(t.rating),
+          bestRating: "5",
+        },
+        author: { "@type": "Person", name: t.name },
+        reviewBody: t.content,
+        itemReviewed: { "@id": `${SITE_URL}/#organization` },
+      },
+    })),
+  };
+
+  // 7. BreadcrumbList
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Beranda",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Panduan Perizinan",
+        item: `${SITE_URL}/#panduan`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <JsonLd data={orgSchema} />
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={guideSchema} />
+      <JsonLd data={sectorSchema} />
+      <JsonLd data={reviewsSchema} />
+      <JsonLd data={breadcrumbSchema} />
+    </>
+  );
+}

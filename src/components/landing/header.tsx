@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Layanan", href: "#layanan" },
   { label: "Cek Izin AI", href: "#cek-izin" },
-  { label: "Cara Kerja", href: "#cara-kerja" },
+  { label: "Panduan", href: "#panduan" },
   { label: "Harga", href: "#harga" },
   { label: "Testimoni", href: "#testimoni" },
   { label: "FAQ", href: "#faq" },
@@ -66,13 +66,13 @@ export function Header() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://wa.me/628111002025?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
+              href="https://wa.me/6281333397223?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
               <PhoneCall className="h-4 w-4" />
-              0811-1002-025
+              0813-3339-7223
             </a>
             <Button asChild size="sm" className="rounded-full px-5 font-semibold shadow-md shadow-primary/25">
               <a href="#konsultasi">

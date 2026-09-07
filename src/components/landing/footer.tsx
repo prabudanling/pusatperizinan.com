@@ -82,7 +82,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3.5">
               <li>
                 <a
-                  href={`https://wa.me/628111002025`}
+                  href={`https://wa.me/6281333397223`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2.5 text-sm text-emerald-100/70 hover:text-emerald-300 transition-colors"
@@ -102,11 +102,11 @@ export function Footer() {
               <li className="flex items-start gap-2.5 text-sm text-emerald-100/70">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
                 <span>
-                  Jl. Jend. Sudirman Kav. 52-53
+                  Indonesia Stock Exchange Building, Lantai 5
                   <br />
-                  Jakarta Selatan 12190
+                  SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190
                   <span className="block text-xs text-emerald-200/50 mt-0.5">
-                    Melayani seluruh Indonesia secara online
+                    Satu lantai dengan Bursa Efek Indonesia • Melayani seluruh Indonesia online
                   </span>
                 </span>
               </li>
