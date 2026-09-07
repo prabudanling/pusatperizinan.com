@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | PusatPerizinan.com",
   },
   description:
-    "Konsultan perizinan usaha terbaik Indonesia: NIB 1 hari, pendirian PT 3 hari, sertifikasi halal, izin BPOM/PIRT, PBG & SLF, izin lingkungan, PMA. Panduan perizinan terlengkap + AI checker gratis. Kantor SCBD satu lantai dengan Bursa Efek Indonesia. Garansi 100% uang kembali.",
+    "Konsultan perizinan usaha terbaik Indonesia: NIB 1 hari, pendirian PT 3 hari, sertifikasi halal, izin BPOM/PIRT, PBG & SLF, izin lingkungan, PMA, izin umroh (PPIU) & haji (PPIH), registrasi IATA, izin usaha Arab Saudi (MISA), RKAB tambang. Melayani 38 provinsi & 514 kabupaten/kota. Panduan perizinan terlengkap + AI checker + kalkulator biaya gratis. Kantor SCBD se-lantai Bursa Efek Indonesia. Garansi 100% uang kembali.",
   keywords: [
     // inti layanan
     "jasa perizinan usaha", "jasa pengurusan izin usaha", "konsultan perizinan", "konsultan izin usaha",
@@ -50,6 +50,13 @@ export const metadata: Metadata = {
     "izin usaha kuliner", "izin kafe", "izin restoran", "izin klinik", "SIA klinik", "izin apotek",
     "TDAU pariwisata", "izin travel", "izin tambang", "IUP", "IUPK", "izin ekspor impor",
     "izin konstruksi", "SBU konstruksi", "izin logistik", "TDUP",
+    // travel ibadah & aviasi & internasional
+    "izin umroh", "izin haji", "syarat izin umroh", "biaya izin umroh", "PPIU", "PPIH", "SIPU", "SPPU",
+    "izin travel umroh", "cara jadi PPIU", "registrasi IATA", "akreditasi IATA", "IATA agent Indonesia",
+    "izin usaha arab saudi", "MISA license", "MISA saudi arabia", "buka usaha di arab saudi", "commercial registration saudi",
+    "RKAB", "RKAB 3 tahunan", "perpanjangan IUP", "izin jual batubara", "MODI minerba", "izin pertambangan",
+    // jangkauan
+    "konsultan perizinan se indonesia", "jasa perizinan 38 provinsi", "perizinan 514 kabupaten kota",
     // pajak
     "NPWP usaha", "PPh final 0.5", "pajak UMKM", "SPPKP", "pengukuhan PKP", "LKPM",
     // KBLI & panduan
@@ -92,7 +99,7 @@ export const metadata: Metadata = {
     siteName: "PusatPerizinan.com",
     title: "PusatPerizinan.com — Urus Semua Izin Usaha, Tinggal Terima Beres",
     description:
-      "Konsultan perizinan #1 Indonesia dari kantor SCBD. NIB 1 hari, PT 3 hari, Halal, BPOM, PBG/SLF, AMDAL, PMA — garansi 100%. Panduan perizinan terlengkap + AI checker gratis.",
+      "Konsultan perizinan #1 Indonesia dari kantor SCBD. NIB 1 hari, PT 3 hari, Halal, BPOM, PBG/SLF, AMDAL, PMA, Izin Umroh/Haji (PPIU/PPIH), IATA, Arab Saudi (MISA), RKAB tambang — garansi 100%. Melayani 38 provinsi & 514 kabupaten/kota.",
     images: [
       {
         url: "/logo.svg",

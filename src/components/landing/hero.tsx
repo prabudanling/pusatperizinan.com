@@ -100,7 +100,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Dipercaya 1.247+ bisnis di 34 provinsi Indonesia
+              Dipercaya 1.247+ bisnis di 38 provinsi & 514 kota Indonesia
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.1] text-foreground">

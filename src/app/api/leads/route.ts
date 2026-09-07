@@ -1,26 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { SECTORS } from "@/lib/landing-data";
 
 // ============================================================
 // POST /api/leads — Capture Lead dari Form Landing Page
 // Aset bisnis paling berharga: data calon klien
 // ============================================================
 
-const BUSINESS_TYPES = [
-  "Kuliner / F&B",
-  "Retail / Toko",
-  "Konstruksi / Properti",
-  "Manufaktur / Pabrik",
-  "Jasa / Konsultan",
-  "Logistik / Transportasi",
-  "Kesehatan / Klinik",
-  "Pariwisata / Hotel",
-  "Pendidikan",
-  "Pertanian / Perkebunan",
-  "Tambang / Energi",
-  "Digital / Startup",
-  "Lainnya",
-];
+const BUSINESS_TYPES = SECTORS;
 
 const PACKAGES = ["UMKM", "Bisnis", "Enterprise", "Belum tahu"];
 

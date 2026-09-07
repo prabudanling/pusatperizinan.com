@@ -6,16 +6,19 @@ import { WHATSAPP_DISPLAY } from "@/lib/landing-data";
 const SERVICE_LINKS = [
   { label: "NIB & OSS-RBA", href: "#layanan-nib" },
   { label: "Pendirian PT & PMA", href: "#layanan-pt" },
-  { label: "Pendirian CV & Firma", href: "#layanan-cv" },
+  { label: "Izin Umroh (PPIU)", href: "#layanan-ppi-umroh" },
+  { label: "Izin Haji (PPIH)", href: "#layanan-ppi-haji" },
+  { label: "Registrasi IATA", href: "#layanan-iata" },
+  { label: "Izin Usaha Arab Saudi (MISA)", href: "#layanan-saudi-arabia" },
+  { label: "RKAB & Kepatuhan Tambang", href: "#layanan-rkab-tambang" },
   { label: "Sertifikasi Halal", href: "#layanan-halal" },
-  { label: "Izin Edar BPOM & PIRT", href: "#layanan-bpom" },
-  { label: "PBG & SLF", href: "#layanan-pbg" },
-  { label: "Izin Lingkungan", href: "#layanan-lingkungan" },
 ];
 
 const COMPANY_LINKS = [
   { label: "Kenapa Kami", href: "#keunggulan" },
   { label: "Cara Kerja", href: "#cara-kerja" },
+  { label: "Kalkulator Biaya", href: "#kalkulator" },
+  { label: "Jangkauan Nasional", href: "#jangkauan" },
   { label: "Harga", href: "#harga" },
   { label: "Testimoni", href: "#testimoni" },
   { label: "FAQ", href: "#faq" },
@@ -43,7 +46,7 @@ export function Footer() {
             <div className="mt-5 flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-3">
               <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
               <p className="text-xs text-emerald-100/80">
-                Terdaftar & bekerja sama dengan notaris resmi di 34 provinsi
+                Terdaftar & bekerja sama dengan notaris resmi di 38 provinsi & 514 kabupaten/kota
               </p>
             </div>
           </div>

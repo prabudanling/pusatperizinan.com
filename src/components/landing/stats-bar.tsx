@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, FileCheck2, MapPin, ThumbsUp, Zap } from "lucide-react";
+import { Users, FileCheck2, MapPin, Building, ThumbsUp, Zap } from "lucide-react";
 
 interface Stats {
   clients: number;
   permitsProcessed: number;
   provinces: number;
+  regenciesCities: number;
   satisfaction: number;
   avgProcessingHours: number;
 }
@@ -14,7 +15,8 @@ interface Stats {
 const FALLBACK: Stats = {
   clients: 1247,
   permitsProcessed: 3890,
-  provinces: 34,
+  provinces: 38,
+  regenciesCities: 514,
   satisfaction: 98,
   avgProcessingHours: 24,
 };
@@ -40,6 +42,7 @@ export function StatsBar() {
     { icon: Users, label: "Klien Dilayani", value: formatNumber(s.clients) },
     { icon: FileCheck2, label: "Izin Diproses", value: formatNumber(s.permitsProcessed) },
     { icon: MapPin, label: "Provinsi", value: `${s.provinces}` },
+    { icon: Building, label: "Kabupaten/Kota", value: `${s.regenciesCities}` },
     { icon: ThumbsUp, label: "Kepuasan Klien", value: `${s.satisfaction}%` },
     { icon: Zap, label: "Rata-rata Proses", value: `${s.avgProcessingHours} jam` },
   ];
@@ -47,7 +50,7 @@ export function StatsBar() {
   return (
     <section aria-label="Statistik kepercayaan" className="border-y bg-card/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-border/60">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-x divide-border/60">
           {items.map((item, i) => (
             <div key={i} className="flex flex-col items-center gap-1.5 py-6 px-3">
               <item.icon className="h-5 w-5 text-primary mb-0.5" aria-hidden="true" />

@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Layanan", href: "#layanan" },
   { label: "Cek Izin AI", href: "#cek-izin" },
+  { label: "Kalkulator", href: "#kalkulator" },
   { label: "Panduan", href: "#panduan" },
+  { label: "Jangkauan", href: "#jangkauan" },
   { label: "Harga", href: "#harga" },
-  { label: "Testimoni", href: "#testimoni" },
   { label: "FAQ", href: "#faq" },
 ];
 

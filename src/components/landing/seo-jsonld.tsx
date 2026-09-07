@@ -29,7 +29,7 @@ export function SeoJsonLd() {
     logo: `${SITE_URL}/logo.svg`,
     image: `${SITE_URL}/logo.svg`,
     description:
-      "Konsultan perizinan usaha #1 Indonesia. Jasa pengurusan NIB, pendirian PT/CV/PMA, OSS-RBA, sertifikasi halal, izin BPOM, PBG/SLF, AMDAL, dengan garansi 100% uang kembali.",
+      "Konsultan perizinan usaha #1 Indonesia. Jasa pengurusan NIB, pendirian PT/CV/PMA, OSS-RBA, sertifikasi halal, izin BPOM, PBG/SLF, AMDAL, izin umroh (PPIU) & haji (PPIH), registrasi IATA, izin usaha Arab Saudi (MISA), RKAB & perizinan tambang — melayani 38 provinsi & 514 kabupaten/kota dengan garansi 100% uang kembali.",
     telephone: "+62-813-3339-7223",
     email: "halo@pusatperizinan.com",
     foundingDate: "2024",
@@ -59,7 +59,7 @@ export function SeoJsonLd() {
       "@type": "Country",
       name: "Indonesia",
     },
-    priceRange: "Rp 350.000 - Rp 25.000.000",
+    priceRange: "Rp 350.000 - Rp 45.000.000",
     currenciesAccepted: "IDR",
     paymentAccepted: "Bank Transfer",
     sameAs: [],
@@ -135,7 +135,7 @@ export function SeoJsonLd() {
     "@id": `${SITE_URL}/#guides`,
     name: "Panduan Lengkap Perizinan Usaha Indonesia",
     description:
-      "Panduan mendalam NIB, PT, CV, PMA, Sertifikasi Halal, BPOM, PBG/SLF, Izin Lingkungan, OSS-RBA, Klinik, dan Pajak Usaha di Indonesia.",
+      "Panduan mendalam NIB, PT, CV, PMA, Sertifikasi Halal, BPOM, PBG/SLF, Izin Lingkungan, OSS-RBA, Klinik, Pajak Usaha, Izin Umroh (PPIU), Izin Haji (PPIH), Registrasi IATA, Izin Usaha Arab Saudi (MISA), dan RKAB & Kepatuhan Tambang — di Indonesia.",
     itemListElement: PERMIT_GUIDES.map((g, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -202,8 +202,26 @@ export function SeoJsonLd() {
       {
         "@type": "ListItem",
         position: 2,
+        name: "Layanan Perizinan",
+        item: `${SITE_URL}/#layanan`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Kalkulator Biaya Perizinan",
+        item: `${SITE_URL}/#kalkulator`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
         name: "Panduan Perizinan",
         item: `${SITE_URL}/#panduan`,
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: "Jangkauan 38 Provinsi & 514 Kabupaten/Kota",
+        item: `${SITE_URL}/#jangkauan`,
       },
     ],
   };

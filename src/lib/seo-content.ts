@@ -470,6 +470,213 @@ export const PERMIT_GUIDES: PermitGuide[] = [
       },
     ],
   },
+  {
+    id: "ppi-umroh",
+    name: "Izin Umroh (PPIU — Perusahaan Perjalanan Ibadah Umrah)",
+    short:
+      "PPIU adalah legalitas resmi travel umroh dari Kementerian Agama: SPPU (pendaftaran) dan SIPU (izin perjalanan) yang terbit via sistem Kemenag. Tanpa SIPU, menjual paket umroh adalah kejahatan perjalanan ibadah palsu.",
+    long:
+      "PPIU (Perusahaan Perjalanan Ibadah Umrah) adalah badan usaha yang telah memenuhi syarat Kementerian Agama untuk menyelenggarakan perjalanan ibadah umrah. Alurnya: pendirian PT (tidak boleh perseorangan), pendaftaran SPPU di Kemenag provinsi tempat kantor, lalu pengurusan SIPU (Surat Izin Perjalanan Umrah) yang diperbarui berkala melalui sistem SIMPONI/e-Katalog Kemenag. PPIU wajib memiliki rekening kolektif jamaah (escrow), kontrak kerja sama dengan maktab/operator Arab Saudi, dan pembimbing ibadah yang bersertifikat. Regulasi berbasis UU 13/2008 tentang Penyelenggaraan Haji beserta peraturan Kemenag terkini — dan pengawasan ketat karena melibatkan dana jamaah. Legalitas PPIU adalah tiket masuk ke e-Katalog & kerja sama resmi, serta pelindung utama Anda dari sanksi pidana penyalahgunaan jamaah.",
+    authority: "Kementerian Agama RI — Dirjen Penyelenggaraan Haji & Umrah (Kemenag Provinsi)",
+    legalBasis: "UU 13/2008 tentang Penyelenggaraan Haji, PP 61/2015 & peraturan Kemenag terkait PPIU/PPIH (SIMPONI)",
+    cost: "Paket lengkap mulai Rp 12 juta (di luar modal disetor PT)",
+    timeline: "30-45 hari kerja (SPPU dulu, SIPU menyusul)",
+    requirements: [
+      "Badan hukum PT (akta notaris + SK Kemenkumham + NIB)",
+      "Modal disetor sesuai ketentuan Kemenag wilayah (mulai Rp 100 juta)",
+      "Kantor usaha fisik & layak + bukti kepemilikan/sewa",
+      "Rekening kolektif jamaah di bank bekerja sama Kemenag",
+      "Kontrak kerja sama dengan maktab & vendor di Arab Saudi + pembimbing ibadah bersertifikat",
+    ],
+    steps: [
+      "Analisis kelayakan & roadmap: sektor, modal, rencana paket perjalanan",
+      "Pendirian PT travel + NPWP + NIB (3-7 hari kerja)",
+      "Pendaftaran SPPU ke Kemenag provinsi + verifikasi kantor",
+      "Pembukaan rekening kolektif & penyiapan dokumen teknis (maktab, pembimbing, itinerary)",
+      "Pengajuan SIPU + aktivasi SIMPONI/e-Katalog",
+      "SIPU terbit — travel Anda resmi berangkatkan jamaah",
+    ],
+    tips: [
+      "Jangan pernah jual paket sebelum SIPU terbit — sanksinya pidana & bisa blacklisted seumur hidup",
+      "Timing terbaik pengajuan: 3-4 bulan sebelum Ramadan & musim haji, karena antrean verifikasi menumpuk",
+      "Nama PT jangan mengandung kata 'Haji' sebelum Anda lolos PPIH — biasanya ditolak Kemenag",
+    ],
+    faq: [
+      {
+        q: "Apa bedanya SPPU dan SIPU untuk travel umroh?",
+        a: "SPPU (Surat Pendaftaran Perjalanan Umrah) adalah status pendaftaran awal PPIU Anda di Kemenag — travel sudah terdaftar tapi belum boleh berangkatkan jamaah. SIPU (Surat Izin Perjalanan Umrah) adalah izin operasional penuh untuk menjual & berangkatkan paket umroh. Keduanya diperbarui berkala via sistem SIMPONI Kemenag.",
+      },
+      {
+        q: "Travel saya masih kecil, apakah tetap bisa jadi PPIU?",
+        a: "Bisa, asalkan berbadan hukum PT dengan modal disetor minimum sesuai ketentuan Kemenag (umumnya mulai Rp 100 juta) dan punya kantor fisik. Banyak PPIU baru mulai dari 1-2 grup jamaah per keberangkatan — yang penting legalitasnya benar sejak awal agar aman berkembang.",
+      },
+    ],
+  },
+  {
+    id: "ppi-haji",
+    name: "Izin Haji (PPIH — Perusahaan Perjalanan Ibadah Haji)",
+    short:
+      "PPIH adalah tingkat tertinggi legalitas travel ibadah: izin khusus penyelenggaraan perjalanan haji dari Kemenag. Syaratnya paling berat — modal disetor miliaran & uji kelayakan — tapi posisinya paling eksklusif.",
+    long:
+      "PPIH (Perusahaan Perjalanan Ibadah Haji) adalah perusahaan yang berizin khusus menyelenggarakan perjalanan ibadah haji — jauh lebih ketat daripada PPIU karena menyangkut gelar wajib haji. Syarat inti: berbadan hukum PT milik penuh WNI, modal disetor signifikan (umumnya hingga Rp 3 miliar dalam bentuk uang tunai/setara kas yang bisa diaudit), tidak boleh menarik dana jamaah sebelum SK terbit, dan wajib lolos masa pembinaan serta uji kelayakan Kemenag. PPIH otomatis berhak menyelenggarakan umrah dan terhubung dengan penempatan PPUMI (Petugas Pemeriksa Umrah & Haji Indonesia) serta kemitraan maktab resmi di Arab Saudi. Dengan kuota haji Indonesia ±200 ribu orang per tahun dan antrean puluhan tahun, izin PPIH adalah aset bernilai sangat tinggi yang diperdagangkan sangat hati-hati — prosesnya wajib didampingi ahli.",
+    authority: "Kementerian Agama RI — Dirjen Penyelenggaraan Haji & Umrah",
+    legalBasis: "UU 13/2008 jo. UU 8/2019, PP 96/2012 jo. PP 61/2015 & peraturan Kemenag tentang PPIH",
+    cost: "Paket Enterprise mulai Rp 25 juta (di luar modal disetor & audit)",
+    timeline: "60-120 hari — termasuk masa administrasi pembinaan Kemenag",
+    requirements: [
+      "PT murni milik WNI (susunan saham bersih dari asing)",
+      "Modal disetor sesuai ketentuan (hingga Rp 3 miliar, tunai/setara kas & teraudit)",
+      "Kantor usaha layak + sarana pelayanan jamaah",
+      "Dokumen keuangan bersih — tanpa penarikan dana jamaah sebelum SK",
+      "Siap ikut pembinaan & uji kelayakan Kemenag (kunjungan fisik tim verifikasi)",
+    ],
+    steps: [
+      "Audit pra-izin: kelayakan modal, legalitas & struktur saham",
+      "Penyiapan/pembenahan PT + dokumen sesuai checklist Kemenag",
+      "Pengajuan administrasi pembinaan ke Kemenag",
+      "Uji kelayakan & kunjungan verifikasi tim Kemenag ke kantor Anda",
+      "SK PPIH terbit + penempatan PPUMI & kemitraan maktab haji",
+    ],
+    tips: [
+      "Modal Rp 3 miliar harus benar-benar tunai & dapat ditelusuri (traceable) — dana pinjaman bersyarat biasanya terbongkar saat audit",
+      "PPIH boleh juga menjalankan umrah (PPIU included) — strategis untuk cash flow selama menunggu musim haji",
+      "Jangan gunakan klaim 'travel haji resmi' di marketing sebelum SK terbit — pelanggarannya sangat fatal",
+    ],
+    faq: [
+      {
+        q: "Apakah PPIU bisa naik kelas jadi PPIH?",
+        a: "Bisa — jalurnya justru paling umum: PPIU yang sehat keuangan dan administrasinya kemudian mengajukan PPIH dengan menambah modal disetor hingga ambang yang disyaratkan serta lolos pembinaan & uji kelayakan Kemenag. Kami bantu dari tahap audit awal sampai SK terbit.",
+      },
+      {
+        q: "Berapa modal minimal untuk PPIH?",
+        a: "Sesuai regulasi Kemenag, modal disetor PPIH hingga Rp 3 miliar dalam bentuk uang tunai dan/atau setara kas yang dapat diverifikasi. Angka final bergantung pada peraturan terbaru saat Anda mengajukan — kami selalu pakai checklist regulasi terkini saat konsultasi.",
+      },
+    ],
+  },
+  {
+    id: "iata",
+    name: "Registrasi IATA (Agen Tiket Penerbangan Internasional)",
+    short:
+      "Akreditasi IATA (International Air Transport Association) membuat agen travel Anda berhak menerbitkan tiket internasional langsung via BSP/CASS — standar diakui 300+ maskapai dunia.",
+    long:
+      "IATA (International Air Transport Association) adalah asosiasi maskapai penerbangan dunia. Akreditasi IATA Agent membuat travel Anda resmi sebagai penerbit tiket: akses langsung ke BSP (Billing and Settlement Plan) untuk tiket domestik/internasional dan CASS untuk kargo, ID IATA resmi, komisi & nett fare langsung dari maskapai, serta kredibilitas kelas dunia di mata korporasi. Kuncinya: legalitas badan usaha travel, kesehatan keuangan dengan financial security (umumnya bank guarantee dalam USD sesuai proyeksi penjualan), personel yang bersertifikat kompetensi tiket (mis. IATA Foundation), dan kantor operasional layak. Untuk agen yang belum siap akreditasi penuh, tersedia TIDS (Travel Industry Designator Service) sebagai ID resmi IATA untuk transaksi non-BSP — strategi awal yang cerdas sebelum full accreditation.",
+    authority: "IATA — International Air Transport Association (Area Office Singapura untuk Indonesia)",
+    legalBasis: "Kriteria akreditasi IATA Passenger Agent / TIDS Resolution + regulasi lokal penjualan tiket",
+    cost: "Mulai Rp 10 juta + biaya resmi IATA (registration & annual) + bank guarantee (USD)",
+    timeline: "45-90 hari (tergantung bank guarantee & audit IATA)",
+    requirements: [
+      "Badan usaha legal (PT/CV) dengan objek kegiatan travel + NIB",
+      "Sertifikat Usaha Pariwisata/TDAU untuk kredibilitas maksimal",
+      "Laporan keuangan sehat + financial security (bank guarantee USD sesuai kriteria IATA)",
+      "Personel bersertifikat kompetensi (IATA Foundation / course tiket)",
+      "Kantor operasional layak + tidak ada riwayat fraud maskapai",
+    ],
+    steps: [
+      "Konsultasi skema: full Accredited Agent vs TIDS vs sub-agent transisi",
+      "Pembenahan legalitas + persiapan laporan keuangan sesuai kriteria IATA",
+      "Pengurusan bank guarantee & pengisian formulir akreditasi",
+      "Audit/verifikasi IATA (dokumen & kantor)",
+      "Akreditasi terbit: ID IATA aktif, akses BSP/CASS, kontrak maskapai",
+    ],
+    tips: [
+      "Bank guarantee adalah biaya terbesar — besarnya mengikuti proyeksi penjualan; kami bantu optimalkan dari data riil Anda",
+      "TIDS dulu, akreditasi penuh kemudian — banyak agen sukses pakai jalur ini untuk bangun riwayat dulu",
+      "Kombinasikan dengan TDAU/Sertifikat Usaha Pariwisata: satu paket, kredibilitas ganda di mata maskapai & korporasi",
+    ],
+    faq: [
+      {
+        q: "Tanpa IATA, apakah travel tetap bisa jual tiket internasional?",
+        a: "Bisa, sebagai sub-agent (menjual ulang tiket dari agen IATA lain) — tapi Anda kehilangan komisi penuh, akses nett fare langsung, dan kontrol penerbitan. Dengan akreditasi IATA, margin jauh lebih sehat dan korporasi bisa jadi klien langsung Anda.",
+      },
+      {
+        q: "Berapa total biaya IATA per tahunnya?",
+        a: "Ada biaya registration awal, annual fee IATA, biaya pemeliharaan bank guarantee, plus pelatihan personel. Totalnya bervariasi sesuai proyeksi penjualan Anda — saat konsultasi kami susun total cost of ownership transparan sejak hari pertama.",
+      },
+    ],
+  },
+  {
+    id: "saudi-arabia",
+    name: "Izin Usaha Arab Saudi (Lisensi MISA & CR)",
+    short:
+      "MISA (Ministry of Investment Saudi Arabia) adalah pintu masuk legal untuk usaha asing di Arab Saudi era Vision 2030 — banyak sektor kini terbuka 100% kepemilikan asing, tanpa wajib mitra lokal.",
+    long:
+      "Ekspansi ke Arab Saudi sedang emas: Vision 2030 membuka ekonomi terbesar di Timur Tengah dengan reformasi perizinan masif. Alur legalnya: (1) MISA License — lisensi investasi dari Ministry of Investment Saudi Arabia yang mengizinkan kepemilikan asing (di banyak sektor kini 100% tanpa mitra lokal); (2) pendirian entitas + Commercial Registration (CR) dari Ministry of Commerce; (3) registrasi ZATCA untuk pajak & e-invoice; (4) Chamber of Commerce, GOSI (jaminan sosial karyawan), dan Iqama untuk direksi/General Manager; (5) bila memenuhi kriteria, program Regional Headquarters (RHQ) Riyadh memberi insentif pajak hingga 30 tahun. Dokumen Indonesia (akta, SK, NIB) wajib dialihbahasakan & dialegalkan (apostille — Arab Saudi kini sudah menerima jalur apostille). Tim internasional kami menangani end-to-end dari Jakarta, termasuk memilih ISIC codes Saudi yang tepat sesuai KBLI bisnis Anda.",
+    authority: "MISA (Ministry of Investment Saudi Arabia) + Ministry of Commerce — Kerajaan Arab Saudi",
+    legalBasis: "Saudi Investment Law & regulasi MISA, Companies Law Saudi, kerangka Vision 2030 / RHQ Program",
+    cost: "Paket Internasional mulai Rp 45 juta + biaya resmi pemerintah Saudi (SAR)",
+    timeline: "60-120 hari sampai CR terbit & siap operasional",
+    requirements: [
+      "Dokumen legalitas usaha Indonesia (akta, SK, NIB) + terjemahan resmi & apostille",
+      "Paspor & data pribadi pemegang saham/direksi",
+      "Rencana investasi singkat + pemilihan aktivitas (ISIC codes Saudi)",
+      "Alamat kantor di Arab Saudi (bisa mulai dari serviced office sesuai sektor)",
+      "Modal sesuai jenis lisensi — banyak sektor kini tanpa syarat mitra lokal (100% foreign ownership)",
+    ],
+    steps: [
+      "Konsultasi struktur: sektor, negative list, kelayakan 100% ownership & opsi RHQ",
+      "Pengajuan MISA License (elektronik, via portal MISA)",
+      "Pendirian entitas + Commercial Registration (CR) Ministry of Commerce",
+      "Registrasi ZATCA (pajak, e-invoice), Chamber of Commerce & GOSI",
+      "Iqama GM/direksi + pembukaan rekening korporat Saudi",
+      "Operasional siap — kami tetap jadi compliance partner tahunan Anda",
+    ],
+    tips: [
+      "Cek Negative List terbaru sebelum memutuskan struktur — banyak sektor yang dulu wajib mitra lokal kini terbuka 100%",
+      "Program Regional HQ (RHQ) di Riyadh memberi insentif pajak hingga 30 tahun + akses kontrak pemerintah — layak dipertimbangkan sejak awal",
+      "Gunakan jalur apostille untuk dokumen Indonesia — jauh lebih cepat daripada legalisasi konsuler",
+    ],
+    faq: [
+      {
+        q: "Apakah PT Indonesia bisa 100% memiliki perusahaan di Arab Saudi?",
+        a: "Ya — sejak reformasi Vision 2030, sebagian besar sektor terbuka 100% kepemilikan asing melalui lisensi MISA tanpa wajib mitra lokal. Sektor tertentu masih punya batasan (negative list). Kirim jenis usaha Anda, kami cek kelayakannya gratis dalam 1x konsultasi.",
+      },
+      {
+        q: "Apakah saya harus tinggal di Arab Saudi untuk mengurus izin ini?",
+        a: "Tidak harus selama proses — mayoritas pengurusan MISA & CR bisa secara elektronik dari Jakarta dengan power of attorney. Kunjungan fisik biasanya baru diperlukan untuk Iqama direksi & pembukaan rekening korporat. Tim kami mengatur jadwal minimal yang efisien.",
+      },
+    ],
+  },
+  {
+    id: "rkab-tambang",
+    name: "RKAB & Kepatuhan Tambang (IUP/IUPK — ESDM & Minerba)",
+    short:
+      "RKAB (Rencana Kerja & Anggaran Biaya) kini 3 tahunan, izin jual & angkut via MODI, perpanjangan IUP/IUPK — kepatuhan tambang adalah rutinitas berisiko tinggi yang tidak boleh telat sehari pun.",
+    long:
+      "Pemegang IUP/IUPK berdiri di atas lapisan kewajiban berkala: RKAB (Rencana Kerja dan Anggaran Biaya) yang sejak 2023 diajukan untuk periode 3 tahun melalui Minerba Online Processing System (e-RKAB), laporan berkala (LKPM minerba), kewajiban DMO/DPO untuk batubara, royalti & pajak kepatuhan, dokumen lingkungan, hingga izin penjualan (izin jual via MODI — Minerba One Data Indonesia) dan izin pengangkutan. Terlambat atau salah strategi RKAB = produksi terhenti & sanksi. Perpanjangan IUP/IUPK harus mulai diproses 6-12 bulan sebelum masa berlaku habis, termasuk kajian kelayakan, kewajiban pengusahaan (wajib pengolahan/divestasi sesuai konteks), dan koordinasi dengan Ditjen Minerba ESDM. Tim kami — yang benar-benar paham bahasa teknis minerba — menangani audit kepatuhan, penyusunan RKAB & justifikasi teknis, sampai negosiasi forum evaluasi.",
+    authority: "Ditjen Mineral dan Batubara — Kementerian ESDM (+ DMO/DPO & provinsi terkait)",
+    legalBasis: "UU 3/2020 (perubahan UU 4/2009 Minerba), PP 96/2021, Permen ESDM RKAB & Permen Minerba terkini",
+    cost: "Mulai Rp 8 juta per dokumen/program (paket tahunan tersedia)",
+    timeline: "30-90 hari per dokumen (RKAB mengikuti kalender evaluasi ESDM)",
+    requirements: [
+      "IUP/IUPK aktif + data kewajiban pengusahaan & laporan berkala",
+      "Data teknis eksplorasi/operasi produksi untuk justifikasi RKAB",
+      "Status kepatuhan: royalti, DMO/DPO, dokumen lingkungan",
+      "Akun & data bersih di Minerba Online (e-RKAB) dan MODI",
+      "Untuk perpanjangan: kajian kelayakan & pemenuhan kewajiban pengusahaan",
+    ],
+    steps: [
+      "Audit kepatuhan tahunan: mapping semua kewajiban & tenggat",
+      "Penyusunan RKAB 3 tahun + justifikasi teknis (produksi, biaya, program)",
+      "Pengajuan via Minerba Online Processing System (e-RKAB)",
+      "Koordinasi forum evaluasi & revisi hingga disetujui",
+      "Turunan operasional: izin jual via MODI, izin angkut, pelaporan LKPM",
+    ],
+    tips: [
+      "RKAB kini 3 tahunan — susun strategi produksi 3 tahun dalam satu dokumen; revisi tengah periode mahal secara waktu",
+      "Perpanjangan IUP/IUPK mulai diajukan 6-12 bulan sebelum habis — telat 1 bulan bisa berarti produksi berhenti",
+      "Izin jual & angkut kini dikelola via MODI — pastikan akun, data produksi & laporan MODI Anda konsisten sejak awal",
+    ],
+    faq: [
+      {
+        q: "IUP saya telat lapor/RKAB ditolak, apakah bisa diselamatkan?",
+        a: "Sering kali bisa — melalui regularisasi: perbaikan dokumen, penyelesaian administrasi kewajiban, dan komunikasi teknis dengan evaluator ESDM. Semakin cepat ditangani, semakin kecil sanksi administratifnya. Konsultasikan riwayat izin Anda untuk analisis kelayakan.",
+      },
+      {
+        q: "Apa bedanya RKAB lama dan RKAB sekarang?",
+        a: "Sejak 2023, RKAB tidak lagi tahunan melainkan diajukan untuk periode 3 tahun melalui sistem Minerba Online. Isinya lebih strategis (rencana produksi & anggaran 3 tahun) dengan kemampuan penyesuaian tertentu. Format & evaluasinya berbeda — dokumen lama tidak bisa hanya diperbarui, harus disusun ulang dengan justifikasi teknis yang benar.",
+      },
+    ],
+  },
 ];
 
 // ---------- PANDUAN PER SEKTOR ----------
@@ -547,6 +754,22 @@ export const SECTOR_GUIDES: SectorGuide[] = [
     kbliHint: "KBLI 07xxx (tambang) & 35xxx (listrik/energi)",
     caseNote: "Paket Enterprise: dokumen IUP, koordinasi ESDM, RKAB — 90-180 hari.",
   },
+  {
+    id: "travel-ibadah",
+    name: "Travel Ibadah (Haji & Umroh)",
+    desc: "Sektor paling sensitif regulasinya — melibatkan dana jamaah & kepercayaan publik. Legalitas PPIU/PPIH adalah segalanya; tanpa itu, bisnis ini pidana.",
+    permits: ["Pendirian PT travel", "SPPU & SIPU (PPIU) Kemenag", "SK PPIH untuk haji", "Rekening kolektif jamaah", "Pembimbing ibadah bersertifikat"],
+    kbliHint: "KBLI 79120 (biro perjalanan wisata) + pendaftaran khusus sistem Kemenag (SIMPONI)",
+    caseNote: "Klien travel umroh Jakarta: PT + SPPU + SIPU terbit 38 hari, langsung lolos e-Katalog.",
+  },
+  {
+    id: "internasional",
+    name: "Ekspansi Internasional",
+    desc: "Buka perusahaan di Arab Saudi era Vision 2030, atau akreditasi IATA untuk tiket global — tim internasional kami mengurus dari Jakarta sampai Riyadh.",
+    permits: ["Lisensi MISA (100% asing)", "Commercial Registration (CR)", "Iqama GM & GOSI", "ZATCA e-invoice & pajak", "Apostille dokumen Indonesia"],
+    kbliHint: "Aktivitas dipetakan ke ISIC codes Saudi dari KBLI Anda — kami yang petakan",
+    caseNote: "Alur kami: MISA → CR → ZATCA → Iqama — end-to-end tanpa bolak-balik Riyadh.",
+  },
 ];
 
 // ---------- PANDUAN PER WILAYAH ----------
@@ -599,8 +822,8 @@ export const REGION_GUIDES: RegionGuide[] = [
   },
   {
     name: "Luar Negeri (Investor Asing)",
-    note: "Investor asing membangun bisnis Indonesia via PMA; tim kami berbahasa Inggris & berpengalaman lintas negara.",
-    fastFacts: "PMA full service: pendirian, KITAS direksi, sampai realisasi modal.",
+    note: "Investor asing membangun bisnis Indonesia via PMA; tim kami berbahasa Inggris & berpengalaman lintas negara. Untuk ekspansi sebaliknya, kami juga menangani izin usaha Arab Saudi (MISA) era Vision 2030.",
+    fastFacts: "PMA full service + Izin Usaha Arab Saudi (MISA, CR, ZATCA) end-to-end.",
   },
 ];
 
@@ -680,8 +903,13 @@ export const COMPARISON: ComparisonRow[] = [
   },
   {
     feature: "Jangkauan wilayah",
-    us: "34 provinsi, proses online penuh + kurir dokumen",
+    us: "38 provinsi & 514 kabupaten/kota, proses online penuh + kurir dokumen",
     others: "Umumnya terkonsentrasi di kota besar saja",
+  },
+  {
+    feature: "Layanan khusus ibadah (Haji/Umroh) & internasional (IATA, Arab Saudi)",
+    us: "Ada — divisi Travel Ibadah (PPIU/PPIH), aviasi (IATA) & tim ekspansi MENA (MISA)",
+    others: "Sangat jarang ditawarkan konsultan perizinan lokal",
   },
 ];
 

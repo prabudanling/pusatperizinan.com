@@ -114,3 +114,43 @@ Stage Summary:
   c) Kalkulator biaya perizinan interaktif
   d) Google Search Console + analytics + backlink building
 - PHASE 3: Email course, lead nurturing otomatis, integrasi CRM
+
+---
+Task ID: 5
+Agent: Z.ai Code (main)
+Task: PHASE 2 SEO — Revisi 38 Provinsi + 514 Kab/Kota + Layanan Ibadah/Aviasi/Internasional/Tambang
+
+Work Log:
+- Verifikasi nomor WA baru (6281333397223) & alamat SCBD se-lantai BEI: sudah aktif full-site dari Task 4 (grep 0 sisa nomor lama)
+- Update 34 → 38 provinsi + tambah 514 kabupaten/kota di: hero trust badge, why-us, FAQ, knowledge-hub wilayah tab, comparison, footer trust strip
+- Stats API + stats-bar: baseline provinces 38, field baru regenciesCities 514, grid jadi 6 kolom (Building icon "Kabupaten/Kota")
+- 5 LAYANAN BARU di landing-data.ts (total 17):
+  - Izin Umroh PPIU (Rp 12jt, MoonStar) — SIPU/SPPU/SIMPONI
+  - Izin Haji PPIH (Rp 25jt, Landmark) — modal Rp 3 M & uji kelayakan Kemenag
+  - Registrasi IATA (Rp 10jt, PlaneTakeoff) — BSP/CASS/bank guarantee
+  - Izin Usaha Arab Saudi MISA (Rp 45jt, Globe2) — MISA/CR/Iqama/ZATCA
+  - RKAB & Kepatuhan Tambang (Rp 8jt, Pickaxe) — RKAB 3 tahunan/MODI/perpanjangan IUP
+- SECTORS + "Travel Ibadah (Haji/Umroh)" (14 sektor); api/leads BUSINESS_TYPES kini import SECTORS (anti-desync)
+- FAQ baru: izin travel haji/umroh/IATA + buka usaha Arab Saudi (8 FAQ total)
+- seo-content.ts: +5 PERMIT_GUIDES mendalam (total 16): PPIU, PPIH, IATA, MISA Saudi, RKAB — masing-masing long-desc, authority, dasar hukum, biaya, timeline, 5 syarat, 5-6 langkah, 3 tips, 2 FAQ
+- SECTOR_GUIDES +2 (total 10): Travel Ibadah, Ekspansi Internasional
+- REGION_GUIDES: Luar Negeri mention MISA Saudi; COMPARISON: jangkauan 38/514 + row baru layanan ibadah & internasional
+- coverage-data.ts BARU: 38 provinsi (pasca pemekaran Papua 2022) grouped 6 pulau + kota utama + catatan perizinan per provinsi, TOTAL_KABKOTA=514
+- coverage.tsx BARU (section #jangkauan): 4 big-stats, filter pulau interaktif (Semua 38/Sumatera 10/Jawa 6/BaNuTe 3/Kalimantan 5/Sulawesi 6/Maluku&Papua 8), grid kartu provinsi, CTA konsultasi kota
+- cost-calculator.tsx BARU (section #kalkulator): multi-select 17 layanan + skala usaha (UMKM 0.9/Bisnis 1.0/Korporasi 1.2) → estimasi rentang biaya ±90% + hari terlama; input nama+WA → POST /api/leads (source "kalkulator") + deep-link WA dengan estimasi terisi — jalur konversi ke-4
+- seo-jsonld.tsx: description + PPIU/PPIH/IATA/MISA/RKAB + 38/514; priceRange s.d. 45jt; breadcrumb 5 level (#layanan/#kalkulator/#panduan/#jangkauan)
+- layout.tsx: description baru + ~15 keywords baru (PPIU, PPIH, SIPU, registrasi IATA, MISA license, RKAB, izin pertambangan, 38 provinsi, 514 kabupaten kota); OG description updated
+- header nav: +Kalkulator +Jangkauan (-Testimoni, tetap di page); footer: link layanan baru + Kalkulator/Jangkauan
+- sitemap.xml: lastmod refresh + anchor #kalkulator & #jangkauan (priority 0.9)
+
+Verifikasi Browser (agent-browser):
+- Kalkulator: pilih NIB+PPIU+IATA → "Rp 20,1 jt — Rp 25,7 jt, ±90 hari" akurat; submit → lead tersimpan DB (source kalkulator, WA 628xxx, desc berisi estimasi) + WA api.whatsapp.com terbuka dengan phone=6281333397223 & pesan lengkap
+- Coverage: filter Kalimantan → tepat 5 provinsi; 38 kartu provinsi render
+- Knowledge hub: "16 panduan mendalam" tampil; JSON-LD 40 pertanyaan FAQ di DOM
+- Mobile 390x844: stats 6 item (38 + 514 tampil), form stack, footer services baru tampil, sticky footer OK, copyright tidak tertutup
+- Console: ZERO errors; dev.log: semua GET/POST 200; lint: 0 error 0 warning
+
+Stage Summary:
+- PHASE 2 SELESAI (versi single-route): 17 layanan + 16 panduan mendalam + 10 sektor + jangkauan 38/514 + kalkulator interaktif + 4 jalur konversi (Hero form, Chat AI, Cek Izin AI, Kalkulator)
+- Struktur data programmatic siap pakai (coverage-data/PERMIT_GUIDES per slug) untuk konversi ke dynamic routes saat domain live
+- PHASE 3 (rencana): dynamic routes per-izin/per-kota, blog engine 100+ artikel, email course, GSC + backlink building

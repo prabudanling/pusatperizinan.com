@@ -83,7 +83,7 @@ export function KnowledgeHub() {
           {/* ===== TAB 1: PER IZIN ===== */}
           <TabsContent value="izin" className="mt-8">
             <p className="text-center text-sm text-muted-foreground mb-6">
-              11 panduan mendalam — klik untuk membuka detail lengkap setiap izin
+              {PERMIT_GUIDES.length} panduan mendalam — klik untuk membuka detail lengkap setiap izin
             </p>
             <Accordion type="single" collapsible className="space-y-3">
               {PERMIT_GUIDES.map((guide) => (
@@ -255,7 +255,7 @@ export function KnowledgeHub() {
           {/* ===== TAB 3: PER WILAYAH ===== */}
           <TabsContent value="wilayah" className="mt-8">
             <p className="text-center text-sm text-muted-foreground mb-6">
-              Kami menangani perizinan di seluruh 34 provinsi — ini profil per wilayah utama:
+              Kami menangani perizinan di seluruh 38 provinsi & 514 kabupaten/kota — ini profil per wilayah utama:
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {REGION_GUIDES.map((region, i) => (

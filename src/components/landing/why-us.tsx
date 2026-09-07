@@ -38,8 +38,8 @@ const REASONS = [
   },
   {
     icon: MapPinned,
-    title: "Menjangkau 34 Provinsi",
-    desc: "Proses online + kurir dokumen. Dari Sabang sampai Merauke, izin Anda kami urus tanpa Anda harus keluar rumah.",
+    title: "Menjangkau 38 Provinsi & 514 Kab/Kota",
+    desc: "Proses online + kurir dokumen. Dari Sabang sampai Merauke — tim on-site untuk AMDAL, audit fisik & sektor tambang.",
   },
 ];
 

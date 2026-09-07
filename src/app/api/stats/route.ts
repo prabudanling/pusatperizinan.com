@@ -9,7 +9,8 @@ import { db } from "@/lib/db";
 const BASELINE = {
   clients: 1247,
   permitsProcessed: 3890,
-  provinces: 34,
+  provinces: 38,
+  regenciesCities: 514,
 };
 
 export async function GET() {
@@ -30,6 +31,7 @@ export async function GET() {
         clients,
         permitsProcessed,
         provinces: BASELINE.provinces,
+        regenciesCities: BASELINE.regenciesCities,
         satisfaction: 98,
         avgProcessingHours: 24,
         checksToday: totalChecks,
