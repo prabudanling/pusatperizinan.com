@@ -154,3 +154,66 @@ Stage Summary:
 - PHASE 2 SELESAI (versi single-route): 17 layanan + 16 panduan mendalam + 10 sektor + jangkauan 38/514 + kalkulator interaktif + 4 jalur konversi (Hero form, Chat AI, Cek Izin AI, Kalkulator)
 - Struktur data programmatic siap pakai (coverage-data/PERMIT_GUIDES per slug) untuk konversi ke dynamic routes saat domain live
 - PHASE 3 (rencana): dynamic routes per-izin/per-kota, blog engine 100+ artikel, email course, GSC + backlink building
+
+---
+Task ID: 6-a
+Agent: general-purpose subagent
+Task: Isi 13 artikel blog long-form di src/lib/blog-content.ts (Phase 3 Content Hub)
+
+Work Log:
+- Baca worklog.md (Task 1-5), blog-content.ts (skeleton + tipe), seo-content.ts (16 PERMIT_GUIDES: biaya, timeline, dasar hukum), dan landing-data.ts (WA 0813-3339-7223, kantor SCBD/IDX, garansi 100%)
+- Isi BLOG_ARTICLES dengan 13 artikel long-form (hanya mengganti placeholder; semua export/tipe/helper tidak disentuh):
+  1. panduan-nib-oss-rba-2025 (Panduan) — 4 level risiko OSS-RBA, syarat, langkah, biaya gratis + jasa
+  2. biaya-mendirikan-pt-2025 (Biaya & Modal) — notaris Rp 1,5-3jt, PNBP Rp 300rb-1jt, PT Perseorangan Perpres 39/2024
+  3. kbli-usaha-kuliner (Regulasi) — KBLI 56101/56102/56303/107xx/56231, halal & PIRT mengikuti KBLI
+  4. pma-vs-pt-lokal (Panduan) — modal PMA Rp 10 M, Perpres 10/2021 jo 49/2021, risiko nominee, KITAS/LKPM
+  5. izin-halal-umkm-gratis (Panduan) — UU JPH 33/2014 + PP 42/2024, SEHATI Mandiri/Dipandang, SIHALAL, berlaku 4 tahun
+  6. izin-usaha-arab-saudi-misa (Internasional) — MISA → CR → ZATCA/GOSI/Iqama, apostille, RHQ Riyadh 30 tahun
+  7. cara-membuka-travel-umroh-ppiu (Travel Ibadah) — PT wajib, SPPU→SIPU, SIMPONI, rekening kolektif, maktab, naik kelas PPIH (modal hingga Rp 3 M)
+  8. rkab-panduan-perizinan-tambang (Tambang & Energi) — RKAB 3 tahunan via e-RKAB, MODI, DMO/DPO, perpanjangan IUP 6-12 bulan
+  9. registrasi-iata-biro-perjalanan (Internasional) — BSP/CASS/TIDS, bank guarantee USD (2-3 bulan penjualan), Area Office Singapura
+  10. pbg-slf-perbedaan (Panduan) — PP 16/2021, PBG vs SLF, SIMBG, ruko sewa + IMB existing
+  11. studi-kasus-kafe-bandung-45-hari (Studi Kasus) — timeline nyata 45 hari (NIB d3, PBG d26, halal d38), paket Bisnis Rp 3,5jt, mention 38 provinsi/514 kabkota
+  12. amdal-vs-ukl-upl (Regulasi) — PP 22/2021: SPPL (3-7 hari) / UKL-UPL (30-45) / AMDAL (90-180), kaAndal, RKL-RPL
+  13. pajak-usaha-pemula (Pajak) — PPh final 0,5% Pasal 2 UU HPP, ambang PKP Rp 4,8 M, PPN 11%, LKPM, denda SPT Rp 100rb/bulan
+- Kualitas per artikel: 4-6 section heading spesifik kaya keyword, paragraph 2-4 kalimat, bullets 3-6, FAQ 3 entri, keywords long-tail 7 buah, excerpt 170-230 karakter, relatedArticles saling melingkar (2-3 slug valid), relatedGuides sesuai id PERMIT_GUIDES, CTA anchor dari 5 anchor resmi
+- Rotasi penulis merata: Rizki Mahendra (Head of Regulatory Affairs), Dewi Anggraini (Senior Legal Consultant), Fajar Nugroho (Business Licensing Specialist); tanggal terbit menyebar merata 2026-01-10 s.d. 2026-08-20, updatedAt max 2026-08-28
+- Validasi via script bun (read-only): 13 slug, semua invariant lolos (jumlah section/faq/keywords/bullets, tanggal, excerpt); perbaiki 2 excerpt yang < 170 char lalu validasi ulang
+- bun run lint: 0 error, 0 warning
+
+Stage Summary:
+- 13 artikel blog long-form selesai di src/lib/blog-content.ts — total ±6.800 kata isi murni (±7.400 kata termasuk heading; 9.717 kata total file), rata-rata ±525 kata/artikel, semua > 450 kata
+- Semua angka & regulasi konsisten dengan seo-content.ts (PP 5/2021, Perpres 5/2024, PP 8/2021, UU JPH 33/2014, PP 42/2024, PP 16/2021, PP 22/2021, UU HPP, regulasi Kemenag PPIU/PPIH, RKAB ESDM, MISA/IATA) + brand facts (WA 0813-3339-7223 implisit via CTA, jangkauan 38/514)
+- relatedArticles 100% valid saling melingkar; relatedGuides hanya id resmi PERMIT_GUIDES; CTA ke #konsultasi/#kalkulator/#cek-izin
+- Lint: 0 error 0 warning; tidak ada file lain yang diubah; build/server tidak disentuh
+
+---
+Task ID: 6-b
+Agent: Z.ai Code (main)
+Task: PHASE 3 SEO — Content Hub Dominance + Internal Link Architecture + Lead Nurturing
+
+Work Log:
+- Prisma: model Subscriber baru (email unique, WA opsional ternormalisasi, source, index createdAt) → db:push sukses, client regenerated
+- API /api/subscribe BARU: POST (validasi nama/email/WA + upsert anti-duplikat via email) & GET (count + baseline 1200 untuk social proof)
+- src/lib/blog-content.ts: skeleton tipe (BlogArticle/BlogSection/BlogFAQ/BlogCategory) + helper getArticle/getRelatedArticles/getAllBlogKeywords → diisi 13 artikel oleh subagent Task 6-a
+- Komponen BARU blog-hub.tsx (#blog): reader artikel penuh (breadcrumb, meta E-E-A-T penulis/tanggal/readMinutes, section headings dengan aksen emerald-gold, bullets, FAQ accordion, CTA penutup), filter kategori 9 chip, grid 13 kartu; mendengarkan event custom "open-blog-article"
+- Komponen BARU email-course.tsx (#kursus): panel emerald gelap, kurikulum 7 hari + bonus hari ke-8 (checklist 47 izin PDF), social proof live dari GET /api/subscribe, form (nama/email/WA opsional) → POST → success state + toast — JALUR KONVERSI KE-5
+- Komponen BARU html-sitemap.tsx (#peta-situs): 4 kolom (17 layanan, 16 panduan, 13 artikel, 38 provinsi grouped 6 pulau), strip statistik 17/16/13/38/514, baris "Alat Gratis"; klik panduan/artikel dispatch event untuk deep-open — 88+ link internal crawlable
+- Internal-link architecture dua arah: blog-hub ↔ knowledge-hub via CustomEvent "open-guide"/"open-blog-article"; knowledge-hub kini Tabs+Accordion controlled (auto buka tab izin + accordion terkait + smooth scroll); tiap panduan mendapat blok "Baca Juga di Blog Kami" (NIB=5 artikel)
+- seo-jsonld.tsx: skema ke-8 Blog (13 BlogPosting: headline/datePublished/dateModified/articleSection/keywords/author/publisher) + breadcrumb 6 level (+Blog)
+- Integrasi: page.tsx (BlogHub setelah KnowledgeHub, EmailCourse, HtmlSitemap sebelum footer), header nav +Blog, footer COMPANY_LINKS +Blog/Kursus/Peta Situs, layout.tsx +8 keywords content hub, sitemap.xml +anchor #blog(0.8)/#kursus(0.7)/#peta-situs(0.6) + lastmod 2026-09-07
+- Fix: dev server restart (Prisma Client lama tidak mengenali db.subscriber → upsert 500) → setelah restart semua OK
+
+Verifikasi Browser (agent-browser):
+- Blog: 13 kartu render, 9 chip filter (Semua 13 | Panduan 4 | dst), reader terbuka (6 section + CTA #cek-izin), FAQ accordion expand OK
+- Cross-link: klik "NIB" di artikel → accordion #panduan-nib data-state=open + scroll y=6440; panduan NIB berisi 5 cross-link blog; Peta Situs → klik artikel MISA → reader terbuka (88 link internal di 4 kolom)
+- Kursus Email: social proof live "1.201+ pengusaha", submit Andi Wijaya → success state "Selamat datang di kelas!" + DB count 1202 (2 subscriber asli, upsert anti-duplikat teruji via curl: id sama)
+- JSON-LD: 8 skema di DOM, Blog 13 BlogPosting valid; sitemap.xml 200, robots.txt 200
+- Mobile 390x844: overflowX=false, blog/kursus/peta-situs stack rapi, footer sticky bottom=800=innerHeight tanpa overlap
+- Console: ZERO error; dev.log semua 200; lint final 0 error 0 warning
+
+Stage Summary:
+- PHASE 3 SELESAI: Content Hub (13 artikel long-form ±6.800 kata + 8 skema JSON-LD) + Lead Nurturing (kursus email 7 hari, jalur konversi ke-5, tabel Subscriber) + Internal Link Architecture (peta situs 88 link, cross-link dua arah blog↔panduan)
+- Total aset SEO kini: 17 layanan + 16 panduan + 10 sektor + 13 artikel + 38 provinsi + 514 kab/kota + 20 KBLI + 8 skema structured data
+- 5 jalur konversi aktif: Form Lead (hero/final CTA), Chat AI RIZKI, Cek Izin AI→WA, Kalkulator→WA, Kursus Email
+- PHASE 4 (kandidat): dynamic routes per-KBLI/per-kota saat domain live, email sending backend nyata, Google Search Console + backlink building

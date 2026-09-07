@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: "Cek Izin AI", href: "#cek-izin" },
   { label: "Kalkulator", href: "#kalkulator" },
   { label: "Panduan", href: "#panduan" },
+  { label: "Blog", href: "#blog" },
   { label: "Jangkauan", href: "#jangkauan" },
   { label: "Harga", href: "#harga" },
   { label: "FAQ", href: "#faq" },

@@ -75,6 +75,18 @@ model LicenseCheck {
   @@index([createdAt])
 }
 
+// Subscriber: pendaftar kursus email 7 hari (lead nurturing engine)
+model Subscriber {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  whatsapp  String?
+  source    String   @default("email-course")
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
 // Testimonial: testimoni klien (bisa dikelola)
 model Testimonial {
   id        String   @id @default(cuid())

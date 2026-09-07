@@ -5,6 +5,7 @@
 
 import { SERVICES, FAQS, TESTIMONIALS } from "@/lib/landing-data";
 import { PERMIT_GUIDES, SECTOR_GUIDES } from "@/lib/seo-content";
+import { BLOG_ARTICLES } from "@/lib/blog-content";
 
 const SITE_URL = "https://pusatperizinan.com";
 
@@ -188,7 +189,32 @@ export function SeoJsonLd() {
     })),
   };
 
-  // 7. BreadcrumbList
+  // 7. Blog + BlogPosting (content hub — 13 artikel panduan)
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}/#blog`,
+    name: "Blog PusatPerizinan.com — Wawasan Perizinan Usaha",
+    description:
+      "Artikel mendalam seputar perizinan usaha Indonesia: NIB, PT, PMA, halal, BPOM, PBG/SLF, tambang (RKAB), travel umroh/haji (PPIU/PPIH), IATA, dan izin usaha Arab Saudi (MISA).",
+    url: `${SITE_URL}/#blog`,
+    inLanguage: "id-ID",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    blogPost: BLOG_ARTICLES.map((a) => ({
+      "@type": "BlogPosting",
+      headline: a.title,
+      description: a.excerpt,
+      datePublished: a.publishedAt,
+      dateModified: a.updatedAt,
+      articleSection: a.category,
+      keywords: a.keywords.join(", "),
+      author: { "@type": "Person", name: a.author, jobTitle: a.authorRole },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/#blog` },
+    })),
+  };
+
+  // 8. BreadcrumbList
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -220,6 +246,12 @@ export function SeoJsonLd() {
       {
         "@type": "ListItem",
         position: 5,
+        name: "Blog & Artikel Perizinan",
+        item: `${SITE_URL}/#blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
         name: "Jangkauan 38 Provinsi & 514 Kabupaten/Kota",
         item: `${SITE_URL}/#jangkauan`,
       },
@@ -234,6 +266,7 @@ export function SeoJsonLd() {
       <JsonLd data={guideSchema} />
       <JsonLd data={sectorSchema} />
       <JsonLd data={reviewsSchema} />
+      <JsonLd data={blogSchema} />
       <JsonLd data={breadcrumbSchema} />
     </>
   );

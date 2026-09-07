@@ -17,12 +17,15 @@ const SERVICE_LINKS = [
 const COMPANY_LINKS = [
   { label: "Kenapa Kami", href: "#keunggulan" },
   { label: "Cara Kerja", href: "#cara-kerja" },
+  { label: "Blog Perizinan", href: "#blog" },
+  { label: "Kursus Email Gratis", href: "#kursus" },
   { label: "Kalkulator Biaya", href: "#kalkulator" },
   { label: "Jangkauan Nasional", href: "#jangkauan" },
   { label: "Harga", href: "#harga" },
   { label: "Testimoni", href: "#testimoni" },
   { label: "FAQ", href: "#faq" },
   { label: "Cek Izin AI", href: "#cek-izin" },
+  { label: "Peta Situs", href: "#peta-situs" },
 ];
 
 export function Footer() {

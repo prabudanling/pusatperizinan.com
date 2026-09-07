@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   BookOpen,
@@ -32,6 +32,7 @@ import {
   REGION_GUIDES,
   KBLI_POPULAR,
 } from "@/lib/seo-content";
+import { BLOG_ARTICLES } from "@/lib/blog-content";
 
 function riskBadgeClass(risk: string): string {
   const r = risk.toLowerCase();
@@ -43,7 +44,32 @@ function riskBadgeClass(risk: string): string {
   return "bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300";
 }
 
+/** Artikel blog yang terkait dengan panduan izin tertentu (internal-link architecture) */
+function relatedBlogForGuide(guideId: string) {
+  return BLOG_ARTICLES.filter((a) => a.relatedGuides.includes(guideId));
+}
+
 export function KnowledgeHub() {
+  const [tab, setTab] = useState("izin");
+  const [openGuide, setOpenGuide] = useState("");
+
+  // Internal-link architecture: buka panduan tertentu dari blog / peta situs
+  useEffect(() => {
+    const onOpenGuide = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (!id) return;
+      setTab("izin");
+      setOpenGuide(id);
+      setTimeout(() => {
+        document
+          .getElementById(`panduan-${id}`)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    };
+    window.addEventListener("open-guide", onOpenGuide);
+    return () => window.removeEventListener("open-guide", onOpenGuide);
+  }, []);
+
   return (
     <section id="panduan" className="py-20 md:py-28 scroll-mt-20" aria-label="Panduan lengkap perizinan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +90,7 @@ export function KnowledgeHub() {
         </div>
 
         {/* Tabs */}
-        <Tabs defaultValue="izin" className="mt-12">
+        <Tabs value={tab} onValueChange={setTab} className="mt-12">
           <TabsList className="mx-auto grid w-full max-w-2xl grid-cols-4 h-auto p-1 rounded-2xl bg-secondary/70">
             <TabsTrigger value="izin" className="rounded-xl py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm font-semibold flex-col sm:flex-row gap-1">
               <FileText className="h-4 w-4" /> Per Izin
@@ -85,7 +111,13 @@ export function KnowledgeHub() {
             <p className="text-center text-sm text-muted-foreground mb-6">
               {PERMIT_GUIDES.length} panduan mendalam — klik untuk membuka detail lengkap setiap izin
             </p>
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion
+              type="single"
+              collapsible
+              value={openGuide}
+              onValueChange={setOpenGuide}
+              className="space-y-3"
+            >
               {PERMIT_GUIDES.map((guide) => (
                 <AccordionItem
                   key={guide.id}
@@ -201,6 +233,32 @@ export function KnowledgeHub() {
                         ))}
                       </div>
                     </div>
+
+                    {/* Cross-link: artikel blog terkait (internal link architecture) */}
+                    {relatedBlogForGuide(guide.id).length > 0 && (
+                      <div className="mt-4 pt-4 border-t">
+                        <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-2">
+                          Baca Juga di Blog Kami
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {relatedBlogForGuide(guide.id).map((a) => (
+                            <a
+                              key={a.slug}
+                              href="#blog"
+                              onClick={() =>
+                                window.dispatchEvent(
+                                  new CustomEvent("open-blog-article", { detail: a.slug })
+                                )
+                              }
+                              className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/5 px-3.5 py-1.5 text-[12px] font-semibold text-primary hover:bg-primary/10 transition-colors"
+                            >
+                              <BookOpen className="h-3.5 w-3.5" />
+                              {a.title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               ))}

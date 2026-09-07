@@ -62,6 +62,9 @@ export const metadata: Metadata = {
     // KBLI & panduan
     "KBLI", "cari KBLI usaha", "daftar KBLI", "KBLI terlaris", "panduan perizinan",
     "izin usaha", "legalitas usaha", "legalitas UMKM", "urus izin murah",
+    // blog & content hub
+    "blog perizinan", "artikel perizinan usaha", "panduan perizinan lengkap", "kursus email perizinan gratis",
+    "panduan NIB 2026", "biaya pendirian PT 2026", "syarat izin usaha 2026", "pusat pengetahuan perizinan",
     // lokasi
     "konsultan perizinan jakarta", "jasa perizinan SCBD", "konsultan izin jakarta selatan",
     "jasa perizinan bandung", "jasa perizinan surabaya", "jasa perizinan bali", "perizinan PMA bali",

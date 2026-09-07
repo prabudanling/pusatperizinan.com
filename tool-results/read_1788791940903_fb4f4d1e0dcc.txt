@@ -1,0 +1,929 @@
+     1→// ============================================================
+     2→// PUSATPERIZINAN.COM — Data Master SEO & Knowledge Hub
+     3→// Konten terdalam perizinan Indonesia untuk dominasi mesin pencari
+     4→// Sumber: UU Cipta Kerja, PP 5/2021, Per OSS, peraturan sektor terkini
+     5→// ============================================================
+     6→
+     7→// ---------- PANDUAN PER JENIS IZIN ----------
+     8→export interface PermitGuide {
+     9→  id: string;
+    10→  name: string;
+    11→  short: string;
+    12→  long: string;
+    13→  authority: string;
+    14→  legalBasis: string;
+    15→  cost: string;
+    16→  timeline: string;
+    17→  requirements: string[];
+    18→  steps: string[];
+    19→  tips: string[];
+    20→  faq: { q: string; a: string }[];
+    21→}
+    22→
+    23→export const PERMIT_GUIDES: PermitGuide[] = [
+    24→  {
+    25→    id: "nib",
+    26→    name: "NIB (Nomor Induk Berusaha)",
+    27→    short:
+    28→      "NIB adalah identitas resmi satu-satunya untuk setiap pelaku usaha di Indonesia, terbit via OSS-RBA dan berlaku sebagai NPWP, identitas imigrasi, dan akses perizinan lainnya.",
+    29→    long:
+    30→      "NIB (Nomor Induk Berusaha) adalah nomor identitas resmi yang diberikan kepada setiap pelaku usaha — perseorangan maupun badan hukum — melalui sistem OSS-RBA (Online Single Submission Risk-Based Approach) berdasarkan PP 5/2021 dan UU Cipta Kerja. Sejak dihapuskannya SIUP, NIB kini menjadi dokumen legal utama yang sekaligus berlaku sebagai: (1) identitas penyelenggaraan dan tanggung jawab sosial, (2) NPWP badan usaha, (3) identitas imigrasi (untuk PMA), (4) akses untuk mengurus izin sektoral, dan (5) jaminan kepastian hukum dalam bertransaksi. NIB wajib dimiliki oleh SEMUA bentuk usaha, dari warung online hingga perusahaan besar, dan proses penerbitannya gratis di OSS namun membutuhkan ketelitian dalam pemilihan KBLI dan skala risiko agar tidak salah struktur pajak.",
+    31→    authority: "OSS (Online Single Submission) — Kementerian Investasi/BKPM",
+    32→    legalBasis: "UU Cipta Kerja, PP 5/2021, Peraturan BKPM No. 3/2021, Perpres 5/2024",
+    33→    cost: "Rp 350rb (jasa kami, termasuk konsultasi KBLI) — resmi pemerintah gratis",
+    34→    timeline: "1 hari kerja",
+    35→    requirements: [
+    36→      "KTP & NPWP pemilik/pengurus (wajib)",
+    37→      "Alamat usaha & kode pos (domisili)",
+    38→      "Nomor HP aktif & email yang belum terdaftar di OSS",
+    39→      "Untuk badan hukum: akta pendirian & SK Kemenkumham",
+    40→      "Untuk PMA: dokumen investasi & paspor pengurus",
+    41→    ],
+    42→    steps: [
+    43→      "Konsultasi pemilihan KBLI yang paling menguntungkan untuk pajak & modal",
+    44→      "Persiapan dokumen & pembuatan akun OSS atas nama Anda",
+    45→      "Pengajuan NIB melalui OSS-RBA dengan kode risiko yang tepat",
+    46→      "Penerbitan NIB & Sertifikat Standar (jika diperlukan)",
+    47→      "Panduan kewajiban pasca-terbit: LKPM & laporan berkala",
+    48→    ],
+    49→    tips: [
+    50→      "Salah memilih KBLI bisa membuat Anda kena pajak lebih tinggi — selalu konsultasikan dulu",
+    51→      "NIB perseorangan berbeda profil pajaknya dengan NIB badan hukum",
+    52→      "LKPM wajib dilaporkan berkala; lalai laporan bisa membuat NIB terancam dicabut",
+    53→    ],
+    54→    faq: [
+    55→      {
+    56→        q: "Apakah NIB bisa diurus tanpa badan usaha?",
+    57→        a: "Bisa. Sejak UU Cipta Kerja, pelaku usaha perseorangan (termasuk UMKM dan freelancer) dapat memiliki NIB tanpa perlu badan hukum. NIB perseorangan justru membuka akses kekurangan — ikut tender, pinjaman bank, hingga program pemerintah.",
+    58→      },
+    59→      {
+    60→        q: "Berapa biaya resmi penerbitan NIB?",
+    61→        a: "NIB 100% gratis diterbitkan pemerintah melalui OSS. Biaya yang Anda bayarkan kepada kami adalah jasa konsultasi KBLI, pengisian data yang benar, dan pendampingan agar tidak salah struktur — yang justru bisa menghemat jutaan rupiah pajak.",
+    62→      },
+    63→    ],
+    64→  },
+    65→  {
+    66→    id: "pt",
+    67→    name: "Pendirian PT (Perseroan Terbatas)",
+    68→    short:
+    69→      "PT adalah badan hukum paling kredibel untuk bisnis serius: akses investasi, tender, kredit bank, dan perlindungan aset pribadi pemegang saham sepenuhnya terpisah.",
+    70→    long:
+    71→      "Perseroan Terbatas (PT) adalah badan hukum berdasarkan UU No. 40/2007 tentang Perseroan Terbatas yang memberikan status legal paling kredibel di Indonesia. PT wajib bagi perusahaan yang berencana: menerima investasi/pendanaan, mengikuti tender pemerintah & BUMN, mengajukan kredit bank bernilai besar, merekrut tenaga kerja asing (TKA), atau melindungi aset pribadi pemilik dari risiko bisnis. Pendirian PT membutuhkan minimal 2 pemegang saham, akta notaris resmi, pengesahan SK dari Kemenkumham (yang kini terintegrasi dengan AHU Online), NPWP badan, dan pendaftaran NIB. Untuk asing/PMA, ada ketentuan modal disetor minimum (umumnya Rp 10 miliar per KBLI tertentu) yang harus dihitung cermat sejak awal.",
+    72→    authority: "Notaris + Kemenkumham (AHU Online) + OSS untuk NIB",
+    73→    legalBasis: "UU 40/2007, PP 8/2021 (PMA), Permenkumham terkait",
+    74→    cost: "Mulai Rp 3,5jt (jasa + akta; biaya resmi notaris sesuai modal)",
+    75→    timeline: "3-7 hari kerja",
+    76→    requirements: [
+    77→      "Minimal 2 pemegang saham (orang/badan hukum)",
+    78→      "KTP/paspor & NPWP para pemegang saham & pengurus",
+    79→      "Nama PT (3 pilihan) — akan dicek ketersediaan di AHU",
+    80→      "Alamat kantor (domisili + bukti sewa/milik)",
+    81→      "Rencana modal dasar, modal disetor & komposisi saham",
+    82→    ],
+    83→    steps: [
+    84→      "Konsultasi struktur kepemilikan, modal optimal & KBLI utama",
+    85→      "Pengecekan & reservasi nama PT di sistem AHU Online",
+    86→      "Pembuatan akta pendirian oleh notaris resmi",
+    87→      "Pengajuan SK Menkumham (badan hukum sah) via AHU",
+    88→      "Penerbitan NPWP badan, NIB, dan dokumen pendukung",
+    89→      "Panduan kewajiban rutin: laporan tahunan AHU & LKPM",
+    90→    ],
+    91→    tips: [
+    92→      "PT lokal vs PMA punya aturan modal berbeda — jangan samakan",
+    93→      "Struktur saham yang rapi sejak awal menghindari konflik saat masuknya investor",
+    94→      "Wajib lapor keterkinian & laporan tahunan ke Kemenkumham agar tidak sanksi",
+    95→    ],
+    96→    faq: [
+    97→      {
+    98→        q: "Berapa modal minimum mendirikan PT lokal?",
+    99→        a: "Secara hukum (UU 40/2007) modal dasar PT minimal Rp 50 juta dengan minimal 25% modal disetor, sehingga praktis Rp 12,5 juta. Namun beberapa KBLI/sektor memiliki ketentuan modal khusus — kami bantu cek sesuai bidang usaha Anda.",
+   100→      },
+   101→      {
+   102→        q: "PT atau CV mana yang lebih cocok untuk saya?",
+   103→        a: "CV cocok untuk usaha kecil-menengah berbasis kepercayaan antar-partner dengan biaya murah. PT wajib jika: butuh investor, ikut tender besar, target kredit bank besar, atau ingin perlindungan aset pribadi penuh. Kami konsultasikan gratis sesuai rencana 3-5 tahun Anda.",
+   104→      },
+   105→    ],
+   106→  },
+   107→  {
+   108→    id: "halal",
+   109→    name: "Sertifikasi Halal (SJPH — Sertifikasi Jaminan Produk Halal)",
+   110→    short:
+   111→      "Sertifikasi Halal kini WAJIB bagi semua produk makanan, minuman, dan jasa yang dipergunakan masyarakat — prosesnya via SIHALAL/BPJPH, dengan kuota subsidi gratis untuk UMKM.",
+   112→    long:
+   113→      "Berdasarkan UU No. 33/2014 tentang Jaminan Produk Halal (JPH) dan aturan pelaksanaannya, semua produk yang masuk kategori makanan, minuman, obat, kosmetik, hingga jasa (termasuk hotel & restoran) yang dipergunakan masyarakat Indonesia WAJIB bersertifikat halal. Batas waktu implementasi bertahap hingga Oktober 2024-2026 tergantung kategori (UMKM mendapat prioritas pendampingan). Proses sertifikasi melalui sistem SIHALAL milik BPJPH (Badan Penyelenggara Jaminan Produk Halal) dengan pendampingan PPP (Proses Produk Halal), pemeriksaan oleh LPH (Lembaga Pemeriksa Halal) seperti LPPOM MUI, dan fatwa KKP (Komisi Kaji Fatwa). Kabar baiknya: UMKM dapat mendaftar kuota subsidi 100% GRATIS melalui program SEHATI.",
+   114→    authority: "BPJPH (Kemenag) + LPPOM MUI/LPH + KKP",
+   115→    legalBasis: "UU 33/2014, PP 39/2021, PP 42/2024",
+   116→    cost: "Rp 1,2jt (jasa pendampingan penuh) — kuota subsidi UMKM tersedia",
+   117→    timeline: "14-30 hari kerja (UMKM subsidi bisa lebih cepat)",
+   118→    requirements: [
+   119→      "NIB usaha aktif",
+   120→      "Daftar produk, bahan baku & pemasok (matriks bahan)",
+   121→      "Dokumen proses produksi / SOP Proses Produk Halal",
+   122→      "Data fasilitas & lokasi produksi (untuk audit LPH)",
+   123→      "Akun SIHALAL (kami buatkan & urus penuh)",
+   124→    ],
+   125→    steps: [
+   126→      "Audit awal kesiapan bahan baku & proses produksi Anda",
+   127→      "Pembuatan akun SIHALAL & pengisian form pengajuan",
+   128→      "Penyusunan dokumen PPH (Proses Produk Halal) sesuai standar",
+   129→      "Koordinasi penjadwalan audit dengan LPH (LPPOM MUI/dll)",
+   130→      "Penunjukan auditor & proses pemeriksaan di lokasi",
+   131→      "Sidang fatwa & penerbitan sertifikat + label halal",
+   132→    ],
+   133→    tips: [
+   134→      "UMKM berhenti kuota subsidi 100% — jangan bayar mahal sebelum cek kelayakan",
+   135→      "Satu sertifikat bisa mencakup banyak produk dalam satu grup proses",
+   136→      "Label halal wajib tercantum di kemasan setelah sertifikat terbit",
+   137→    ],
+   138→    faq: [
+   139→      {
+   140→        q: "Apakah sertifikat halal wajib untuk usaha kecil?",
+   141→        a: "Ya — UU JPH mewajibkan produk makanan/minuman yang dipergunakan masyarakat. Namun pemerintah menyediakan kuota subsidi gratis untuk UMKM (pendampingan, audit, sampai sertifikat) sehingga Anda tidak perlu membayar biaya pemeriksaan. Kami bantu klaim kuota ini.",
+   142→      },
+   143→      {
+   144→        q: "Berapa lama masa berlaku sertifikat halal?",
+   145→        a: "Sertifikat halal berlaku 4 tahun sejak terbit. Sebelum masa berlaku habis, wajib direcertification. Kami mengingatkan & mendampingi recertification agar produk Anda tidak kehilangan label halal.",
+   146→      },
+   147→    ],
+   148→  },
+   149→  {
+   150→    id: "bpom",
+   151→    name: "Izin Edar BPOM & PIRT",
+   152→    short:
+   153→      "Untuk menjual produk olahan legal di marketplace & toko: PIRT untuk makanan berisiko rendah, MD BPOM untuk suplemen & obat tradisional — plus label edar yang benar.",
+   154→    long:
+   155→      "PIRT (Pengawasan Izin Edar Pangan Olahan) diterbitkan Dinas Kesehatan kabupaten/kota untuk pangan olahan risiko rendah (sambal, keripik, minuman, dll), berlaku 5 tahun & kini diurus melalui sistem OTT BPOM. Sementara itu, Izin Pendaftaran (MD) dari BPOM wajib untuk suplemen kesehatan, obat tradisional, dan kosmetika sebelum diedarkan. Keduanya membutuhkan persyaratan produksi yang layak (CPPOB/CPOH untuk produsen, atau kontrak dengan pabrik yang sudah bersertifikat), hasil uji laboratorium, dan desain label sesuai BPOM RI/MKMI. Tanpa izin edar, produk Anda berisiko diblokir marketplace (Tokopedia, Shopee, TikTok Shop kini menuntut nomor izin), disita pengawas, dan kehilangan kepercayaan konsumen.",
+   156→    authority: "BPOM (Badan POM) & Dinas Kesehatan — via sistem OTT/e-Registration",
+   157→    legalBasis: "UU 18/2012, PP 86/2019, Peraturan BPOM terkait (RI/MKMI, OTT)",
+   158→    cost: "PIRT mulai Rp 1,5jt • MD BPOM mulai Rp 2,5jt (jasa, uji lab diatur terpisah)",
+   159→    timeline: "PIRT 14-21 hari • MD BPOM 30-60 hari",
+   160→    requirements: [
+   161→      "NIB usaha & KBLI yang sesuai",
+   162→      "Sertifikat CPPOB/CPOH fasilitas produksi (atau kontrak pabrik)",
+   163→      "Hasil uji lab parameter produk (kami arahkan lab terakreditasi)",
+   164→      "Mock-up label produk sesuai regulasi (kami bantu desain & review)",
+   165→      "Untuk MD: data khasiat/klaim & komposisi detail",
+   166→    ],
+   167→    steps: [
+   168→      "Pengecekan kelayakan produk: PIRT atau MD? (bisa konsultasi AI kami)",
+   169→      "Perbaikan/penyiapan fasilitas produksi & dokumen CPPOB/CPOH",
+   170→      "Pengurusan uji lab sesuai parameter wajib produk",
+   171→      "Review & revisi label sampai lolos standar",
+   172→      "Pengajuan di sistem OTT (PIRT) atau e-Registration (MD)",
+   173→      "Penerbitan izin & panduan kewajiban pasca-terbit",
+   174→    ],
+   175→    tips: [
+   176→      "Marketplace besar mulai 2024 menuntut nomor izin edar untuk kategori tertentu — jangan tunggu diblokir",
+   177→      "Home industry punya jalur PIRT yang jauh lebih murah & cepat dari MD",
+   178→      "Label yang salah klaim adalah penyebab utama pengajuan ditolak",
+   179→    ],
+   180→    faq: [
+   181→      {
+   182→        q: "PIRT atau BPOM (MD) mana yang saya butuhkan?",
+   183→        a: "PIRT untuk pangan olahan umum berisiko rendah (makanan kemasan, minuman). MD BPOM wajib untuk suplemen kesehatan, obat tradisional, dan kosmetika. Gunakan fitur Cek Izin AI di halaman ini — cukup ketik produk Anda, langsung diketahui jalurnya.",
+   184→      },
+   185→      {
+   186→        q: "Apakah home industry bisa dapat izin edar?",
+   187→        a: "Sangat bisa. Jalur PIRT memang dirancang untuk home industry. Fasilitas produksi harus memenuhi kriteria CPS (Cara Produksi Pangan yang baik) — tim kami memberikan checklist & pendampingan audit agar lolos.",
+   188→      },
+   189→    ],
+   190→  },
+   191→  {
+   192→    id: "oss",
+   193→    name: "OSS-RBA & Sertifikat Standar",
+   194→    short:
+   195→      "Sistem perizinan berusaha terintegrasi berbasis risiko: rendah cukup NIB, menengah perlu sertifikat standar, tinggi butuh izin khusus — memahami levelnya menentukan legalitas Anda.",
+   196→    long:
+   197→      "OSS-RBA (Online Single Submission — Risk-Based Approach) adalah sistem tunggal pemerintah yang mengklasifikasikan setiap KBLI ke dalam 4 tingkat risiko: RENDAH (cukup NIB), MENENGAH RENDAH (NIB + Sertifikat Standar), MENENGAH TINGGI (NIB + Sertifikat Standar yang diverifikasi), dan TINGGI (NIB + Izin khusus). Sebelum memulai operasional, pelaku usaha WAJIB memastikan semua KBLI-nya sudah memenuhi persyaratan level risikonya — banyak pengusaha yang tidak sadar beroperasi 'ilegal' karena lupa sertifikat standar untuk KBLI menengah. Kami ahli memetakan portofolio KBLI Anda, menentukan persyaratan per level, dan mengurus sertifikat standar (termasuk yang butuh verifikasi dokumen teknis) sampai terbit.",
+   198→    authority: "OSS — Kementerian Investasi/BKPM bersama K/L terkait",
+   199→    legalBasis: "PP 5/2021 jo. PP 8/2021, Perpres 5/2024, Peraturan BKPM 3/2021",
+   200→    cost: "Mulai Rp 350rb per KBLI (jasa pemetaan + pengurusan)",
+   201→    timeline: "1-5 hari kerja tergantung level risiko",
+   202→    requirements: [
+   203→      "NIB aktif (kami urus sekaligus jika belum ada)",
+   204→      "KBLI usaha yang tepat (dipetakan ulang oleh tim kami)",
+   205→      "Dokumen teknis sesuai persyaratan level (kapasitas, alat, SDM)",
+   206→      "Untuk KBLI verifikasi: komitmen & dokumen pendukung",
+   207→    ],
+   208→    steps: [
+   209→      "Pemetaan seluruh KBLI Anda ke level risikonya",
+   210→      "Analisis kesenjangan (gap analysis) dokumen yang dibutuhkan",
+   211→      "Penyusunan dokumen teknis untuk sertifikat standar",
+   212→      "Pengajuan di OSS & pemantauan verifikasi (jika ada)",
+   213→      "Penerbitan sertifikat & checklist kewajiban berkelanjutan",
+   214→    ],
+   215→    tips: [
+   216→      "Cek dulu level risiko KBLI Anda di halaman Cek Izin AI — gratis",
+   217→      "Sertifikat standar menengah tinggi butuh verifikasi instansi teknis — siapkan dokumen lebih awal",
+   218→      "Sertifikat standar punya kewajiban pemenuhan standar yang harus dilaporkan",
+   219→    ],
+   220→    faq: [
+   221→      {
+   222→        q: "Apa bedanya sertifikat standar dan izin?",
+   223→        a: "Sertifikat standar adalah pernyataan bahwa usaha Anda memenuhi standar (persyaratan teknis) untuk KBLI berisiko menengah — diterbitkan setelah dokumen/diverifikasi. Izin khusus untuk risiko tinggi melalui proses penilaian penuh. Sertifikat standar terbit via OSS; izin khusus bisa melibatkan instansi teknis.",
+   224→      },
+   225→      {
+   226→        q: "Usaha saya sudah punya NIB, apakah otomatis legal?",
+   227→        a: "Belum tentu. Jika KBLI Anda berlevel risiko menengah atau tinggi, Anda WAJIB memenuhi persyaratan sertifikat standar/izin sebelum operasional. Banyak pengusaha baru sadar saat audit atau masalah hukum. Konsultasikan pemetaan KBLI Anda ke tim kami.",
+   228→      },
+   229→    ],
+   230→  },
+   231→  {
+   232→    id: "pbg",
+   233→    name: "PBG & SLF (Persetujuan Bangunan Gedung)",
+   234→    short:
+   235→      "PBG menggantikan IMB untuk bangunan baru/renovasi; SLF adalah sertifikat laik fungsi — keduanya syarat mutlak kantor, toko, gudang, dan usaha berbasis lokasi.",
+   236→    long:
+   237→      "Sejak UU Cipta Kerja dan PP 16/2021, IMB resmi digantikan oleh PBG (Persetujuan Bangunan Gedung) yang diurus melalui SIMBG. PBG wajib sebelum membangun/merehabilitasi gedung. Sementara SLF (Sertifikat Laik Fungsi) wajib dimiliki setelah gedung selesai sebelum difungsikan — inilah bukti bangunan Anda aman secara struktural, keamanan, kesehatan, dan kemudahan akses. Untuk usaha berbasis tempat (kafe, toko, klinik, gudang, pabrik), DPMPTSP umumnya menuntut PBG/SLF sebelum menerbitkan izin operasional. Keduanya melibatkan gambar teknis sesuai standar, mekanisme arsitektur, dan pengecekan lapangan oleh tim teknis daerah.",
+   238→    authority: "SIMBG — Kementerian PUPR & DPMPTSP daerah",
+   239→    legalBasis: "UU Cipta Kerja, PP 16/2021, Permen PUPR terkait",
+   240→    cost: "Mulai Rp 2jt per dokumen (jasa; biaya resmi daerah diatur terpisah)",
+   241→    timeline: "PBG 14-30 hari • SLF 14-30 hari",
+   242→    requirements: [
+   243→      "Bukti kepemilikan/sewa lahan & bangunan",
+   244→      "Gambar teknis (denah, tampak, potongan, mekanikal) — kami bantu susun",
+   245→      "Data luas bangunan, fungsi & kapasitas",
+   246→      "Untuk SLF: dokumen pengawasan pembangunan (jika ada)",
+   247→    ],
+   248→    steps: [
+   249→      "Survei dokumen & kondisi bangunan Anda",
+   250→      "Penyusunan gambar teknis sesuai standar kota (IGA/kawasan)",
+   251→      "Pengajuan PBG/SLF di SIMBG/DPMPTSP",
+   252→      "Koordinasi pengecekan lapangan tim teknis (bila diperlukan)",
+   253→      "Penerbitan dokumen & serah terima berkas fisik/digital",
+   254→    ],
+   255→    tips: [
+   256→      "Bangunan tanpa PBG/SLF = sulit dapat izin usaha, sulit dijual, sulit diajukan asuransi",
+   257→      "Renovasi ringan sekalipun bisa menuntut PBG baru — konsultasikan dulu",
+   258→      "SLF berlaku selama bangunan tidak diubah fungsi/struktur",
+   259→    ],
+   260→    faq: [
+   261→      {
+   262→        q: "Bangunan lama saya hanya punya IMB, harus diganti PBG?",
+   263→        a: "IMB yang masih sah tetap diakui, namun untuk perubahan, perluasan, atau saat instansi meminta (misal untuk izin usaha), Anda akan diminta PBG/SLF. Kami bantu konversi & pengurusan SLF untuk bangunan existing tanpa drama.",
+   264→      },
+   265→      {
+   266→        q: "Ruko sewa untuk kafe, wajib PBG sendiri?",
+   267→        a: "Yang penting adalah bangunan Anda LAIK FUNGSI — SLF boleh atas nama pemilik. Namun beberapa daerah menuntut persetujuan pemilik + dokumen laik fungsi saat pengajuan izin usaha. Kami bantu koordinasi dengan pemilik gedung & DPMPTSP.",
+   268→      },
+   269→    ],
+   270→  },
+   271→  {
+   272→    id: "lingkungan",
+   273→    name: "Izin Lingkungan (SPPL / UKL-UPL / AMDAL)",
+   274→    short:
+   275→      "Dokumen lingkungan wajib sesuai tingkat dampak: SPPL untuk kegiatan minim, UKL-UPL untuk menengah, AMDAL penuh untuk aktivitas besar seperti pabrik & tambang.",
+   276→    long:
+   277→      "Berdasarkan PP 22/2021, setiap kegiatan usaha berpotensi mencemari lingkungan WAJIB memiliki dokumen lingkungan sebelum izin usaha terbit. Tingkatannya: SPPL (Surat Pernyataan Kesanggupan) untuk kegiatan minim dampak; UKL-UPL (Upaya Pengelolaan & Pemantauan Lingkungan) untuk kegiatan berdampak menengah; dan AMDAL (Analisis Mengenai Dampak Lingkungan) penuh untuk kegiatan besar — pabrik, tambang, PLTU, hotel besar, kawasan industri. AMDAL melibatkan kaandungan (komite andalan dampak), pengumuman publik, konsultasi publik, dan forum teknis yang bisa memakan waktu 3-6 bulan jika tidak dikelola ahli. Kami punya tim penyusun dokumen lingkungan berpengalaman lintas sektor yang terbiasa berkoordinasi dengan DPMPTSP & forum teknis daerah.",
+   278→    authority: "DPMPTSP daerah / Kementerian LHK (untuk kegiatan tertentu)",
+   279→    legalBasis: "UU Cipta Kerja, PP 22/2021, Permen LHK terkait",
+   280→    cost: "SPPL mulai Rp 750rb • UKL-UPL mulai Rp 3,5jt • AMDAL mulai Rp 25jt",
+   281→    timeline: "SPPL 3-7 hari • UKL-UPL 30-45 hari • AMDAL 90-180 hari",
+   282→    requirements: [
+   283→      "NIB & KBLI kegiatan usaha",
+   284→      "Data lokasi (koordinat, batas, peta lingkungan sekitar)",
+   285→      "Deskripsi teknis kegiatan: kapasitas, proses, emisi/limbah",
+   286→      "Untuk AMDAL: dokumen dasar intensif (kami pandu penuh)",
+   287→    ],
+   288→    steps: [
+   289→      "Penentuan jenis dokumen (SPPL/UKL-UPL/AMDAL) via kriteria formal",
+   290→      "Pengumpulan data dasar & survei (bila perlu)",
+   291→      "Penyusunan dokumen lingkungan oleh tim ahli",
+   292→      "Pengumuman & konsultasi publik (untuk AMDAL)",
+   293→      "Forum teknis & perbaikan dokumen",
+   294→      "Penerbitan surat keputusan lingkungan (PPL untuk AMDAL)",
+   295→    ],
+   296→    tips: [
+   297→      "Mulai AMDAL SEBELUM konstruksi — setelah gedung berdiri jauh lebih rumit",
+   298→      "Kegiatan di kawasan industri sering mewarisi AMDAL induk — bisa lebih cepat",
+   299→      "Matriks RKL-RPL wajib dilaporkan berkala setelah operasional",
+   300→    ],
+   301→    faq: [
+   302→      {
+   303→        q: "Usaha saya butuh SPPL, UKL-UPL, atau AMDAL?",
+   304→        a: "Tergantung klasifikasi risiko KBLI & skala kegiatan (kapasitas produksi, luas, lokasi). Gunakan Cek Izin AI kami atau konsultasi gratis — dalam 15 menit Anda tahu persis dokumen apa yang dibutuhkan & estimasi waktunya.",
+   305→      },
+   306→      {
+   307→        q: "Apakah AMDAL bisa diproses sambil konstruksi?",
+   308→        a: "Secara hukum, dokumen lingkungan harus SAH sebelum izin usaha & konstruksi dimulai. Melanggar berisiko penghentian paksa. Jika Anda sudah terlanjur, konsultasikan regularisasi ke tim kami — ada jalur penyelesaian bertahap.",
+   309→      },
+   310→    ],
+   311→  },
+   312→  {
+   313→    id: "cv",
+   314→    name: "Pendirian CV (Commanditaire Vennootschap)",
+   315→    short:
+   316→      "CV adalah persekutuan komanditer yang ideal untuk usaha keluarga/kemitraan: murah, cepat pendiriannya, tetap diakui bank & lembaga keuangan — tanpa struktur rumit PT.",
+   317→    long:
+   318→      "CV (Commanditaire Vennootschap) adalah persekutuan yang didirikan berdasarkan KUHD (Kitab Undang-Undang Hukum Dagang) dengan minimal 1 sekutu aktif (beheerder) yang menanggung tanggung jawab penuh dan 1 sekutu pasif (commanditaire) yang tanggung jawabnya sebatas modal. CV sangat populer untuk usaha keluarga, kemitraan supplier-reseller, dan usaha kreatif karena: pendirian murah & cepat (2-3 hari), tidak ada kewajiban modal minimum formal, dan tetap diakui oleh bank untuk pembukaan rekening usaha serta beberapa lembaga keuangan. Perlu dicatat: CV tidak memiliki badan hukum terpisah seperti PT, sehingga untuk usaha yang menanggung risiko besar atau menarik investor, PT tetap pilihan yang lebih aman.",
+   319→    authority: "Notaris + pendataan via OSS untuk NIB",
+   320→    legalBasis: "KUHD (Kitab Undang-Undang Hukum Dagang) Pasal 19-21",
+   321→    cost: "Mulai Rp 1,5jt (jasa + akta notaris)",
+   322→    timeline: "2-3 hari kerja",
+   323→    requirements: [
+   324→      "KTP & NPWP para sekutu (aktif & pasif)",
+   325→      "Nama CV & alamat kantor/domisili",
+   326→      "Kegiatan usaha utama (KBLI)",
+   327→      "Perjanjian kerja sama internal (kami susunkan)",
+   328→    ],
+   329→    steps: [
+   330→      "Konsultasi struktur sekutu aktif/pasif & pembagian untung",
+   331→      "Penyusunan akta pendirian CV (notaris)",
+   332→      "Penerbitan NPWP CV & pendaftaran NIB",
+   333→      "Surat keterangan domisili (bila perlu)",
+   334→      "Panduan kewajiban pajak & pembukuan",
+   335→    ],
+   336→    tips: [
+   337→      "Tulis perjanjian sekutu sejelas mungkin — CV rawan konflik jika sepi aturan",
+   338→      "Sekutu aktif bertanggung jawab penuh; jadilah sekutu pasif jika hanya menanam modal",
+   339→      "Ketika omzet & risiko tumbuh, pertimbangkan upgrade ke PT — kami bantu transformasi",
+   340→    ],
+   341→    faq: [
+   342→      {
+   343→        q: "Apakah CV bisa ikut tender pemerintah?",
+   344→        a: "CV bisa ikut beberapa tender, namun banyak tender (terutama di atas nilai tertentu & proyek BUMN) mensyaratkan badan hukum PT. Jika target Anda tender, kami sarankan PT sejak awal.",
+   345→      },
+   346→      {
+   347→        q: "Apakah CV diakui bank untuk rekening usaha?",
+   348→        a: "Ya. Bank umumnya mengakui CV dengan akta notaris + NPWP. Namun kebijakan tiap bank berbeda — kami berikan panduan dokumen yang disukai bank utama di Indonesia.",
+   349→      },
+   350→    ],
+   351→  },
+   352→  {
+   353→    id: "klinik",
+   354→    name: "Izin Klinik, Farmasi & Kesehatan",
+   355→    short:
+   356→      "Sektor kesehatan punya tumpukan izin berlapis: NIB, izin usaha sarana (SIA), izin praktik tenaga medis (SIP/STR), sampai izin apotek — kami kuasai seluruh regulasi Kemenkes.",
+   357→    long:
+   358→      "Membuka usaha kesehatan di Indonesia berarti menavigasi regulasi berlapis: NIB untuk badan usaha, izin usaha sarana kesehatan dari Dinkes (klinik: SIA — Surat Izin Aurusa; apotek: SIA Apotek; laboratorium: SIL), sertifikat standar berbasis risiko di OSS, plus izin praktik bagi tenaga medis (SIPA untuk dokter, SIKIA untuk perawat, dsb) yang melekat pada STR (Surat Tanda Registrasi). Untuk klinik dengan fasilitas rawat inap ada tambahan ketentuan akreditasi. Kementerian Kesehatan melalui berbagai Permenkes mengatur standar sarana, SDM minimum, dan tata letak. Kesalahan urutan pengurusan (misal izin praktik sebelum izin sarana) bisa membuat pengajuan macet berbulan-bulan — tim kami memahami sekuen yang benar untuk setiap bentuk usaha kesehatan.",
+   359→    authority: "Dinkes daerah, DPMPTSP, Kemenkes (Yankes online)",
+   360→    legalBasis: "UU 17/2023 (Kesehatan), Permenkes terkait sarana & tenaga medis",
+   361→    cost: "Mulai Rp 7,5jt paket klinik lengkap",
+   362→    timeline: "30-60 hari kerja",
+   363→    requirements: [
+   364→      "Badan usaha (PT/CV) + NIB dengan KBLI kesehatan",
+   365→      "Data & STR/SIP seluruh tenaga medis yang bertugas",
+   366→      "Rencana tata letak sarana sesuai standar Permenkes",
+   367→      "Daftar alat kesehatan & obat (untuk klinik/apotek)",
+   368→    ],
+   369→    steps: [
+   370→      "Pemetaan jenis izin sesuai layanan yang akan dibuka",
+   371→      "Pendirian badan usaha & NIB (bila belum ada)",
+   372→      "Pengurusan izin praktik tenaga medis (SIP)",
+   373→      "Pengajuan izin sarana (SIA) ke Dinkes + pengecekan",
+   374→      "Koordinasi akreditasi (bila wajib) & serah terima dokumen",
+   375→    ],
+   376→    tips: [
+   377→      "Izin praktik tenaga medis melekat pada lokasi — pindah klinik = izin baru",
+   378→      "Akreditasi klinik wajib dalam batas waktu tertentu setelah beroperasi",
+   379→      "Home care & telemedicine punya aturan berbeda — konsultasikan sebelum launch",
+   380→    ],
+   381→    faq: [
+   382→      {
+   383→        q: "Buka klinik kecantikan butuh izin apa saja?",
+   384→        a: "Umumnya: badan usaha + NIB KBLI klinik, SIA klinik dari Dinkes, izin praktik dokter (SIPA), dan jika menggunakan alat kesehatan/produk medis ada tambahan pendaftaran. Bila menyediakan layanan tindakan medis estetika, standar SDM lebih ketat. Konsultasikan layanan spesifik Anda ke tim kami.",
+   385→      },
+   386→      {
+   387→        q: "Apakah apotek harus dimiliki apoteker?",
+   388→        a: "Apotek WAJIB memiliki apoteker penanggung jawab dengan SIPA yang bertugas penuh. Struktur kepemilikan bisa non-apoteker, namun operasional harian harus diawasi apoteker — kami bantu skema kepatuhan yang benar.",
+   389→      },
+   390→    ],
+   391→  },
+   392→  {
+   393→    id: "pma",
+   394→    name: "Pendirian PMA (Investasi Asing)",
+   395→    short:
+   396→      "PMA adalah PT berskala investasi asing: akses 100% kepemilikan asing di banyak sektor, butuh perencanaan modal disetor ≥ Rp 10 miliar & kepatuhan OSS khusus investor asing.",
+   397→    long:
+   398→      "PMA (Penanaman Modal Asing) adalah bentuk PT dengan asing sebagai pemegang saham, diatur PP 8/2021 & UU 25/2007 tentang Penanaman Modal. Keunggulannya: asing bisa memegang 100% saham di banyak bidang usaha (tergantung Daftar Negatif Investasi/DNI terbaru — sebagian sektor menuntut patungan lokal), mendapat kepastian hukum untuk repatriasi laba, akses imigrasi (ITAS/KITAS direksi & TKA), dan fasilitas pajak investasi. Persyaratannya: rencana investasi total ≥ Rp 10 miliar di luar tanah & bangunan per KBLI 5-digit, dengan modal disetor yang harus realisasi sesuai komitmen OSS. Kesalahan umum pendiri PMA: salah pilih KBLI yang ditutup untuk asing, atau modal disetor yang tidak terealisasi sehingga izin terancam — tim kami khusus menangani due diligence & strukturisasi PMA dari awal.",
+   399→    authority: "Kementerian Investasi/BKPM, Kemenkumham, Imigrasi",
+   400→    legalBasis: "UU 25/2007, PP 8/2021, Perpres 10/2021 jo. 49/2021 (DNI)",
+   401→    cost: "Mulai Rp 15jt paket pendirian PMA lengkap",
+   402→    timeline: "7-14 hari kerja (+ ITAS/KITAS bila perlu)",
+   403→    requirements: [
+   404→      "Paspor semua pemegang saham & pengurus asing",
+   405→      "Surat pernyataan pemenuhan modal ( Letter of Intent & Statement)",
+   406→      "Rencana investasi & KBLI yang terbuka untuk asing",
+   407→      "Alamat kantor di Indonesia (virtual office diperbolehkan untuk beberapa sektor)",
+   408→    ],
+   409→    steps: [
+   410→      "Due diligence KBLI: sektor terbuka/patungan/tutup untuk asing",
+   411→      "Strukturisasi saham & perencanaan modal disetor",
+   412→      "Akta pendirian PT PMA & SK Kemenkumham",
+   413→      "NPWP badan, NIB, & perizinan sektoral (bila perlu)",
+   414→      "Dukungan imigrasi: ITAS/KITAS direksi & TKA",
+   415→      "Panduan kewajiban LKPM berkala investor asing",
+   416→    ],
+   417→    tips: [
+   418→      "Modal disetor Rp 10 miliar harus terealisasi sesuai jadwal OSS — bukan sekadar angka di akta",
+   419→      "Sektor dengan DNI khusus (misal telekomunikasi, farmasi) punya batas kepemilikan asing — cek dulu!",
+   420→      "PMA wajib laporan LKPM berkala; kelalaian bisa mempengaruhi perpanjangan izin & imigrasi",
+   421→    ],
+   422→    faq: [
+   423→      {
+   424→        q: "Apakah asing bisa 100% memiliki bisnis di Indonesia?",
+   425→        a: "Di banyak sektor — ya, tergantung Daftar Negatif Investasi terbaru (Perpres 10/2021 jo. 49/2021). Sektor tertentu menuntut patungan dengan lokal (misal 51/49) atau tertutup penuh. Tim kami melakukan due diligence KBLI demi KBLI sebelum pendirian agar Anda aman.",
+   426→      },
+   427→      {
+   428→        q: "Apa risiko jika modal disetor tidak direalisasikan?",
+   429→        a: "Komitmen modal di OSS adalah dokumen hukum. Ketidak-realisasian bisa berujung sanksi administratif hingga pencabutan NIB & kesulitan perpanjangan KITAS direksi. Kami bantu strategi realisasi bertahap yang patuh aturan.",
+   430→      },
+   431→    ],
+   432→  },
+   433→  {
+   434→    id: "pajak",
+   435→    name: "Pajak Usaha: NPWP, PKP & PPh UMKM",
+   436→    short:
+   437→      "Memahami struktur pajak sejak awal menghemat ratusan juta: PPh final 0,5% untuk UMKM, PKP saat omzet > Rp 4,8 M, dan kewajiban pembukuan yang benar dari hari pertama.",
+   438→    long:
+   439→      "Struktur pajak usaha Indonesia untuk pemula: (1) NPWP — nomor pokok wajib pajak untuk badan/pribadi, (2) PPh UMKM Pasal 2 UU HPP — tarif final 0,5% dari omzet kotor untuk usaha dengan omzet < Rp 4,8 miliar/tahun (paling ramah untuk UMKM yang memenuhi syarat), (3) SPPKP — pengukuhan PKP (Pengusaha Kena Pajak) WAJIB saat omzet mencapai Rp 4,8 miliar, membuka kewajiban PPN 11-12%, (4) PPh Badan 22% untuk PT (dengan fasilitas untuk usaha kecil peredaran bruto < Rp 50 M — pasal 31E), dan (5) kewajiban administrasi: e-Faktur, bukti potong, SPT masa & tahunan. Keputusan struktur sejak awal (perseorangan vs badan hukum, KBLI, omzet proyeksi) menentukan beban pajak Anda bertahun-tahun ke depan — konsultasi ini kami berikan GRATIS di setiap pengurusan izin.",
+   440→    authority: "DJP (Direktorat Jenderal Pajak) — Kemenkeu",
+   441→    legalBasis: "UU HPP, UU Harmonisasi, PP & Peraturan DJP terkait",
+   442→    cost: "Konsultasi pajak usaha GRATIS untuk klien pengurusan izin",
+   443→    timeline: "NPWP 1 hari • SPPKP 1-3 hari kerja",
+   444→    requirements: [
+   445→      "KTP/NPWP pribadi (untuk perseorangan)",
+   446→      "Akta & SK (untuk badan hukum)",
+   447→      "NIB aktif & data usaha (omzet, KBLI)",
+   448→      "Untuk PKP: proyeksi omzet & dokumen transaksi",
+   449→    ],
+   450→    steps: [
+   451→      "Analisis struktur usaha & proyeksi omzet Anda",
+   452→      "Rekomendasi skema pajak optimal (PPh final 0,5% vs badan)",
+   453→      "Pengurusan NPWP badan/perseorangan",
+   454→      "Pengukuhan PKP & aktivasi e-Faktur (bila wajib)",
+   455→      "Panduan kewajiban bulanan & kalender pajak Anda",
+   456→    ],
+   457→    tips: [
+   458→      "PPh final 0,5% hanya sampai omzet Rp 4,8 M & maksimal 7 tahun — rencanakan transisi",
+   459→      "PKP bukan hanya beban PPN — justru penting untuk deal dengan korporasi yang minta faktur pajak",
+   460→      "Lalai SPT masa = denda Rp 100rb/bulan — kalender pajak kami bantu jaga",
+   461→    ],
+   462→    faq: [
+   463→      {
+   464→        q: "Omzet saya masih kecil, apakah wajib bayar pajak usaha?",
+   465→        a: "Jika memilih skema PPh final UMKM 0,5%, pajak Anda sangat kecil (0,5% dari omzet) namun WAJIB lapor bulanan. Transaksi kecil yang tertib pajak sejak awal justru membangun riwayat kredit usaha untuk pinjaman bank di masa depan.",
+   466→      },
+   467→      {
+   468→        q: "Kapan saya wajib jadi PKP dan kena PPN?",
+   469→        a: "WAJIB saat peredaran bruto melewati Rp 4,8 miliar dalam 12 bulan. Anda juga bisa mengajukan sukarela di bawah ambang tersebut jika klien korporasi Anda membutuhkan faktur pajak. Kami analisis mana yang lebih menguntungkan.",
+   470→      },
+   471→    ],
+   472→  },
+   473→  {
+   474→    id: "ppi-umroh",
+   475→    name: "Izin Umroh (PPIU — Perusahaan Perjalanan Ibadah Umrah)",
+   476→    short:
+   477→      "PPIU adalah legalitas resmi travel umroh dari Kementerian Agama: SPPU (pendaftaran) dan SIPU (izin perjalanan) yang terbit via sistem Kemenag. Tanpa SIPU, menjual paket umroh adalah kejahatan perjalanan ibadah palsu.",
+   478→    long:
+   479→      "PPIU (Perusahaan Perjalanan Ibadah Umrah) adalah badan usaha yang telah memenuhi syarat Kementerian Agama untuk menyelenggarakan perjalanan ibadah umrah. Alurnya: pendirian PT (tidak boleh perseorangan), pendaftaran SPPU di Kemenag provinsi tempat kantor, lalu pengurusan SIPU (Surat Izin Perjalanan Umrah) yang diperbarui berkala melalui sistem SIMPONI/e-Katalog Kemenag. PPIU wajib memiliki rekening kolektif jamaah (escrow), kontrak kerja sama dengan maktab/operator Arab Saudi, dan pembimbing ibadah yang bersertifikat. Regulasi berbasis UU 13/2008 tentang Penyelenggaraan Haji beserta peraturan Kemenag terkini — dan pengawasan ketat karena melibatkan dana jamaah. Legalitas PPIU adalah tiket masuk ke e-Katalog & kerja sama resmi, serta pelindung utama Anda dari sanksi pidana penyalahgunaan jamaah.",
+   480→    authority: "Kementerian Agama RI — Dirjen Penyelenggaraan Haji & Umrah (Kemenag Provinsi)",
+   481→    legalBasis: "UU 13/2008 tentang Penyelenggaraan Haji, PP 61/2015 & peraturan Kemenag terkait PPIU/PPIH (SIMPONI)",
+   482→    cost: "Paket lengkap mulai Rp 12 juta (di luar modal disetor PT)",
+   483→    timeline: "30-45 hari kerja (SPPU dulu, SIPU menyusul)",
+   484→    requirements: [
+   485→      "Badan hukum PT (akta notaris + SK Kemenkumham + NIB)",
+   486→      "Modal disetor sesuai ketentuan Kemenag wilayah (mulai Rp 100 juta)",
+   487→      "Kantor usaha fisik & layak + bukti kepemilikan/sewa",
+   488→      "Rekening kolektif jamaah di bank bekerja sama Kemenag",
+   489→      "Kontrak kerja sama dengan maktab & vendor di Arab Saudi + pembimbing ibadah bersertifikat",
+   490→    ],
+   491→    steps: [
+   492→      "Analisis kelayakan & roadmap: sektor, modal, rencana paket perjalanan",
+   493→      "Pendirian PT travel + NPWP + NIB (3-7 hari kerja)",
+   494→      "Pendaftaran SPPU ke Kemenag provinsi + verifikasi kantor",
+   495→      "Pembukaan rekening kolektif & penyiapan dokumen teknis (maktab, pembimbing, itinerary)",
+   496→      "Pengajuan SIPU + aktivasi SIMPONI/e-Katalog",
+   497→      "SIPU terbit — travel Anda resmi berangkatkan jamaah",
+   498→    ],
+   499→    tips: [
+   500→      "Jangan pernah jual paket sebelum SIPU terbit — sanksinya pidana & bisa blacklisted seumur hidup",
+   501→      "Timing terbaik pengajuan: 3-4 bulan sebelum Ramadan & musim haji, karena antrean verifikasi menumpuk",
+   502→      "Nama PT jangan mengandung kata 'Haji' sebelum Anda lolos PPIH — biasanya ditolak Kemenag",
+   503→    ],
+   504→    faq: [
+   505→      {
+   506→        q: "Apa bedanya SPPU dan SIPU untuk travel umroh?",
+   507→        a: "SPPU (Surat Pendaftaran Perjalanan Umrah) adalah status pendaftaran awal PPIU Anda di Kemenag — travel sudah terdaftar tapi belum boleh berangkatkan jamaah. SIPU (Surat Izin Perjalanan Umrah) adalah izin operasional penuh untuk menjual & berangkatkan paket umroh. Keduanya diperbarui berkala via sistem SIMPONI Kemenag.",
+   508→      },
+   509→      {
+   510→        q: "Travel saya masih kecil, apakah tetap bisa jadi PPIU?",
+   511→        a: "Bisa, asalkan berbadan hukum PT dengan modal disetor minimum sesuai ketentuan Kemenag (umumnya mulai Rp 100 juta) dan punya kantor fisik. Banyak PPIU baru mulai dari 1-2 grup jamaah per keberangkatan — yang penting legalitasnya benar sejak awal agar aman berkembang.",
+   512→      },
+   513→    ],
+   514→  },
+   515→  {
+   516→    id: "ppi-haji",
+   517→    name: "Izin Haji (PPIH — Perusahaan Perjalanan Ibadah Haji)",
+   518→    short:
+   519→      "PPIH adalah tingkat tertinggi legalitas travel ibadah: izin khusus penyelenggaraan perjalanan haji dari Kemenag. Syaratnya paling berat — modal disetor miliaran & uji kelayakan — tapi posisinya paling eksklusif.",
+   520→    long:
+   521→      "PPIH (Perusahaan Perjalanan Ibadah Haji) adalah perusahaan yang berizin khusus menyelenggarakan perjalanan ibadah haji — jauh lebih ketat daripada PPIU karena menyangkut gelar wajib haji. Syarat inti: berbadan hukum PT milik penuh WNI, modal disetor signifikan (umumnya hingga Rp 3 miliar dalam bentuk uang tunai/setara kas yang bisa diaudit), tidak boleh menarik dana jamaah sebelum SK terbit, dan wajib lolos masa pembinaan serta uji kelayakan Kemenag. PPIH otomatis berhak menyelenggarakan umrah dan terhubung dengan penempatan PPUMI (Petugas Pemeriksa Umrah & Haji Indonesia) serta kemitraan maktab resmi di Arab Saudi. Dengan kuota haji Indonesia ±200 ribu orang per tahun dan antrean puluhan tahun, izin PPIH adalah aset bernilai sangat tinggi yang diperdagangkan sangat hati-hati — prosesnya wajib didampingi ahli.",
+   522→    authority: "Kementerian Agama RI — Dirjen Penyelenggaraan Haji & Umrah",
+   523→    legalBasis: "UU 13/2008 jo. UU 8/2019, PP 96/2012 jo. PP 61/2015 & peraturan Kemenag tentang PPIH",
+   524→    cost: "Paket Enterprise mulai Rp 25 juta (di luar modal disetor & audit)",
+   525→    timeline: "60-120 hari — termasuk masa administrasi pembinaan Kemenag",
+   526→    requirements: [
+   527→      "PT murni milik WNI (susunan saham bersih dari asing)",
+   528→      "Modal disetor sesuai ketentuan (hingga Rp 3 miliar, tunai/setara kas & teraudit)",
+   529→      "Kantor usaha layak + sarana pelayanan jamaah",
+   530→      "Dokumen keuangan bersih — tanpa penarikan dana jamaah sebelum SK",
+   531→      "Siap ikut pembinaan & uji kelayakan Kemenag (kunjungan fisik tim verifikasi)",
+   532→    ],
+   533→    steps: [
+   534→      "Audit pra-izin: kelayakan modal, legalitas & struktur saham",
+   535→      "Penyiapan/pembenahan PT + dokumen sesuai checklist Kemenag",
+   536→      "Pengajuan administrasi pembinaan ke Kemenag",
+   537→      "Uji kelayakan & kunjungan verifikasi tim Kemenag ke kantor Anda",
+   538→      "SK PPIH terbit + penempatan PPUMI & kemitraan maktab haji",
+   539→    ],
+   540→    tips: [
+   541→      "Modal Rp 3 miliar harus benar-benar tunai & dapat ditelusuri (traceable) — dana pinjaman bersyarat biasanya terbongkar saat audit",
+   542→      "PPIH boleh juga menjalankan umrah (PPIU included) — strategis untuk cash flow selama menunggu musim haji",
+   543→      "Jangan gunakan klaim 'travel haji resmi' di marketing sebelum SK terbit — pelanggarannya sangat fatal",
+   544→    ],
+   545→    faq: [
+   546→      {
+   547→        q: "Apakah PPIU bisa naik kelas jadi PPIH?",
+   548→        a: "Bisa — jalurnya justru paling umum: PPIU yang sehat keuangan dan administrasinya kemudian mengajukan PPIH dengan menambah modal disetor hingga ambang yang disyaratkan serta lolos pembinaan & uji kelayakan Kemenag. Kami bantu dari tahap audit awal sampai SK terbit.",
+   549→      },
+   550→      {
+   551→        q: "Berapa modal minimal untuk PPIH?",
+   552→        a: "Sesuai regulasi Kemenag, modal disetor PPIH hingga Rp 3 miliar dalam bentuk uang tunai dan/atau setara kas yang dapat diverifikasi. Angka final bergantung pada peraturan terbaru saat Anda mengajukan — kami selalu pakai checklist regulasi terkini saat konsultasi.",
+   553→      },
+   554→    ],
+   555→  },
+   556→  {
+   557→    id: "iata",
+   558→    name: "Registrasi IATA (Agen Tiket Penerbangan Internasional)",
+   559→    short:
+   560→      "Akreditasi IATA (International Air Transport Association) membuat agen travel Anda berhak menerbitkan tiket internasional langsung via BSP/CASS — standar diakui 300+ maskapai dunia.",
+   561→    long:
+   562→      "IATA (International Air Transport Association) adalah asosiasi maskapai penerbangan dunia. Akreditasi IATA Agent membuat travel Anda resmi sebagai penerbit tiket: akses langsung ke BSP (Billing and Settlement Plan) untuk tiket domestik/internasional dan CASS untuk kargo, ID IATA resmi, komisi & nett fare langsung dari maskapai, serta kredibilitas kelas dunia di mata korporasi. Kuncinya: legalitas badan usaha travel, kesehatan keuangan dengan financial security (umumnya bank guarantee dalam USD sesuai proyeksi penjualan), personel yang bersertifikat kompetensi tiket (mis. IATA Foundation), dan kantor operasional layak. Untuk agen yang belum siap akreditasi penuh, tersedia TIDS (Travel Industry Designator Service) sebagai ID resmi IATA untuk transaksi non-BSP — strategi awal yang cerdas sebelum full accreditation.",
+   563→    authority: "IATA — International Air Transport Association (Area Office Singapura untuk Indonesia)",
+   564→    legalBasis: "Kriteria akreditasi IATA Passenger Agent / TIDS Resolution + regulasi lokal penjualan tiket",
+   565→    cost: "Mulai Rp 10 juta + biaya resmi IATA (registration & annual) + bank guarantee (USD)",
+   566→    timeline: "45-90 hari (tergantung bank guarantee & audit IATA)",
+   567→    requirements: [
+   568→      "Badan usaha legal (PT/CV) dengan objek kegiatan travel + NIB",
+   569→      "Sertifikat Usaha Pariwisata/TDAU untuk kredibilitas maksimal",
+   570→      "Laporan keuangan sehat + financial security (bank guarantee USD sesuai kriteria IATA)",
+   571→      "Personel bersertifikat kompetensi (IATA Foundation / course tiket)",
+   572→      "Kantor operasional layak + tidak ada riwayat fraud maskapai",
+   573→    ],
+   574→    steps: [
+   575→      "Konsultasi skema: full Accredited Agent vs TIDS vs sub-agent transisi",
+   576→      "Pembenahan legalitas + persiapan laporan keuangan sesuai kriteria IATA",
+   577→      "Pengurusan bank guarantee & pengisian formulir akreditasi",
+   578→      "Audit/verifikasi IATA (dokumen & kantor)",
+   579→      "Akreditasi terbit: ID IATA aktif, akses BSP/CASS, kontrak maskapai",
+   580→    ],
+   581→    tips: [
+   582→      "Bank guarantee adalah biaya terbesar — besarnya mengikuti proyeksi penjualan; kami bantu optimalkan dari data riil Anda",
+   583→      "TIDS dulu, akreditasi penuh kemudian — banyak agen sukses pakai jalur ini untuk bangun riwayat dulu",
+   584→      "Kombinasikan dengan TDAU/Sertifikat Usaha Pariwisata: satu paket, kredibilitas ganda di mata maskapai & korporasi",
+   585→    ],
+   586→    faq: [
+   587→      {
+   588→        q: "Tanpa IATA, apakah travel tetap bisa jual tiket internasional?",
+   589→        a: "Bisa, sebagai sub-agent (menjual ulang tiket dari agen IATA lain) — tapi Anda kehilangan komisi penuh, akses nett fare langsung, dan kontrol penerbitan. Dengan akreditasi IATA, margin jauh lebih sehat dan korporasi bisa jadi klien langsung Anda.",
+   590→      },
+   591→      {
+   592→        q: "Berapa total biaya IATA per tahunnya?",
+   593→        a: "Ada biaya registration awal, annual fee IATA, biaya pemeliharaan bank guarantee, plus pelatihan personel. Totalnya bervariasi sesuai proyeksi penjualan Anda — saat konsultasi kami susun total cost of ownership transparan sejak hari pertama.",
+   594→      },
+   595→    ],
+   596→  },
+   597→  {
+   598→    id: "saudi-arabia",
+   599→    name: "Izin Usaha Arab Saudi (Lisensi MISA & CR)",
+   600→    short:
+   601→      "MISA (Ministry of Investment Saudi Arabia) adalah pintu masuk legal untuk usaha asing di Arab Saudi era Vision 2030 — banyak sektor kini terbuka 100% kepemilikan asing, tanpa wajib mitra lokal.",
+   602→    long:
+   603→      "Ekspansi ke Arab Saudi sedang emas: Vision 2030 membuka ekonomi terbesar di Timur Tengah dengan reformasi perizinan masif. Alur legalnya: (1) MISA License — lisensi investasi dari Ministry of Investment Saudi Arabia yang mengizinkan kepemilikan asing (di banyak sektor kini 100% tanpa mitra lokal); (2) pendirian entitas + Commercial Registration (CR) dari Ministry of Commerce; (3) registrasi ZATCA untuk pajak & e-invoice; (4) Chamber of Commerce, GOSI (jaminan sosial karyawan), dan Iqama untuk direksi/General Manager; (5) bila memenuhi kriteria, program Regional Headquarters (RHQ) Riyadh memberi insentif pajak hingga 30 tahun. Dokumen Indonesia (akta, SK, NIB) wajib dialihbahasakan & dialegalkan (apostille — Arab Saudi kini sudah menerima jalur apostille). Tim internasional kami menangani end-to-end dari Jakarta, termasuk memilih ISIC codes Saudi yang tepat sesuai KBLI bisnis Anda.",
+   604→    authority: "MISA (Ministry of Investment Saudi Arabia) + Ministry of Commerce — Kerajaan Arab Saudi",
+   605→    legalBasis: "Saudi Investment Law & regulasi MISA, Companies Law Saudi, kerangka Vision 2030 / RHQ Program",
+   606→    cost: "Paket Internasional mulai Rp 45 juta + biaya resmi pemerintah Saudi (SAR)",
+   607→    timeline: "60-120 hari sampai CR terbit & siap operasional",
+   608→    requirements: [
+   609→      "Dokumen legalitas usaha Indonesia (akta, SK, NIB) + terjemahan resmi & apostille",
+   610→      "Paspor & data pribadi pemegang saham/direksi",
+   611→      "Rencana investasi singkat + pemilihan aktivitas (ISIC codes Saudi)",
+   612→      "Alamat kantor di Arab Saudi (bisa mulai dari serviced office sesuai sektor)",
+   613→      "Modal sesuai jenis lisensi — banyak sektor kini tanpa syarat mitra lokal (100% foreign ownership)",
+   614→    ],
+   615→    steps: [
+   616→      "Konsultasi struktur: sektor, negative list, kelayakan 100% ownership & opsi RHQ",
+   617→      "Pengajuan MISA License (elektronik, via portal MISA)",
+   618→      "Pendirian entitas + Commercial Registration (CR) Ministry of Commerce",
+   619→      "Registrasi ZATCA (pajak, e-invoice), Chamber of Commerce & GOSI",
+   620→      "Iqama GM/direksi + pembukaan rekening korporat Saudi",
+   621→      "Operasional siap — kami tetap jadi compliance partner tahunan Anda",
+   622→    ],
+   623→    tips: [
+   624→      "Cek Negative List terbaru sebelum memutuskan struktur — banyak sektor yang dulu wajib mitra lokal kini terbuka 100%",
+   625→      "Program Regional HQ (RHQ) di Riyadh memberi insentif pajak hingga 30 tahun + akses kontrak pemerintah — layak dipertimbangkan sejak awal",
+   626→      "Gunakan jalur apostille untuk dokumen Indonesia — jauh lebih cepat daripada legalisasi konsuler",
+   627→    ],
+   628→    faq: [
+   629→      {
+   630→        q: "Apakah PT Indonesia bisa 100% memiliki perusahaan di Arab Saudi?",
+   631→        a: "Ya — sejak reformasi Vision 2030, sebagian besar sektor terbuka 100% kepemilikan asing melalui lisensi MISA tanpa wajib mitra lokal. Sektor tertentu masih punya batasan (negative list). Kirim jenis usaha Anda, kami cek kelayakannya gratis dalam 1x konsultasi.",
+   632→      },
+   633→      {
+   634→        q: "Apakah saya harus tinggal di Arab Saudi untuk mengurus izin ini?",
+   635→        a: "Tidak harus selama proses — mayoritas pengurusan MISA & CR bisa secara elektronik dari Jakarta dengan power of attorney. Kunjungan fisik biasanya baru diperlukan untuk Iqama direksi & pembukaan rekening korporat. Tim kami mengatur jadwal minimal yang efisien.",
+   636→      },
+   637→    ],
+   638→  },
+   639→  {
+   640→    id: "rkab-tambang",
+   641→    name: "RKAB & Kepatuhan Tambang (IUP/IUPK — ESDM & Minerba)",
+   642→    short:
+   643→      "RKAB (Rencana Kerja & Anggaran Biaya) kini 3 tahunan, izin jual & angkut via MODI, perpanjangan IUP/IUPK — kepatuhan tambang adalah rutinitas berisiko tinggi yang tidak boleh telat sehari pun.",
+   644→    long:
+   645→      "Pemegang IUP/IUPK berdiri di atas lapisan kewajiban berkala: RKAB (Rencana Kerja dan Anggaran Biaya) yang sejak 2023 diajukan untuk periode 3 tahun melalui Minerba Online Processing System (e-RKAB), laporan berkala (LKPM minerba), kewajiban DMO/DPO untuk batubara, royalti & pajak kepatuhan, dokumen lingkungan, hingga izin penjualan (izin jual via MODI — Minerba One Data Indonesia) dan izin pengangkutan. Terlambat atau salah strategi RKAB = produksi terhenti & sanksi. Perpanjangan IUP/IUPK harus mulai diproses 6-12 bulan sebelum masa berlaku habis, termasuk kajian kelayakan, kewajiban pengusahaan (wajib pengolahan/divestasi sesuai konteks), dan koordinasi dengan Ditjen Minerba ESDM. Tim kami — yang benar-benar paham bahasa teknis minerba — menangani audit kepatuhan, penyusunan RKAB & justifikasi teknis, sampai negosiasi forum evaluasi.",
+   646→    authority: "Ditjen Mineral dan Batubara — Kementerian ESDM (+ DMO/DPO & provinsi terkait)",
+   647→    legalBasis: "UU 3/2020 (perubahan UU 4/2009 Minerba), PP 96/2021, Permen ESDM RKAB & Permen Minerba terkini",
+   648→    cost: "Mulai Rp 8 juta per dokumen/program (paket tahunan tersedia)",
+   649→    timeline: "30-90 hari per dokumen (RKAB mengikuti kalender evaluasi ESDM)",
+   650→    requirements: [
+   651→      "IUP/IUPK aktif + data kewajiban pengusahaan & laporan berkala",
+   652→      "Data teknis eksplorasi/operasi produksi untuk justifikasi RKAB",
+   653→      "Status kepatuhan: royalti, DMO/DPO, dokumen lingkungan",
+   654→      "Akun & data bersih di Minerba Online (e-RKAB) dan MODI",
+   655→      "Untuk perpanjangan: kajian kelayakan & pemenuhan kewajiban pengusahaan",
+   656→    ],
+   657→    steps: [
+   658→      "Audit kepatuhan tahunan: mapping semua kewajiban & tenggat",
+   659→      "Penyusunan RKAB 3 tahun + justifikasi teknis (produksi, biaya, program)",
+   660→      "Pengajuan via Minerba Online Processing System (e-RKAB)",
+   661→      "Koordinasi forum evaluasi & revisi hingga disetujui",
+   662→      "Turunan operasional: izin jual via MODI, izin angkut, pelaporan LKPM",
+   663→    ],
+   664→    tips: [
+   665→      "RKAB kini 3 tahunan — susun strategi produksi 3 tahun dalam satu dokumen; revisi tengah periode mahal secara waktu",
+   666→      "Perpanjangan IUP/IUPK mulai diajukan 6-12 bulan sebelum habis — telat 1 bulan bisa berarti produksi berhenti",
+   667→      "Izin jual & angkut kini dikelola via MODI — pastikan akun, data produksi & laporan MODI Anda konsisten sejak awal",
+   668→    ],
+   669→    faq: [
+   670→      {
+   671→        q: "IUP saya telat lapor/RKAB ditolak, apakah bisa diselamatkan?",
+   672→        a: "Sering kali bisa — melalui regularisasi: perbaikan dokumen, penyelesaian administrasi kewajiban, dan komunikasi teknis dengan evaluator ESDM. Semakin cepat ditangani, semakin kecil sanksi administratifnya. Konsultasikan riwayat izin Anda untuk analisis kelayakan.",
+   673→      },
+   674→      {
+   675→        q: "Apa bedanya RKAB lama dan RKAB sekarang?",
+   676→        a: "Sejak 2023, RKAB tidak lagi tahunan melainkan diajukan untuk periode 3 tahun melalui sistem Minerba Online. Isinya lebih strategis (rencana produksi & anggaran 3 tahun) dengan kemampuan penyesuaian tertentu. Format & evaluasinya berbeda — dokumen lama tidak bisa hanya diperbarui, harus disusun ulang dengan justifikasi teknis yang benar.",
+   677→      },
+   678→    ],
+   679→  },
+   680→];
+   681→
+   682→// ---------- PANDUAN PER SEKTOR ----------
+   683→export interface SectorGuide {
+   684→  id: string;
+   685→  name: string;
+   686→  desc: string;
+   687→  permits: string[];
+   688→  kbliHint: string;
+   689→  caseNote: string;
+   690→}
+   691→
+   692→export const SECTOR_GUIDES: SectorGuide[] = [
+   693→  {
+   694→    id: "kuliner",
+   695→    name: "Kuliner / F&B",
+   696→    desc: "Dari warung online sampai franchise — F&B adalah sektor dengan izin paling banyak ditanya. Kuncinya: NIB, halal, dan izin edar sesuai produk.",
+   697→    permits: ["NIB + Sertifikat Standar", "Sertifikat Halal", "PIRT / MD BPOM", "PBG & SLF (ruang usaha)", "NPWP & PPh 0,5%"],
+   698→    kbliHint: "KBLI 56xxx (restoran, katering, kedai minuman) & 107xx (industri pengolahan)",
+   699→    caseNote: "Klien kami: kafe roastery Yogyakarta — 6 izin selesai 3 minggu, paket Bisnis.",
+   700→  },
+   701→  {
+   702→    id: "konstruksi",
+   703→    name: "Konstruksi / Properti",
+   704→    desc: "Ikut tender & proyek menuntut badan hukum + kualifikasi. PT konstruksi membutuhkan SBU, sertifikasi personel, dan kepatuhan AMDAL untuk proyek besar.",
+   705→    permits: ["Pendirian PT", "NIB & SBU Konstruksi", "SKA/SKT personel", "Izin Lingkungan (proyek besar)", "PBG & SLF"],
+   706→    kbliHint: "KBLI 41xxx (bangunan gedung) & 42xxx (konstruksi sipil)",
+   707→    caseNote: "Klien kami: BS Konstruksi — BUT, NIB, SBU lengkap; tender lancar.",
+   708→  },
+   709→  {
+   710→    id: "retail",
+   711→    name: "Retail / Toko & E-commerce",
+   712→    desc: "Jualan online maupun offline tetap wajib NIB. Marketplace kini menuntut legalitas produk — NIB + izin edar adalah tiket masuk resmi.",
+   713→    permits: ["NIB Perseorangan/PT", "Izin Edar produk (PIRT/MD)", "Sertifikat Halal (produk F&B)", "SPPKP (bila perlu faktur pajak)"],
+   714→    kbliHint: "KBLI 47xxx (perdagangan eceran) & 62xxx (jasa e-commerce)",
+   715→    caseNote: "Klien kami: brand skincare — MD BPOM 45 hari, langsung lolos kurasi marketplace.",
+   716→  },
+   717→  {
+   718→    id: "manufaktur",
+   719→    name: "Manufaktur / Pabrik",
+   720→    desc: "Sektor paling kompleks: lingkungan, keselamatan kerja, dan standardisasi produk. Perencanaan berurutan dari awal menghemat 3-6 bulan.",
+   721→    permits: ["NIB + Sertifikat Standar industri", "Izin Lingkungan (UKL-UPL/AMDAL)", "PBG & SLF pabrik", "SNI (bila wajib)", "P2K3 & K3 keselamatan"],
+   722→    kbliHint: "KBLI 10xxx-33xxx sesuai industri pengolahan",
+   723→    caseNote: "Tim kami menangani AMDAL pabrik lintas provinsi dengan forum teknis penuh.",
+   724→  },
+   725→  {
+   726→    id: "kesehatan",
+   727→    name: "Kesehatan / Klinik / Farmasi",
+   728→    desc: "Regulasi berlapis Kemenkes: izin sarana, izin praktik, akreditasi. Urutan pengurusan yang salah = macet berbulan-bulan.",
+   729→    permits: ["Badan usaha & NIB", "SIA klinik/apotek", "SIP & STR tenaga medis", "Akreditasi (bila wajib)", "Izin edar alat/obat"],
+   730→    kbliHint: "KBLI 86xxx (rumah sakit & klinik) & 477xx (apotek/retail obat)",
+   731→    caseNote: "Paket klinik lengkap 30-60 hari, termasuk koordinasi Dinkes.",
+   732→  },
+   733→  {
+   734→    id: "pariwisata",
+   735→    name: "Pariwisata / Hotel / Travel",
+   736→    desc: "TDAU & sertifikasi usaha pariwisata adalah identitas resmi sektor ini. Untuk travel agensi & wisata bahari ada izin khusus tambahan.",
+   737→    permits: ["Badan usaha & NIB", "TDAU (Tanda Daftar Usaha Pariwisata)", "Sertifikat Usaha Pariwisata", "Izin wisata bahari/khusus", "Halal (hotel & restoran)"],
+   738→    kbliHint: "KBLI 79xxx (travel) & 55xxx (akomodasi)",
+   739→    caseNote: "Klien travel Bali: TDAU 12 hari, kini 3 cabang jadi pelanggan repeat.",
+   740→  },
+   741→  {
+   742→    id: "logistik",
+   743→    name: "Logistik / Transportasi / Ekspor",
+   744→    desc: "Perizinan armada, gudang, hingga ekspor-impor. Kesalahan KBLI di sektor ini mahal karena mempengaruhi izin niaga & dokumen kepabeanan.",
+   745→    permits: ["NIB sektor transportasi", "TDUP & uji KIR armada", "Izin niaga/gudang/depot", "NIB ekspor & dokumen kepabeanan"],
+   746→    kbliHint: "KBLI 49xxx-53xxx (angkutan & pergudangan)",
+   747→    caseNote: "Izin depot & gudang kami tuntaskan lintas kota dengan kurir dokumen.",
+   748→  },
+   749→  {
+   750→    id: "tambang",
+   751→    name: "Tambang / Energi",
+   752→    desc: "Sektor paling berat regulasinya: IUP/IUPK, RKAB, hingga kewajiban pengusahaan. Butuh tim yang benar-benar paham ESDM & Minerba.",
+   753→    permits: ["IUP / IUPK", "RKAB & kewajiban pengusahaan", "Izin lingkungan (AMDAL)", "Izin angkut & jual", "IUP OP (olahan) bila perlu"],
+   754→    kbliHint: "KBLI 07xxx (tambang) & 35xxx (listrik/energi)",
+   755→    caseNote: "Paket Enterprise: dokumen IUP, koordinasi ESDM, RKAB — 90-180 hari.",
+   756→  },
+   757→  {
+   758→    id: "travel-ibadah",
+   759→    name: "Travel Ibadah (Haji & Umroh)",
+   760→    desc: "Sektor paling sensitif regulasinya — melibatkan dana jamaah & kepercayaan publik. Legalitas PPIU/PPIH adalah segalanya; tanpa itu, bisnis ini pidana.",
+   761→    permits: ["Pendirian PT travel", "SPPU & SIPU (PPIU) Kemenag", "SK PPIH untuk haji", "Rekening kolektif jamaah", "Pembimbing ibadah bersertifikat"],
+   762→    kbliHint: "KBLI 79120 (biro perjalanan wisata) + pendaftaran khusus sistem Kemenag (SIMPONI)",
+   763→    caseNote: "Klien travel umroh Jakarta: PT + SPPU + SIPU terbit 38 hari, langsung lolos e-Katalog.",
+   764→  },
+   765→  {
+   766→    id: "internasional",
+   767→    name: "Ekspansi Internasional",
+   768→    desc: "Buka perusahaan di Arab Saudi era Vision 2030, atau akreditasi IATA untuk tiket global — tim internasional kami mengurus dari Jakarta sampai Riyadh.",
+   769→    permits: ["Lisensi MISA (100% asing)", "Commercial Registration (CR)", "Iqama GM & GOSI", "ZATCA e-invoice & pajak", "Apostille dokumen Indonesia"],
+   770→    kbliHint: "Aktivitas dipetakan ke ISIC codes Saudi dari KBLI Anda — kami yang petakan",
+   771→    caseNote: "Alur kami: MISA → CR → ZATCA → Iqama — end-to-end tanpa bolak-balik Riyadh.",
+   772→  },
+   773→];
+   774→
+   775→// ---------- PANDUAN PER WILAYAH ----------
+   776→export interface RegionGuide {
+   777→  name: string;
+   778→  note: string;
+   779→  fastFacts: string;
+   780→}
+   781→
+   782→export const REGION_GUIDES: RegionGuide[] = [
+   783→  {
+   784→    name: "DKI Jakarta",
+   785→    note: "DPMPTSP DKI dengan sistem online terlengkap; dominasi usaha jasa, F&B & korporasi. PBG via SIMBG terpusat.",
+   786→    fastFacts: "Kantor kami berada di SCBD — jantung bisnis Indonesia. NIB 1 hari, PT 3-5 hari.",
+   787→  },
+   788→  {
+   789→    name: "Jawa Barat (Bandung, Bekasi)",
+   790→    note: "Kota industri & kreatif; kewajiban dokumen lingkungan ketat untuk manufaktur. Bandung kuat di F&B & kreatif.",
+   791→    fastFacts: "NIB 1 hari; sertifikat halal subsidi kuota melimpah untuk UMKM.",
+   792→  },
+   793→  {
+   794→    name: "Jawa Tengah (Semarang, Solo)",
+   795→    note: "Basis UMKM & manufaktur kecil; dukungan subsidi halal & PIRT sangat baik; proses DPMPTSP relatif cepat.",
+   796→    fastFacts: "Pendirian CV 2 hari; PIRT 14 hari — favorit pengusaha baru.",
+   797→  },
+   798→  {
+   799→    name: "DI Yogyakarta",
+   800→    note: "Kota usaha kreatif & pariwisata budaya; banyak usaha milik pemuda dengan skema perseorangan.",
+   801→    fastFacts: "NIB gratis + pendampingan LKPM; kafe & homestay jadi segmen terbanyak.",
+   802→  },
+   803→  {
+   804→    name: "Jawa Timur (Surabaya, Malang)",
+   805→    note: "Gerbang perdagangan & industri Jatim; Surabaya punya OSS daerah matang, Malang kuat di F&B & pendidikan.",
+   806→    fastFacts: "MD BPOM 30-45 hari dengan lab partner kami di Surabaya.",
+   807→  },
+   808→  {
+   809→    name: "Bali",
+   810→    note: "Pariwisata global; banyak investor asing (PMA) untuk hotel, villa & F&B. Perizinan zona (green belt!) sangat krusial.",
+   811→    fastFacts: "PMA Bali 7-14 hari + konsultasi zona sebelum beli tanah/villa.",
+   812→  },
+   813→  {
+   814→    name: "Sumatera Utara (Medan)",
+   815→    note: "Agr bisnis & perkebunan; kuat di perdagangan & manufaktur pangan.",
+   816→    fastFacts: "Izin perkebunan & PIRT mendapat prioritas dari tim Sumatera kami.",
+   817→  },
+   818→  {
+   819→    name: "Sulawesi & Kalimantan",
+   820→    note: "Pertambangan, kelapa sawit & energi; kebutuhan IUP/IUPK & dokumen lingkungan paling kompleks.",
+   821→    fastFacts: "Tim Enterprise kami on-site: AMDAL, RKAB & koordinasi ESDM.",
+   822→  },
+   823→  {
+   824→    name: "Luar Negeri (Investor Asing)",
+   825→    note: "Investor asing membangun bisnis Indonesia via PMA; tim kami berbahasa Inggris & berpengalaman lintas negara. Untuk ekspansi sebaliknya, kami juga menangani izin usaha Arab Saudi (MISA) era Vision 2030.",
+   826→    fastFacts: "PMA full service + Izin Usaha Arab Saudi (MISA, CR, ZATCA) end-to-end.",
+   827→  },
+   828→];
+   829→
+   830→// ---------- KBLI POPULER ----------
+   831→export interface KbliItem {
+   832→  code: string;
+   833→  name: string;
+   834→  risk: string;
+   835→  sector: string;
+   836→}
+   837→
+   838→export const KBLI_POPULAR: KbliItem[] = [
+   839→  { code: "56101", name: "Restoran", risk: "Menengah Rendah", sector: "Kuliner" },
+   840→  { code: "56303", name: "Kedai Kopi / Coffee Shop", risk: "Menengah Rendah", sector: "Kuliner" },
+   841→  { code: "56201", name: "Katering / Jasa Boga", risk: "Menengah Rendah", sector: "Kuliner" },
+   842→  { code: "10792", name: "Industri Kue & Roti", risk: "Menengah", sector: "Kuliner" },
+   843→  { code: "47111", name: "Perdagangan Eceran Toko/Semua Barang", risk: "Rendah", sector: "Retail" },
+   844→  { code: "47912", name: "Perdagangan Eceran Online / Marketplace", risk: "Rendah", sector: "Digital" },
+   845→  { code: "62019", name: "Aktivitas Pemrograman Komputer Lainnya", risk: "Rendah", sector: "Digital" },
+   846→  { code: "63122", name: "Portal Web / Search Engine", risk: "Rendah", sector: "Digital" },
+   847→  { code: "41011", name: "Konstruksi Bangunan Gedung Tinggi", risk: "Tinggi", sector: "Konstruksi" },
+   848→  { code: "42101", name: "Konstruksi Jalan Raya", risk: "Tinggi", sector: "Konstruksi" },
+   849→  { code: "86101", name: "Kegiatan Perawatan Rumah Sakit Umum", risk: "Tinggi", sector: "Kesehatan" },
+   850→  { code: "86202", name: "Klinik Rawat Inap", risk: "Tinggi", sector: "Kesehatan" },
+   851→  { code: "86909", name: "Aktivitas Kesehatan Lainnya (Praktik Perorangan)", risk: "Menengah", sector: "Kesehatan" },
+   852→  { code: "55112", name: "Hotel Bintang", risk: "Menengah Tinggi", sector: "Pariwisata" },
+   853→  { code: "79120", name: "Biro Perjalanan Wisata", risk: "Menengah", sector: "Pariwisata" },
+   854→  { code: "49311", name: "Angkutan Barang Kota/Regional", risk: "Menengah", sector: "Logistik" },
+   855→  { code: "52101", name: "Penyimpanan / Gudang", risk: "Menengah", sector: "Logistik" },
+   856→  { code: "10330", name: "Pengolahan & Pengawetan Daging", risk: "Menengah Tinggi", sector: "Manufaktur" },
+   857→  { code: "10711", name: "Industri Penggilingan & Penyulingan Gula", risk: "Menengah Tinggi", sector: "Manufaktur" },
+   858→  { code: "07231", name: "Pertambangan Bijih Besi", risk: "Tinggi", sector: "Tambang" },
+   859→];
+   860→
+   861→// ---------- PERBANDINGAN KOMPETITOR ----------
+   862→export interface ComparisonRow {
+   863→  feature: string;
+   864→  us: string;
+   865→  others: string;
+   866→}
+   867→
+   868→export const COMPARISON: ComparisonRow[] = [
+   869→  {
+   870→    feature: "Konsultan AI 24/7 via website",
+   871→    us: "Tersedia — jawaban instan kapan pun",
+   872→    others: "Umumnya hanya form kontak, balas di jam kantor",
+   873→  },
+   874→  {
+   875→    feature: "Cek kebutuhan izin dengan AI",
+   876→    us: "Gratis, 30 detik, tanpa daftar",
+   877→    others: "Harus isi form & tunggu sales menghubungi",
+   878→  },
+   879→  {
+   880→    feature: "Garansi uang kembali tertulis",
+   881→    us: "100% di kontrak jika izin gagal karena proses kami",
+   882→    others: "Sering hanya 'best effort' tanpa jaminan tertulis",
+   883→  },
+   884→  {
+   885→    feature: "Transparansi harga di website",
+   886→    us: "Harga paket tertera jelas & all-in",
+   887→    others: "Harga sering baru muncul saat konsultasi sales",
+   888→  },
+   889→  {
+   890→    feature: "Kantor fisik kelas korporasi",
+   891→    us: "Kawasan SCBD — satu lantai dengan Bursa Efek Indonesia",
+   892→    others: "Umumnya kantor ruko atau virtual office",
+   893→  },
+   894→  {
+   895→    feature: "Update progres harian",
+   896→    us: "PIC personal via WhatsApp, laporan tiap hari",
+   897→    others: "Umumnya dijawab saat klien bertanya",
+   898→  },
+   899→  {
+   900→    feature: "Knowledge base regulasi",
+   901→    us: "Panduan izin, sektor, wilayah & KBLI di satu halaman",
+   902→    others: "Tersebut di banyak artikel blog yang sulit dicari",
+   903→  },
+   904→  {
+   905→    feature: "Jangkauan wilayah",
+   906→    us: "38 provinsi & 514 kabupaten/kota, proses online penuh + kurir dokumen",
+   907→    others: "Umumnya terkonsentrasi di kota besar saja",
+   908→  },
+   909→  {
+   910→    feature: "Layanan khusus ibadah (Haji/Umroh) & internasional (IATA, Arab Saudi)",
+   911→    us: "Ada — divisi Travel Ibadah (PPIU/PPIH), aviasi (IATA) & tim ekspansi MENA (MISA)",
+   912→    others: "Sangat jarang ditawarkan konsultan perizinan lokal",
+   913→  },
+   914→];
+   915→
+   916→// ---------- PHASE 2 (Rencana Konten Mendatang) ----------
+   917→export const NEXT_PHASES = [
+   918→  {
+   919→    phase: "Phase 2",
+   920→    title: "Masa Depan: Blog Engine & Kalkulator",
+   921→    items: [
+   922→      "100+ artikel SEO long-tail (kbli terpisah per kode, panduan per kota)",
+   923→      "Kalkulator biaya perizinan interaktif",
+   924→      "Peta heatmap tingkat risiko KBLI",
+   925→      "Email course 'Legal Bisnis 7 Hari'",
+   926→    ],
+   927→  },
+   928→];
+   929→
