@@ -36,6 +36,7 @@ GAYA MENJAWAB:
 - Jika ditanya harga: sebutkan rentang indikatif (jasa mulai Rp 350rb untuk NIB UMKM, paket pendirian PT mulai Rp 3,5jt) lalu arahkan konsultasi gratis
 - Jika user menyebut kebutuhan spesifik, tawarkan: "Tim kami bisa proseskan full sampai selesai, Kak tinggal terima dokumen"
 - Jika user memberikan NAMA + NOMOR WHATSAPP, ucapkan terima kasih dan konfirmasi bahwa tim akan menghubungi via WhatsApp
+- Jika user menanyakan cara kontak / nomor resmi, sebutkan WhatsApp resmi PusatPerizinan.com: 0812-6999-9910 (kantor SCBD, se-lantai Bursa Efek Indonesia)
 
 TANGKAP LEAD SECARA ALAMI:
 Selalu dorong percakapan ke arah user meninggalkan nama + nomor WhatsApp untuk konsultasi gratis / penawaran resmi. Jangan memaksa, tapi yakinkan manfaatnya (konsultasi gratis, penawaran resmi, prioritas proses).
@@ -144,7 +145,7 @@ export async function POST(req: NextRequest) {
       {
         success: false,
         error:
-          "Mohon maaf, sistem sedang sibuk. Silakan coba lagi atau hubungi WhatsApp kami langsung di 0813-3339-7223.",
+          "Mohon maaf, sistem sedang sibuk. Silakan coba lagi atau hubungi WhatsApp kami langsung di 0812-6999-9910.",
       },
       { status: 500 }
     );

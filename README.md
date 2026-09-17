@@ -15,7 +15,7 @@
 [![30 Bahasa](https://img.shields.io/badge/🌐_Bahasa-30_Teratas_Dunia-10B981?style=for-the-badge)](#9-sistem-multibahasa-30-bahasa)
 [![Lint 0 Error](https://img.shields.io/badge/ESLint-0_Error_0_Warning-22C55E?style=for-the-badge&logo=eslint&logoColor=white)](#14-jaminan-kualitas)
 
-**Bahasa Indonesia** · [English](#-english-abstract) · 🇮🇩 SCBD Jakarta · 📞 0813-3339-7223
+**Bahasa Indonesia** · [English](#-english-abstract) · 🇮🇩 SCBD Jakarta · 📞 0812-6999-9910
 
 </div>
 
@@ -104,7 +104,7 @@ Proyek ini bukan sekadar landing page. Ia adalah **mesin akuisisi klien satu hal
 - Konten long-form ±6.800 kata di 13 artikel blog + 16 panduan perizinan
 
 ### 💬 Omnichannel WhatsApp
-Satu nomor bisnis di seluruh situs — **0813-3339-7223** (`6281333397223`) — tersambung dari form, chat AI, license checker, kalkulator, hingga CTA final, dengan normalisasi otomatis `0…` → `62…`.
+Satu nomor bisnis di seluruh situs — **0812-6999-9910** (`6281269999910`) — tersambung dari form, chat AI, license checker, kalkulator, hingga CTA final, dengan normalisasi otomatis `0…` → `62…`.
 
 ---
 
@@ -281,7 +281,7 @@ Form Hero & Final CTA. Normalisasi WA otomatis + estimasi nilai kontrak per pake
 // Request
 {
   "name": "Andi Wijaya",
-  "whatsapp": "0813-3339-7223",      // → dinormalisasi "6281333397223"
+  "whatsapp": "0812-6999-9910",      // → dinormalisasi "6281269999910"
   "sector": "kuliner",
   "message": "Butuh NIB + Halal untuk kafe",
   "package": "bisnis"                // umkm | bisnis | enterprise
@@ -452,11 +452,11 @@ Tiga fase yang dibangun berurutan dan saling mengunci:
 
 ## 11. Corong Konversi (5 Jalur)
 
-Semua jalur bermuara ke **WhatsApp bisnis `6281333397223`** dengan normalisasi otomatis (`0813…` → `62813…`):
+Semua jalur bermuara ke **WhatsApp bisnis `6281269999910`** dengan normalisasi otomatis (`0812…` → `62812…`):
 
 ```
                         ┌──────────────────────────────────────┐
-                        │   💬 WHATSAPP 0813-3339-7223         │
+                        │   💬 WHATSAPP 0812-6999-9910         │
                         └───────────────▲──────────────────────┘
                                         │
   ① FORM LEAD ─────────────────────────┤   Hero + Final CTA → /api/leads
@@ -561,7 +561,7 @@ bun run start    # jalankan .next/standalone/server.js
 3. **`metadataBase`** di `layout.tsx` → `https://www.pusatperizinan.com`
 4. **Sitemap** → update URL absolut di `public/sitemap.xml`, submit ke [Google Search Console](https://search.google.com/search-console)
 5. **Hreflang** → verifikasi 31 alternates dengan [Rich Results Test](https://search.google.com/test/rich-results)
-6. **WhatsApp** → pastikan `6281333397223` terdaftar WA Business API/aplikasi
+6. **WhatsApp** → pastikan `6281269999910` terdaftar WA Business API/aplikasi
 7. **Email course** → sambungkan backend email nyata (Resend/SES) ke `/api/subscribe`
 8. **Analytics** → pasang GA4 + Microsoft Clarity sebelum `</body>`
 
@@ -631,7 +631,7 @@ Kode sumber & desain: proprietary — dilarang direproduksi tanpa izin tertulis.
 
 **📍 Indonesia Stock Exchange Building, Tower 2, Lantai 5, SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190**
 
-**📞 WhatsApp 0813-3339-7223** · 🕐 Senin–Sabtu 08.00–20.00 WIB
+**📞 WhatsApp 0812-6999-9910** · 🕐 Senin–Sabtu 08.00–20.00 WIB
 
 ---
 

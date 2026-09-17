@@ -72,13 +72,13 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-2.5">
             <LanguageSwitcher />
             <a
-              href="https://wa.me/6281333397223?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
+              href="https://wa.me/6281269999910?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden xl:flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
               <PhoneCall className="h-4 w-4" />
-              0813-3339-7223
+              0812-6999-9910
             </a>
             <Button asChild size="sm" className="rounded-full px-5 font-semibold shadow-md shadow-primary/25">
               <a href="#konsultasi">
@@ -111,13 +111,13 @@ export function Header() {
             <div className="flex items-center justify-between gap-3 pb-3 mb-2 border-b">
               <LanguageSwitcher />
               <a
-                href="https://wa.me/6281333397223?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
+                href="https://wa.me/6281269999910?text=Halo%20PusatPerizinan%2C%20saya%20ingin%20konsultasi%20gratis"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-sm font-medium text-primary"
               >
                 <PhoneCall className="h-4 w-4" />
-                0813-3339-7223
+                0812-6999-9910
               </a>
             </div>
             {NAV_ITEMS.map((item) => (

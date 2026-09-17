@@ -99,7 +99,7 @@ export function ChatWidget() {
         ...prev,
         {
           role: "assistant",
-          content: "Koneksi bermasalah. Silakan coba lagi, atau hubungi langsung WhatsApp kami di 0813-3339-7223.",
+          content: "Koneksi bermasalah. Silakan coba lagi, atau hubungi langsung WhatsApp kami di 0812-6999-9910.",
         },
       ]);
     } finally {

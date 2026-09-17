@@ -32,7 +32,7 @@ export function SeoJsonLd() {
     image: `${SITE_URL}/logo.svg`,
     description:
       "Konsultan perizinan usaha #1 Indonesia. Jasa pengurusan NIB, pendirian PT/CV/PMA, OSS-RBA, sertifikasi halal, izin BPOM, PBG/SLF, AMDAL, izin umroh (PPIU) & haji (PPIH), registrasi IATA, izin usaha Arab Saudi (MISA), RKAB & perizinan tambang — melayani 38 provinsi & 514 kabupaten/kota dengan garansi 100% uang kembali.",
-    telephone: "+62-813-3339-7223",
+    telephone: "+62-812-6999-9910",
     email: "halo@pusatperizinan.com",
     foundingDate: "2024",
     address: {
