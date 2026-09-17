@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Users, FileCheck2, MapPin, Building, ThumbsUp, Zap } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 interface Stats {
   clients: number;
@@ -28,6 +29,7 @@ function formatNumber(n: number): string {
 
 export function StatsBar() {
   const [stats, setStats] = useState<Stats | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     fetch("/api/stats")
@@ -39,12 +41,12 @@ export function StatsBar() {
   const s = stats ?? FALLBACK;
 
   const items = [
-    { icon: Users, label: "Klien Dilayani", value: formatNumber(s.clients) },
-    { icon: FileCheck2, label: "Izin Diproses", value: formatNumber(s.permitsProcessed) },
-    { icon: MapPin, label: "Provinsi", value: `${s.provinces}` },
-    { icon: Building, label: "Kabupaten/Kota", value: `${s.regenciesCities}` },
-    { icon: ThumbsUp, label: "Kepuasan Klien", value: `${s.satisfaction}%` },
-    { icon: Zap, label: "Rata-rata Proses", value: `${s.avgProcessingHours} jam` },
+    { icon: Users, label: t("statClients"), value: formatNumber(s.clients) },
+    { icon: FileCheck2, label: t("statPermits"), value: formatNumber(s.permitsProcessed) },
+    { icon: MapPin, label: t("statProvinces"), value: `${s.provinces}` },
+    { icon: Building, label: t("statCities"), value: `${s.regenciesCities}` },
+    { icon: ThumbsUp, label: t("statSatisfaction"), value: `${s.satisfaction}%` },
+    { icon: Zap, label: t("statAvgTime"), value: `${s.avgProcessingHours} ${t("statHours")}` },
   ];
 
   return (

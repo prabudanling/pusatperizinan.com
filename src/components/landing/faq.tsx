@@ -8,8 +8,10 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { FAQS } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 export function Faq() {
+  const { t } = useLanguage();
   return (
     <section id="faq" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,10 +20,10 @@ export function Faq() {
             FAQ
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Pertanyaan yang <span className="text-gradient-brand">Sering Ditanyakan</span>
+            {t("faqT1")} <span className="text-gradient-brand">{t("faqTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Masih ragu? Jawaban ini mungkin membantu. Atau tanya langsung ke AI Consultant kami.
+            {t("faqSub")}
           </p>
         </div>
 

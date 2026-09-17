@@ -5,8 +5,10 @@ import { Clock, ArrowRight, Flame } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SERVICES } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 export function Services() {
+  const { t } = useLanguage();
   return (
     <section id="layanan" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,10 +18,10 @@ export function Services() {
             Layanan Kami
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Satu Pintu untuk <span className="text-gradient-brand">Semua Kebutuhan Legal</span> Usaha Anda
+            {t("servicesT1")} <span className="text-gradient-brand">{t("servicesTHigh")}</span> {t("servicesT2")}
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Dari UMKM sampai korporasi — 40+ jenis perizinan kami urus tuntas dengan jalur resmi pemerintah.
+            {t("servicesSub")}
           </p>
         </div>
 

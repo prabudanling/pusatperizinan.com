@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { SeoJsonLd } from "@/components/landing/seo-jsonld";
+import { LanguageProvider } from "@/lib/i18n/language-provider";
+import { LANGUAGES } from "@/lib/i18n/languages";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +78,14 @@ export const metadata: Metadata = {
   publisher: "PT Pusat Perizinan Digital Nusantara",
   alternates: {
     canonical: "/",
+    // hreflang untuk 30 bahasa teratas dunia (?lang=xx diproses client-side)
+    languages: {
+      "x-default": "/",
+      id: "/",
+      ...Object.fromEntries(
+        LANGUAGES.filter((l) => l.code !== "id").map((l) => [l.code, `/?lang=${l.code}`])
+      ),
+    },
   },
   category: "Business Legal Services",
   robots: {
@@ -152,9 +162,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
-        {children}
-        <SeoJsonLd />
-        <Toaster />
+        <LanguageProvider>
+          {children}
+          <SeoJsonLd />
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

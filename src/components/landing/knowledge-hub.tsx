@@ -16,6 +16,7 @@ import {
   Scale,
   Layers,
   BadgeCheck,
+  Languages,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -33,6 +34,7 @@ import {
   KBLI_POPULAR,
 } from "@/lib/seo-content";
 import { BLOG_ARTICLES } from "@/lib/blog-content";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 function riskBadgeClass(risk: string): string {
   const r = risk.toLowerCase();
@@ -50,6 +52,7 @@ function relatedBlogForGuide(guideId: string) {
 }
 
 export function KnowledgeHub() {
+  const { t } = useLanguage();
   const [tab, setTab] = useState("izin");
   const [openGuide, setOpenGuide] = useState("");
 
@@ -80,12 +83,14 @@ export function KnowledgeHub() {
             Knowledge Base Terlengkap
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Panduan Perizinan Usaha Indonesia —{" "}
-            <span className="text-gradient-brand">Lengkap, Jelas, Terkini</span>
+            {t("hubT1")}{" "}
+            <span className="text-gradient-brand">{t("hubTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Segala hal tentang NIB, PT, CV, Halal, BPOM, PBG/SLF, AMDAL, PMA, hingga pajak usaha —
-            dipelajari dari dasar hingga detail teknis. Disusun dari UU Cipta Kerja & regulasi terbaru.
+            {t("hubSub")}
+          </p>
+          <p className="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/85">
+            <Languages className="h-3.5 w-3.5 text-primary" aria-hidden /> {t("contentNote")}
           </p>
         </div>
 
@@ -93,16 +98,16 @@ export function KnowledgeHub() {
         <Tabs value={tab} onValueChange={setTab} className="mt-12">
           <TabsList className="mx-auto grid w-full max-w-2xl grid-cols-4 h-auto p-1 rounded-2xl bg-secondary/70">
             <TabsTrigger value="izin" className="rounded-xl py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm font-semibold flex-col sm:flex-row gap-1">
-              <FileText className="h-4 w-4" /> Per Izin
+              <FileText className="h-4 w-4" /> {t("tabPerIzin")}
             </TabsTrigger>
             <TabsTrigger value="sektor" className="rounded-xl py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm font-semibold flex-col sm:flex-row gap-1">
-              <Layers className="h-4 w-4" /> Per Sektor
+              <Layers className="h-4 w-4" /> {t("tabPerSektor")}
             </TabsTrigger>
             <TabsTrigger value="wilayah" className="rounded-xl py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm font-semibold flex-col sm:flex-row gap-1">
-              <MapPinned className="h-4 w-4" /> Per Wilayah
+              <MapPinned className="h-4 w-4" /> {t("tabPerWilayah")}
             </TabsTrigger>
             <TabsTrigger value="kbli" className="rounded-xl py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs sm:text-sm font-semibold flex-col sm:flex-row gap-1">
-              <Hash className="h-4 w-4" /> KBLI
+              <Hash className="h-4 w-4" /> {t("tabKbli")}
             </TabsTrigger>
           </TabsList>
 

@@ -7,8 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { PRICING } from "@/lib/landing-data";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 export function Pricing() {
+  const { t } = useLanguage();
   return (
     <section id="harga" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,10 +19,10 @@ export function Pricing() {
             Harga Transparan
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Harga Jelas di Awal, <span className="text-gradient-brand">Tanpa Biaya Siluman</span>
+            {t("pricingT1")} <span className="text-gradient-brand">{t("pricingTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Semua paket sudah termasuk biaya resmi & jasa. Bayar 50% di awal, 50% setelah izin terbit.
+            {t("pricingSub")}
           </p>
         </div>
 

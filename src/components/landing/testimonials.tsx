@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TESTIMONIALS } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 function initialsOf(name: string): string {
   return name
@@ -17,6 +18,7 @@ function initialsOf(name: string): string {
 }
 
 export function Testimonials() {
+  const { t } = useLanguage();
   return (
     <section id="testimoni" className="py-20 md:py-28 bg-secondary/40 border-y scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,10 +27,10 @@ export function Testimonials() {
             Testimoni Klien
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            1.247+ Bisnis Sudah <span className="text-gradient-brand">Bukti Legal</span>
+            {t("testiT1")} <span className="text-gradient-brand">{t("testiTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Rating 4.9/5 dari 890+ ulasan. Ini cerita mereka yang bisnisnya sekarang resmi dan tenang.
+            {t("testiSub")}
           </p>
         </div>
 

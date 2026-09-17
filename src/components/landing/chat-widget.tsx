@@ -7,24 +7,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { WHATSAPP_NUMBER } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 interface ChatMsg {
   role: "user" | "assistant";
   content: string;
 }
 
-const WELCOME: ChatMsg = {
+const WELCOME_FALLBACK: ChatMsg = {
   role: "assistant",
   content:
     "Halo Kak! 👋 Saya **RIZKI**, Konsultan AI PusatPerizinan.com — siaga 24 jam untuk semua pertanyaan perizinan usaha.\n\nNIB, PT, CV, Halal, BPOM, atau izin lainnya? Tanya saja langsung! 😊",
 };
-
-const QUICK_REPLIES = [
-  "Apa saja izin untuk buka kafe?",
-  "Berapa biaya pendirian PT?",
-  "Cara daftar NIB untuk UMKM",
-  "Bedanya PIRT dan BPOM apa?",
-];
 
 function renderMessage(text: string) {
   // Render sederhana: **bold** → <strong>, newline → break
@@ -45,8 +39,9 @@ function renderMessage(text: string) {
 }
 
 export function ChatWidget() {
+  const { t, lang } = useLanguage();
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMsg[]>([WELCOME]);
+  const [messages, setMessages] = useState<ChatMsg[]>([WELCOME_FALLBACK]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [sessionId] = useState(() =>
@@ -67,6 +62,15 @@ export function ChatWidget() {
     if (open) setHasNewMessage(false);
   }, [open]);
 
+  // Sambutan mengikuti bahasa aktif (reset hanya jika percakapan belum dimulai)
+  useEffect(() => {
+    setMessages((prev) =>
+      prev.length <= 1 && prev[0]?.role === "assistant"
+        ? [{ role: "assistant", content: t("chatWelcome") }]
+        : prev
+    );
+  }, [lang, t]);
+
   const send = async (text?: string) => {
     const message = (text ?? input).trim();
     if (!message || sending) return;
@@ -79,7 +83,7 @@ export function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId, message }),
+        body: JSON.stringify({ sessionId, message, language: lang }),
       });
       const json = await res.json();
       if (json.success) {
@@ -149,10 +153,10 @@ export function ChatWidget() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-white flex items-center gap-1.5">
-                  RIZKI — Konsultan AI
+                  {t("chatTitle")}
                   <Sparkles className="h-3.5 w-3.5 text-amber-300" />
                 </p>
-                <p className="text-[11px] text-emerald-100/85">Online • Balas dalam hitungan detik</p>
+                <p className="text-[11px] text-emerald-100/85">{t("chatStatus")}</p>
               </div>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -194,7 +198,7 @@ export function ChatWidget() {
                 <div className="flex justify-start">
                   <div className="bg-card border border-border rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1.5">
                     <Loader2 className="h-3.5 w-3.5 animate-spin text-primary" />
-                    <span className="text-xs text-muted-foreground">RIZKI sedang mengetik...</span>
+                    <span className="text-xs text-muted-foreground">{t("chatTyping")}</span>
                   </div>
                 </div>
               )}
@@ -202,7 +206,7 @@ export function ChatWidget() {
               {/* Quick replies — hanya tampil di awal percakapan */}
               {messages.length <= 1 && !sending && (
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {QUICK_REPLIES.map((qr) => (
+                  {[t("chatQr1"), t("chatQr2"), t("chatQr3"), t("chatQr4")].map((qr) => (
                     <button
                       key={qr}
                       onClick={() => send(qr)}
@@ -226,7 +230,7 @@ export function ChatWidget() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Tanya soal izin usaha..."
+                placeholder={t("chatPlaceholder")}
                 className="h-10 rounded-full text-sm bg-secondary/50 border-border/70"
                 maxLength={1000}
                 aria-label="Ketik pesan"

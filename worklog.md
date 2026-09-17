@@ -217,3 +217,142 @@ Stage Summary:
 - Total aset SEO kini: 17 layanan + 16 panduan + 10 sektor + 13 artikel + 38 provinsi + 514 kab/kota + 20 KBLI + 8 skema structured data
 - 5 jalur konversi aktif: Form Lead (hero/final CTA), Chat AI RIZKI, Cek Izin AI→WA, Kalkulator→WA, Kursus Email
 - PHASE 4 (kandidat): dynamic routes per-KBLI/per-kota saat domain live, email sending backend nyata, Google Search Console + backlink building
+
+---
+Task ID: 7-b
+Agent: general-purpose subagent
+Task: Translations Part B — hi, ta, bn, ar, fa, ur, he
+Work Log:
+- Baca worklog.md (Task 1-6), src/lib/i18n/types.ts (kontrak Translation), translations-core.ts (id+en sebagai sumber gaya), placeholder translations-b.ts, index.ts (cara merge), dan translations-a.ts (menjaga konsistensi pola partisi)
+- Menulis ulang penuh src/lib/i18n/translations-b.ts: 7 bahasa Asia Selatan & Timur Tengah (hi, ta, bn, ar, fa, ur, he), semua key mengikuti urutan persis interface Translation; part 1 = hi+ta+bn (Write, diakhiri marker `// __CONTINUE__`), part 2 = ar+fa+ur+he (Edit menggantikan marker)
+- Kualitas copywriting: tone marketing persuasif per bahasa (bukan harfiah) — hi/ta/bn register bisnis India/Selatan yang hangat, ar MSA register bisnis Teluk (نستخرج لك جميع التراخيص التجارية، مدقق التراخيص الذكي، ٣٥٠ ألف → "350 ألف روبية إندونيسية"), fa/ur register bisnis Iran/Pakistan natural, he register marketing Israel informal-profesional
+- Struktur headline: T1+THigh+T2 dibaca mengalir satu kalimat per bahasa (mis. hi "सारे व्यावसायिक लाइसेंस हमारे ज़िम्मे — आप बस आराम करें", ar "نستخرج لك جميع التراخيص التجارية — عليك فقط أن تسترخي")
+- Token & invariant dijalaan: {p} pkgPrefix, {name} successBody, {n} coverageT1/coverageTHigh/blogSub, {year} footerRights; 12 key T2 tetap "" (calcT2, hubT2, blogT2, courseT2, whyT2, processT2, pricingT2, testiT2, compT2, faqT2, ctaT2, sitemapT2); chatWelcome mempertahankan 👋 😊 **RIZKI** dan \n\n
+- Akronym/legal terms diawetkan: NIB, PT, CV, PMA, BPOM, PIRT, PBG, SLF, AMDAL, KBLI, OSS-RBA, IATA, RKAB, MISA, WIB, KITAS, RIZKI, PusatPerizinan.com, PT Pusat Perizinan Digital Nusantara; UMKM dilokalkan natural (hi एमएसएमई, bn ক্ষুদ্র ও মাঝারি ব্যবসা, ar المشاريع الصغيرة والمتوسطة, fa کسب‌وکارهای خرد, ur چھوٹے کاروبار, he עסקים קטנים)
+- Adaptasi budaya/angka: Latin digits di semua bahasa; Rupiah dijaga — hi "350 हज़ार इंडोनेशियाई रुपया", bn "3.5 লাখ ইন্দোনেশিয়ান রুপিয়া" (skala lakh), ar "350 ألف روبية إندونيسية", fa "350 هزار روپیه اندونزی", ur "350 ہزار انڈونیشیائی روپیہ", he "350 אלף רופיה אינדונזית"; "Sabang–Merauke" diterjemahkan sebagai frasa coast-to-coast dengan proper noun tetap
+- Verifikasi via bun (tanpa lint, tanpa menyentuh file lain): import TS OK; 7/7 bahasa = 146 key, key-set & urutan identik dengan TRANSLATIONS_CORE.en; semua token/empty-T2/emoji/RIZKI/brand lolos; KBLI muncul 2× per bahasa (tabKbli + blogSub) sama seperti en; nama perusahaan di footerRights utuh semua bahasa
+Stage Summary:
+- translations-b.ts selesai: hi, ta, bn, ar, fa, ur, he — masing-masing 146 key (contract types.ts), total ±1.280 baris
+- ar = MSA register Gulf (cocok untuk audiens investor MISA Saudi), fa/ur/he ditulis penuh dalam aksara native RTL; 3 judul section yang memang berisi konten di id/en (servicesT2, checkerT2, coverageT2) ikut terisi, 12 T2 lain tetap kosong sesuai kontrak
+- Keputusan: RIZKI & PusatPerizinan.com & nama PT dibiarkan Latin di semua bahasa (konsistensi brand, aman bidi); istilah "provisi/kabupaten" dilokalkan (hi ज़िले/शहर, ta மாவட்டங்கள்/நகரங்கள், bn জেলা/শহর, ar محافظة/مدينة, fa شهرستان/شهر, ur اضلاع/شہر, he נפות/ערים); WIB tetap "WIB"
+- Risiko dicatat: string RTL mengandung token Latin (NIB, OSS-RBA, dst.) — rendering bidi mengandalkan browser (umumnya baik); tidak ada file lain diubah, lint/server tidak disentuh sesuai instruksi
+
+---
+Task ID: 7-a
+Agent: general-purpose subagent
+Task: Translations Part A — zh, ja, ko, vi, th, tl, ms
+
+Work Log:
+- Baca worklog.md (Task 1-6), types.ts (kontrak interface Translation), translations-core.ts (id+en sebagai sumber & referensi kualitas), dan placeholder translations-a.ts
+- Menulis src/lib/i18n/translations-a.ts (1.323 baris) via Write (zh+ja+ko) + 2x Edit marker `// __CONTINUE__` (vi+th, lalu tl+ms) sesuai format yang diminta
+- 146 key per bahasa, urutan key persis mengikuti interface Translation; 12 key wajib kosong tetap "": calcT2, hubT2, blogT2, courseT2, whyT2, processT2, pricingT2, testiT2, compT2, faqT2, ctaT2, sitemapT2
+- Token dipertahankan: {p} (pkgPrefix), {n} (coverageT1/coverageTHigh/blogSub), {name} (successBody), {year} (footerRights), **RIZKI** + \n\n + 👋😊 di chatWelcome
+- Validasi runtime bun: import OK, 7 bahasa masing-masing 146 key, key-list identik (urutan & nama) dengan TRANSLATIONS_CORE.id, semua cek token/emoji/empty-string/acronym lolos ("ALL CONTRACT CHECKS PASSED")
+- Validasi tsc --noEmit targeted pada translations-a.ts: exit 0 (kontrak tipe Translation terpenuhi, tanpa mengubah file lain / tanpa `bun run lint` / tanpa menyentuh dev server)
+- Append section ini ke worklog.md
+
+Stage Summary:
+- 7 bahasa selesai: zh (简体中文), ja, ko, vi, th, tl (Filipino/Tagalog), ms (Bahasa Melayu) — masing-masing 146/146 key (interface types.ts = 146 key, bukan 149)
+- Keputusan gaya: judul section T1+THigh+T2 mengalir sebagai satu headline per bahasa (zh "企业执照/一站式代办/您只需安心收证—轻松搞定", ja "許認可は/すべて丸ごと代行/あとは受け取るだけ—ラクラク完了", ms "…Anda Tinggal Terima—Habis Cerita", dst.)
+- Mata uang tetap Rupiah: zh "35万印尼盾起", ja "35万ルピア", ko "35만 루피아", vi "350 nghìn Rupiah", th "350,000 รูเปียห์", tl "Rp 350,000", ms "Rp 350 ribu"
+- UMKM dilokalkan: zh 中小企业, ja 中小企業, ko 중소기업, vi doanh nghiệp nhỏ và vừa, th SME, tl MSME, ms PKS/UMKM; angka 1,247 (vi pakai 1.247 sesuai konvensi locale)
+- ms ditulis sebagai Bahasa Melayu asli: lesen/kos/pakej/minit/saat/kerajaan/pasukan/perunding/bandar/negeri/daerah/beratur/dikongsi/enjin carian/tempah/menaip/beza/Isnin/"Habis Cerita"; jaragan UU Cipta Kerja dilokalkan per bahasa (雇用創出法, 일자리 창출법, Luật Tạo việc làm, Akta Penciptaan Kerja, กฎหมายสร้างการจ้างงาน) dengan referensi "UU Cipta Kerja" tetap ada
+- Risiko/catatan: placeholder {p} memakai nama paket master (UMKM/Bisnis/Enterprise) — render "UMKM 套餐 / {p}プラン / Pakete {p}" dsb.; "WIB", "SCBD", "IDX/Bursa" dan nama kompetitor dibiarkan sesuai konteks; file lain TIDAK disentuh, lint/dev server tidak dijalankan
+
+---
+Task ID: 7-c
+Agent: general-purpose subagent
+Task: Translations Part C — es, fr, de, it, nl, pt, el
+Work Log:
+- Baca worklog.md (konteks Task 1-6), src/lib/i18n/types.ts (kontrak Translation interface), translations-core.ts (sumber teks id/en + referensi kualitas)
+- Tulis ulang src/lib/i18n/translations-c.ts (menggantikan placeholder) berisi 7 bahasa: es, fr, de, it, nl, pt, el — 2 tahap: Write es+fr+de dengan marker `// __CONTINUE__`, lalu Edit mengganti marker dengan it+nl+pt+el
+- Terjemahan marketing konversi-tinggi per bahasa: register formal (es usted, fr vous, de Sie, it Lei, nl u, el jamak formal, pt-BR você) dengan headline punchy; trio judul T1+THigh+T2 mengalir sebagai SATU headline alami per bahasa
+- Token dipertahankan persis: {p} di pkgPrefix, {n} di coverageT1/coverageTHigh/blogSub, {name} di successBody, {year} di footerRights, \n\n + **RIZKI** + 👋/😊 di chatWelcome; 12 key T2 (calcT2, hubT2, blogT2, courseT2, whyT2, processT2, pricingT2, testiT2, compT2, faqT2, ctaT2, sitemapT2) tetap "" di semua bahasa
+- Akronim/istilah hukum Indonesia tetap: NIB, PT, CV, PMA, BPOM, PIRT, PBG/SLF, AMDAL, KBLI, OSS-RBA, WIB, RIZKI, PusatPerizinan.com; UMKM dilokalkan: es pymes, fr PME, de KMU, nl mkb-bedrijven, pt PMEs, it PMI, el ΜΜΕ
+- Mata uang tetap rupiah (bukan simbol lokal): es "350 mil rupias", fr "350 000 roupies", de "350.000 Rupien", it "350 mila rupie", nl "350.000 roepia", pt "350 mil rupias indonésias", el "350 χιλιάδες ρουπίες"; angka ribuan per konvensi tiap bahasa (1.247; fr "1 247"; desimal 4,9)
+- Validasi read-only via bun script: 7/7 bahasa = 146 key, urutan key identik dengan en, 0 missing/0 extra, semua token/emoji/newline/acronim lengkap, empty-string T2 benar → ALL CHECKS PASSED
+- tsc --noEmit --strict pada file: exit 0 (kontrak Translation terpenuhi, tidak ada key hilang/lebih); perintah verifikasi resmi bun -e: ["es","fr","de","it","nl","pt","el"], de = 146 key
+- Catatan: interface Translation aktual berisi 146 key (brief menyebut 149 — mengikuti interface sebagai kontrak ketat); nl memakai "mkb-bedrijven" (bentuk alami Dutch untuk mkb)
+
+Stage Summary:
+- Translations Part C selesai: es, fr, de, it, nl, pt, el — masing-masing 146/146 key, urutan sama persis dengan types.ts, gaya bisnis-marketing natural per bahasa
+- File final 1.296 baris; hanya 1 file diubah (translations-c.ts); lint & dev server tidak disentuh sesuai instruksi
+
+---
+Task ID: 7-d
+Agent: general-purpose subagent
+Task: Translations Part D — ru, pl, uk, tr, sw, pa, jv
+Work Log:
+- Baca worklog.md (konteks Task 1-6 + entri 7-a/7-c), src/lib/i18n/types.ts (kontrak interface Translation), translations-core.ts (sumber teks id/en + referensi kualitas), placeholder translations-d.ts
+- Tulis ulang src/lib/i18n/translations-d.ts (menggantikan placeholder) berisi 7 bahasa: ru, pl, uk, tr, sw, pa, jv — 2 tahap: Write ru+pl+uk dengan marker `// __CONTINUE__`, lalu Edit mengganti marker dengan tr+sw+pa+jv (file final 1.383 baris)
+- Terjemahan marketing konversi-tinggi per bahasa: ru/pl/uk tutez-formal dengan headline punchy (ru "Все лицензии берём на себя — вам остаётся лишь отдохнуть", pl "Załatwimy wszystkie licencje — a Ty możesz odetchnąć", uk "Оформимо всі ліцензії — вам залишиться лише відпочивати"); tr sederhana-sopan ("Tüm işletme ruhsatlarınızı biz hallediyoruz — siz sadece arkanıza yaslanın"); sw register bisnis Afrika Timur; pa Gurmukhi sapa horm ("ਸਤ ਸ੍ਰੀ ਅਕਾਲ"); jv ngoko lugu konsisten "sampeyan" (navPricing "Regi", heroHigh2 "Santai", successBody "Matur nuhun", footerNote "Sewang lante karo Bursa Efek Indonesia")
+- Token dipertahankan persis: {p} di pkgPrefix, {n} di coverageT1/coverageTHigh/blogSub, {name} di successBody, {year} di footerRights, \n\n + **RIZKI** + 👋/😊 di chatWelcome, 🎉 di successTitle/toastSuccess/ctaSuccessTitle, ❤️ di footerMade; 12 key T2 (calcT2, hubT2, blogT2, courseT2, whyT2, processT2, pricingT2, testiT2, compT2, faqT2, ctaT2, sitemapT2) tetap "" di semua bahasa
+- Akronim/istilah hukum Indonesia tetap: NIB, PT, CV, PMA, BPOM, PIRT, PBG/SLF, AMDAL, KBLI, OSS-RBA, PPIU, PPIH, IATA, RKAB, MISA, WIB, KITAS, RIZKI, PusatPerizinan.com, SCBD; UMKM dilokalkan sesuai brief: ru МСП, pl MŚP, uk МСП, tr KOBİ, sw VIWAMA/"biashara ndogo", pa ਐਮਐਸਐਮਈ, jv UMKM
+- Mata uang tetap Rupiah: ru "от 350 тысяч рупий", pl "350 tysięcy rupii", uk "350 тисяч рупій", tr "350 bin rupiyadan", sw "rupia 350,000", pa "350 ਹਜ਼ਾਰ ਰੁਪਿਆ", jv "350 ewu rupiah"; angka ribuan per konvensi bahasa: ru/pl/uk "1 247", tr "1.247", sw/pa "1,247", jv "1.247"; desimal rating ru/pl/uk/tr "4,9/5", sw/pa "4.9/5", jv "4,9/5"
+- Validasi bun script (read-only, script di luar project): 7/7 bahasa = 146 key, urutan key identik dengan TRANSLATIONS_CORE.id, 0 missing/0 extra, semua token/emoji/newline/acronim lengkap, empty-string T2 benar → ALL LANGUAGES PASS
+- Verifikasi resmi bun -e: ["ru","pl","uk","tr","sw","pa","jv"], jv = 146 key; tsc --noEmit --strict targeted pada translations-d.ts: exit 0 (kontrak tipe Translation terpenuhi)
+- Append section ini ke worklog.md; tidak ada file lain yang diubah, `bun run lint` tidak dijalankan, dev server tidak disentuh
+
+Stage Summary:
+- Translations Part D selesai: ru, pl, uk, tr, sw, pa, jv — masing-masing 146/146 key (interface types.ts aktual = 146 key, bukan 149), urutan sama persis dengan types.ts
+- Keputusan gaya: trio judul T1+THigh+T2 mengalir sebagai SATU headline alami per bahasa (ru "Одно окно для всех юридических вопросов вашего бизнеса", tr "PusatPerizinan.com'un tam dizini", sw "Lango Moja la Mahitaji Yote ya Kisheria ya Biashara Yako", pa "30 ਸਕਿੰਟਾਂ ਵਿੱਚ ਜਾਣੋ ਤੁਹਾਨੂੰ ਕਿਹੜੇ ਲਾਇਸੈਂਸ ਚਾਹੀਦੇ ਹਨ", jv "Cek Izin Sing Sampeyan Butuhake ing 30 Detik")
+- "Halal" dilokalkan natural: ru/uk "Халяль/халяль", tr "Helal", pa "ਹਲਾਲ"; pl/sw/jv tetap "Halal"; UU Cipta Kerja tetap disebut dengan penjelasan lokal (ru/uk "Закон о создании рабочих мест / Законі про створення робочих місць", pl "ustawa o tworzeniu miejsc pracy", tr "İş Yasası", sw "Sheria ya Uundaji Kazi", pa "ਰੁਜ਼ਗਾਰ ਸਿਰਜਣ ਕਾਨੂੰਨ")
+- Risiko/catatan: placeholder {p} memakai nama paket master (UMKM/Bisnis/Enterprise) — render "Пакет {p} / {p} Paketi / Kifurushi cha {p} / {p} ਪੈਕੇਜ / Paket {p}"; "WIB" dipertahankan di footerHours semua bahasa; nama kompetitor (Infiniti Office, EasyLegal, Izin.co.id) & "Sabang–Merauke" dilokalkan per bahasa; hanya 1 file proyek yang berubah (translations-d.ts)
+
+---
+Task ID: 7-e
+Agent: general-purpose subagent
+Task: Integrasi i18n judul+subjudul ke 15 section components
+Work Log:
+- Baca worklog.md (Task 1-7d), src/lib/i18n/translations-core.ts (objek `id` sebagai sumber teks 1:1, `en` sebagai referensi struktur T1/THigh/T2), src/lib/i18n/language-provider.tsx (hook useLanguage + fallback id->key), lalu seluruh 15 komponen landing
+- Untuk tiap file: tambah `import { useLanguage } from "@/lib/i18n/language-provider";`, deklarasikan `const { t } = useLanguage();` di DALAM function komponen (bukan module scope), lalu ganti string judul/subjudul sesuai PETA KEY:
+  - services.tsx: h2 → servicesT1 + <span text-gradient-brand>servicesTHigh</span> + servicesT2; sub → servicesSub
+  - license-checker.tsx: h2 → checkerT1/THigh/T2; <p> sub (berisi <strong>roadmap…</strong>) diganti seluruhnya → checkerSub
+  - cost-calculator.tsx: h2 → calcT1 + <span>calcTHigh</span> (calcT2="" → T2 tidak dirender); sub → calcSub
+  - knowledge-hub.tsx: h2 → hubT1/THigh; sub → hubSub; 4 TabsTrigger → tabPerIzin/tabPerSektor/tabPerWilayah/tabKbli; + paragraf contentNote (import Languages ke lucide import yang ada)
+  - blog-hub.tsx: h2 → blogT1/THigh; sub → {t("blogSub").replace("{n}", String(BLOG_ARTICLES.length))}; + contentNote (Languages)
+  - email-course.tsx: badge → courseBadge; h2 → courseT1 + <span text-amber-400>courseTHigh</span>; sub → courseSub; form h3 → courseFormTitle; p form → courseFormSub; success h3 → courseSuccessTitle
+  - coverage.tsx: badge → navCoverage; h2 → coverageT1.replace({n},TOTAL_PROVINCES) + <span>coverageTHigh.replace({n},TOTAL_KABKOTA)</span> + coverageT2; sub → coverageSub
+  - why-us.tsx: whyT1/THigh + whySub; process.tsx: processT1/THigh + processSub; pricing.tsx: pricingT1/THigh + pricingSub; testimonials.tsx: testiT1/THigh + testiSub; comparison.tsx: compT1/THigh + compSub; faq.tsx: faqT1/THigh + faqSub
+  - final-cta.tsx: badge → ctaBadge; h2 → ctaT1 <br/> <span>ctaTHigh</span>; sub → ctaSub; tombol WA → ctaWaBtn; form h3/p → ctaFormTitle/ctaFormSub; label → labelName/labelWa/labelSector/labelDesc; placeholder → phSector; submit → ctaSubmit; "Mengirim..." → btnSending; privacy → ctaPrivacy; success h3 → ctaSuccessTitle; success <p> diganti seluruhnya → ctaSuccessBody + <a href="#cek-izin"> baru berisi {t("navCheckAI")} →
+  - html-sitemap.tsx: h2 → sitemapT1/THigh; sub → sitemapSub; + contentNote (Languages)
+- Konten data-driven TIDAK disentuh: SERVICES/GUIDES/KBLI/paket/testimoni/FAQ/tabel/kartu provinsi/quick examples/konten artikel tetap Bahasa Indonesia; logika, event handler, API call, state tidak diubah
+- Verifikasi rg: 0 string judul lama tersisa di 15 file; footer.tsx tidak disentuh (const "Jangkauan Nasional" di nav footer adalah module-scope milik main agent)
+- Lint: `bunx eslint` targeted ke 15 file = exit 0 (0 error 0 warning). `bun run lint` repo-wide masih menampilkan 2 problem PRE-EXISTING di luar scope & file yang dilarang disentuh: (1) warning chat-widget.tsx:72 unused eslint-disable directive react-hooks/exhaustive-deps (aturan dimatikan di eslint.config.mjs, disable directive jadi tidak terpakai), (2) error language-provider.tsx:68 react-hooks/set-state-in-effect (setState sinkron dalam useEffect deteksi bahasa; terbukti sudah ada di versi HEAD via uji git stash — bukan berasal dari Task 7-e). Disarankan main agent: hapus 1 baris komentar eslint-disable di chat-widget, dan bungkus setLangState(detectInitialLang()) dalam callback async (mis. queueMicrotask) atau lazy-init sesuai kebijakan hydration provider
+Stage Summary:
+- 15/15 komponen landing terintegrasi i18n (judul T1+THigh+T2, subtitle, badge/form/label final-cta & email-course, 4 tab knowledge-hub, + 3 paragraf contentNote di knowledge-hub/blog-hub/html-sitemap) — 46+ key Translation dipakai, placeholder {n} di-substitusi runtime (blogSub, coverageT1/THigh)
+- Pola konsisten dengan integrasi main agent: hook di dalam komponen, fallback id aman saat SSR (render awal 'id' → tidak ada hydration mismatch)
+- Lint status: 15 file yang diedit = 0 error 0 warning; repo-wide tersisa 1 error + 1 warning pre-existing pada file forbidden (chat-widget.tsx, language-provider.tsx) — dilaporkan untuk ditindak main agent, tidak diubah sesuai batasan tugas
+
+---
+Task ID: 7
+Agent: Z.ai Code (main) + 5 subagents (7-a, 7-b, 7-c, 7-d, 7-e)
+Task: MULTILINGUAL SUPREMACY — 30 Bahasa Teratas Dunia (i18n full-site + AI multibahasa + SEO hreflang)
+
+Work Log:
+- Sistem i18n baru di src/lib/i18n/: types.ts (kontrak Translation 146 key + token {p}/{n}/{name}/{year}), languages.ts (registry 30 bahasa: flag, native, RTL, speakers), translations-core.ts (id+en lengkap sebagai referensi), translations-a/b/c/d.ts (28 bahasa oleh 4 subagent paralel, masing-masing 7 bahasa), index.ts (merge + fallback lang->id->key)
+- 30 bahasa: id, en, zh, ja, ko, vi, th, tl, ms, hi, ta, bn, ar, fa, ur, he, es, fr, de, it, nl, pt, el, ru, pl, uk, tr, sw, pa, jv — 4 bahasa RTL (ar/fa/ur/he)
+- Validasi terpusat via bun script: 30/30 bahasa, 146/146 key, 0 missing
+- language-provider.tsx: deteksi berlapis (?lang= URL -> localStorage "pp-lang" -> navigator.languages -> id), sinkron <html lang/dir> (RTL otomatis), fallback t(), aman hydration (queueMicrotask)
+- language-switcher.tsx: Popover+Command searchable, flag+nama native+Inggris+jumlah penutur, badge RTL, badge "30", footer link "90% pengguna internet"; dipasang di header desktop + mobile menu + footer (varian gelap)
+- Integrasi main agent: header (8 nav + tagline + CTA), hero (badge, judul 4-part, subtitle, 3 bullet, form 14 label/ph/tombol, success, 3 toast), stats-bar (7 label), footer (tagline, 3 kolom, verified, jam, note, hak cipta {year}), chat-widget (judul, status, welcome dinamis per bahasa, placeholder, typing, 4 quick replies + kirim language ke API)
+- api/chat: param language -> instruksi system prompt "BAHASA JAWABAN WAJIB" (update live saat bahasa diganti di tengah sesi); RIZKI kini menjawab dalam 30 bahasa
+- Subagent 7-e: integrasi judul+subjudul 15 section components (services, checker, calc, hub, blog, course, coverage, why, process, pricing, testi, comparison, faq, final-cta, html-sitemap) + 4 tab knowledge hub + badge + token {n} dinamis + contentNote AI-bridge 3 titik
+- SEO: layout.tsx alternates.languages = 31 hreflang (x-default + 30, /?lang=xx); seo-jsonld availableLanguage 30 Language objects; ?lang= diproses client-side tanpa route baru
+- Fix lint: hapus eslint-disable tak terpakai (chat-widget), setState effect -> queueMicrotask (language-provider); nav header whitespace-nowrap + switcher compact di bawah xl
+
+Verifikasi Browser (agent-browser):
+- Default id: render sempurna; switcher tampil "Bahasa Indonesia 30"
+- EN: "Get Every Business License, Handled — Sit Back & Relax" + form/toast English penuh
+- ZH: 中文 judul render benar; JA via ?lang=ja: tipografi Jepang sempurna; HI mobile 390px: Devanagari, tanpa overflowX
+- AR: dir=rtl otomatis — seluruh layout mirror (logo kanan, form flip), teks Arab native
+- JV: "Urus Kabeh Izin Usaha, Sampeyan Tinggal Santai"
+- Chat AI EN: quick reply "How much does it cost to set up a PT?" -> jawaban English lengkap (Rp 3,5-7jt) — pipeline bahasa API terverifikasi
+- hreflang: 31 link alternate di DOM; console ZERO error; semua API 200; footer sticky (844=innerH)
+- Lint final: 0 error 0 warning; localStorage persist teruji (en tersimpan, restore antar-navigasi)
+
+Stage Summary:
+- PUSATPERIZINAN.COM KINI 30 BAHASA: UI chrome (nav/hero/form/stats/footer/chat/15 section titles+subs) + AI RIZKI multibahasa + hreflang/availableLanguage SEO + RTL penuh (ar/fa/ur/he)
+- Struktur konten dalam Bahasa Indonesia (17 layanan, 16 panduan, 13 artikel) dipertahankan sebagai aset SEO lokal + dijembatani contentNote -> RIZKI AI menerjemahkan/menjelaskan dalam bahasa pengunjung
+- 5 jalur konversi tetap utuh dalam semua bahasa; token {p}/{n}/{name}/{year} dirender dinamis
+- Kandidat berikutnya: terjemahan konten mendalam per-bahasa saat domain live, halaman /en /zh dedicated, sitemap per-bahasa

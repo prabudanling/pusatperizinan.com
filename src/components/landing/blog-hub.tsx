@@ -13,6 +13,7 @@ import {
   Landmark,
   ListChecks,
   MessageCircleQuestion,
+  Languages,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,7 @@ import {
   type BlogArticle,
 } from "@/lib/blog-content";
 import { PERMIT_GUIDES } from "@/lib/seo-content";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 // ============================================================
 // PUSATPERIZINAN.COM — Blog Hub (Content Center Phase 3)
@@ -50,6 +52,7 @@ function guideName(id: string): string {
 }
 
 export function BlogHub() {
+  const { t } = useLanguage();
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const [category, setCategory] = useState<string>("Semua");
   const readerRef = useRef<HTMLDivElement>(null);
@@ -93,13 +96,14 @@ export function BlogHub() {
             Blog & Wawasan Perizinan
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Perpustakaan Artikel Perizinan{" "}
-            <span className="text-gradient-brand">Terlengkap di Indonesia</span>
+            {t("blogT1")}{" "}
+            <span className="text-gradient-brand">{t("blogTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            {BLOG_ARTICLES.length} artikel mendalam dari tim ahli regulasi kami — biaya pendirian PT,
-            KBLI kuliner, PMA, RKAB tambang, travel umroh, hingga buka usaha di Arab Saudi.
-            Gratis dibaca, selalu diperbarui.
+            {t("blogSub").replace("{n}", String(BLOG_ARTICLES.length))}
+          </p>
+          <p className="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/85">
+            <Languages className="h-3.5 w-3.5 text-primary" aria-hidden /> {t("contentNote")}
           </p>
         </div>
 

@@ -2,6 +2,8 @@
 
 import { ShieldCheck, MapPin, Mail, PhoneCall } from "lucide-react";
 import { WHATSAPP_DISPLAY } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
+import { LanguageSwitcher } from "@/components/landing/language-switcher";
 
 const SERVICE_LINKS = [
   { label: "NIB & OSS-RBA", href: "#layanan-nib" },
@@ -29,6 +31,7 @@ const COMPANY_LINKS = [
 ];
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="mt-auto bg-[oklch(0.23_0.03_165)] text-emerald-50/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -43,20 +46,23 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 text-sm leading-relaxed text-emerald-100/70">
-              Konsultan perizinan usaha terpercaya Indonesia. Legalitas bisnis Anda ditangani tim ahli —
-              cepat, transparan, bergaransi.
+              {t("footerTagline")}
             </p>
             <div className="mt-5 flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-3">
               <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
               <p className="text-xs text-emerald-100/80">
-                Terdaftar & bekerja sama dengan notaris resmi di 38 provinsi & 514 kabupaten/kota
+                {t("footerVerified")}
               </p>
+            </div>
+            {/* Language switcher — 30 bahasa dunia */}
+            <div className="mt-4 [&_[role=combobox]]:border-white/15 [&_[role=combobox]]:bg-white/5 [&_[role=combobox]]:text-emerald-50 [&_[role=combobox]]:hover:bg-white/10 [&_[role=combobox]]:shadow-none">
+              <LanguageSwitcher />
             </div>
           </div>
 
           {/* Services */}
           <nav aria-label="Layanan">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Layanan</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">{t("footerColServices")}</h3>
             <ul className="mt-4 space-y-2.5">
               {SERVICE_LINKS.map((link) => (
                 <li key={link.href}>
@@ -70,7 +76,7 @@ export function Footer() {
 
           {/* Company */}
           <nav aria-label="Perusahaan">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Perusahaan</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">{t("footerColCompany")}</h3>
             <ul className="mt-4 space-y-2.5">
               {COMPANY_LINKS.map((link) => (
                 <li key={link.href}>
@@ -84,7 +90,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Kontak</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white">{t("footerColContact")}</h3>
             <ul className="mt-4 space-y-3.5">
               <li>
                 <a
@@ -97,7 +103,7 @@ export function Footer() {
                   <span>
                     WhatsApp {WHATSAPP_DISPLAY}
                     <br />
-                    <span className="text-xs text-emerald-200/50">Senin-Sabtu, 08.00-20.00 WIB</span>
+                    <span className="text-xs text-emerald-200/50">{t("footerHours")}</span>
                   </span>
                 </a>
               </li>
@@ -112,7 +118,7 @@ export function Footer() {
                   <br />
                   SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190
                   <span className="block text-xs text-emerald-200/50 mt-0.5">
-                    Satu lantai dengan Bursa Efek Indonesia • Melayani seluruh Indonesia online
+                    {t("footerNote")}
                   </span>
                 </span>
               </li>
@@ -122,10 +128,10 @@ export function Footer() {
 
         <div className="mt-12 pt-7 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 pr-2 sm:pr-24 text-center sm:text-left">
           <p className="text-xs text-emerald-100/50">
-            © {new Date().getFullYear()} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Seluruh hak cipta dilindungi.
+            {t("footerRights").replace("{year}", String(new Date().getFullYear()))}
           </p>
           <p className="text-xs text-emerald-100/50 sm:pr-10">
-            Dibuat dengan ❤️ untuk kemajuan UMKM Indonesia
+            {t("footerMade")}
           </p>
         </div>
       </div>

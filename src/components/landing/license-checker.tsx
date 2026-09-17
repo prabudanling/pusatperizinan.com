@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SECTORS } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 interface PermitItem {
   name: string;
@@ -67,6 +68,7 @@ function riskColor(level: string): string {
 
 export function LicenseChecker() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [businessInput, setBusinessInput] = useState("");
   const [sector, setSector] = useState("");
   const [location, setLocation] = useState("");
@@ -147,11 +149,10 @@ export function LicenseChecker() {
               AI-Powered • Gratis
             </Badge>
             <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-              Cek Izin yang <span className="text-gradient-brand">Anda Butuhkan</span> dalam 30 Detik
+              {t("checkerT1")} <span className="text-gradient-brand">{t("checkerTHigh")}</span> {t("checkerT2")}
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Cukup deskripsikan usaha Anda. AI kami yang terlatih regulasi UU Cipta Kerja & OSS-RBA akan menyusun{" "}
-              <strong className="text-foreground">roadmap perizinan lengkap</strong> — gratis, tanpa daftar akun.
+              {t("checkerSub")}
             </p>
 
             <Card className="mt-6 shadow-lg border-primary/20">

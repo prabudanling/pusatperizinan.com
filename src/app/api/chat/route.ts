@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import ZAI from "z-ai-web-dev-sdk";
 import { db } from "@/lib/db";
+import { isLangCode, langEnglishName } from "@/lib/i18n/languages";
 
 // ============================================================
 // POST /api/chat — Konsultan AI Perizinan 24/7
@@ -9,6 +10,14 @@ import { db } from "@/lib/db";
 
 // In-memory conversation store (per session)
 const conversations = new Map<string, { role: string; content: string }[]>();
+const sessionLangs = new Map<string, string>();
+
+/** Suffix instruksi bahasa untuk system prompt (dipanggil saat visitor memilih bahasa) */
+function languageSuffix(langCode: string): string {
+  if (!isLangCode(langCode) || langCode === "id") return "";
+  const name = langEnglishName(langCode);
+  return `\n\nBAHASA JAWABAN WAJIB: Pengunjung memilih bahasa ${name}. Selalu balas dalam ${name} yang natural, hangat, dan profesional (istilah hukum Indonesia seperti NIB, PT, KBLI, OSS boleh tetap dalam bentuk aslinya). Jika user menulis dalam bahasa lain, ikuti bahasa user.`;
+}
 
 const SYSTEM_PROMPT = `Kamu adalah "RIZKI", Konsultan AI Senior PusatPerizinan.com — konsultan perizinan usaha terbaik di Indonesia. Kamu menguasai seluruh regulasi perizinan Indonesia secara mendalam.
 
@@ -39,7 +48,7 @@ JANGAN:
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { sessionId, message } = body;
+    const { sessionId, message, language } = body;
 
     if (!sessionId || typeof sessionId !== "string") {
       return NextResponse.json({ success: false, error: "sessionId wajib" }, { status: 400 });
@@ -49,11 +58,18 @@ export async function POST(req: NextRequest) {
     }
     const userMessage = message.trim().slice(0, 2000);
 
-    // Ambil / buat riwayat percakapan
+    // Ambil / buat riwayat percakapan (dengan instruksi bahasa aktif)
+    const langCode = isLangCode(language) ? language : "id";
+    const existingLang = sessionLangs.get(sessionId);
     let history = conversations.get(sessionId);
     if (!history) {
-      history = [{ role: "assistant", content: SYSTEM_PROMPT }];
+      history = [{ role: "assistant", content: SYSTEM_PROMPT + languageSuffix(langCode) }];
       conversations.set(sessionId, history);
+      sessionLangs.set(sessionId, langCode);
+    } else if (existingLang !== langCode) {
+      // Bahasa diganti di tengah sesi -> perbarui instruksi system prompt
+      history[0] = { role: "assistant", content: SYSTEM_PROMPT + languageSuffix(langCode) };
+      sessionLangs.set(sessionId, langCode);
     }
 
     // Simpan pesan user ke DB

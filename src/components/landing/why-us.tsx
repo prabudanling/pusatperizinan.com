@@ -9,6 +9,7 @@ import {
   FileSearch,
   MapPinned,
 } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 const REASONS = [
   {
@@ -44,6 +45,7 @@ const REASONS = [
 ];
 
 export function WhyUs() {
+  const { t } = useLanguage();
   return (
     <section id="keunggulan" className="py-20 md:py-28 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,11 +54,10 @@ export function WhyUs() {
             Kenapa PusatPerizinan?
           </span>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Bukan Sekadar Pengurusan Izin —
-            <span className="text-gradient-brand"> Mitra Legal Usaha Anda</span>
+            {t("whyT1")} <span className="text-gradient-brand">{t("whyTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Ribuan pemilik usaha pindah ke kami setelah kecewa dengan konsultan lain. Ini alasannya:
+            {t("whySub")}
           </p>
         </div>
 

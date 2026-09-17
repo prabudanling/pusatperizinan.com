@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { COMPARISON } from "@/lib/seo-content";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 export function Comparison() {
+  const { t } = useLanguage();
   return (
     <section id="perbandingan" className="py-20 md:py-28 bg-secondary/40 border-y scroll-mt-20" aria-label="Perbandingan layanan">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,12 +17,11 @@ export function Comparison() {
             Perbandingan Jujur
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Kenapa Pilih Kami Dibanding{" "}
-            <span className="text-gradient-brand">Konsultan Lain?</span>
+            {t("compT1")}{" "}
+            <span className="text-gradient-brand">{t("compTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Perbandingan objektif dengan praktik umum layanan pengurusan perizinan di Indonesia
-            (Infiniti Office, EasyLegal, Izin.co.id, dan jasa lainnya).
+            {t("compSub")}
           </p>
         </div>
 

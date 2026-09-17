@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MapPinned, Building, Globe, Clock, Wifi, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/lib/i18n/language-provider";
 import {
   PROVINCES,
   ISLANDS,
@@ -23,6 +24,7 @@ const BIG_STATS = [
 ];
 
 export function CoverageSection() {
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<Filter>("semua");
 
   const visible = useMemo(
@@ -37,17 +39,15 @@ export function CoverageSection() {
         <div className="text-center max-w-3xl mx-auto">
           <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary font-semibold px-4 py-1">
             <Globe className="h-3.5 w-3.5 mr-1.5" />
-            Jangkauan Nasional
+            {t("navCoverage")}
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            {TOTAL_PROVINCES} Provinsi &amp;{" "}
-            <span className="text-gradient-brand">{TOTAL_KABKOTA} Kabupaten/Kota</span>{" "}
-            — Dari Sabang sampai Merauke
+            {t("coverageT1").replace("{n}", String(TOTAL_PROVINCES))}{" "}
+            <span className="text-gradient-brand">{t("coverageTHigh").replace("{n}", String(TOTAL_KABKOTA))}</span>{" "}
+            {t("coverageT2")}
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Tidak peduli usaha Anda berada di Batam, Wamena, atau Balikpapan — seluruh proses
-            perizinan kami kerjakan online, dokumen dikirim via kurir, dan tim on-site kami
-            hadir untuk kebutuhan audit fisik, AMDAL, maupun sektor tambang.
+            {t("coverageSub")}
           </p>
         </div>
 

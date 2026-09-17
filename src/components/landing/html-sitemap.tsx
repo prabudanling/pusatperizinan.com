@@ -1,11 +1,12 @@
 "use client";
 
-import { BookOpen, FileText, Globe2, Landmark, MapPin, Wrench } from "lucide-react";
+import { BookOpen, FileText, Globe2, Landmark, MapPin, Wrench, Languages } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES } from "@/lib/landing-data";
 import { PERMIT_GUIDES } from "@/lib/seo-content";
 import { BLOG_ARTICLES } from "@/lib/blog-content";
 import { ISLANDS, PROVINCES } from "@/lib/coverage-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 // ============================================================
 // PUSATPERIZINAN.COM — Peta Situs HTML (internal-link powerhouse)
@@ -29,6 +30,7 @@ const TOOLS = [
 ];
 
 export function HtmlSitemap() {
+  const { t } = useLanguage();
   return (
     <section
       id="peta-situs"
@@ -43,10 +45,13 @@ export function HtmlSitemap() {
             Peta Situs
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Direktori Lengkap <span className="text-gradient-brand">PusatPerizinan.com</span>
+            {t("sitemapT1")} <span className="text-gradient-brand">{t("sitemapTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Navigasi satu halaman ke seluruh konten & layanan kami — untuk Anda, dan untuk mesin pencari.
+            {t("sitemapSub")}
+          </p>
+          <p className="mt-2.5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/85">
+            <Languages className="h-3.5 w-3.5 text-primary" aria-hidden /> {t("contentNote")}
           </p>
         </div>
 

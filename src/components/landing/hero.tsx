@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SECTORS } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 const PACKAGES = ["UMKM", "Bisnis", "Enterprise", "Belum tahu"];
 
@@ -40,6 +41,7 @@ interface HeroFormState {
 
 export function Hero() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [form, setForm] = useState<HeroFormState>({
     name: "",
     whatsapp: "",
@@ -63,19 +65,19 @@ export function Hero() {
       if (json.success) {
         setDone(true);
         toast({
-          title: "Konsultasi Gratis Terdaftar! 🎉",
+          title: t("toastSuccess"),
           description: json.message,
         });
       } else {
         toast({
-          title: "Gagal mengirim",
+          title: t("toastFail"),
           description: json.error || "Coba lagi dalam sejenak.",
           variant: "destructive",
         });
       }
     } catch {
       toast({
-        title: "Koneksi bermasalah",
+        title: t("toastConn"),
         description: "Periksa internet Anda dan coba lagi.",
         variant: "destructive",
       });
@@ -100,13 +102,13 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Dipercaya 1.247+ bisnis di 38 provinsi & 514 kota Indonesia
+              {t("heroBadge")}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.1] text-foreground">
-              Urus Semua <span className="text-gradient-brand">Izin Usaha</span>,
+              {t("heroTitle1")} <span className="text-gradient-brand">{t("heroHigh1")}</span>,
               <br />
-              Tinggal Terima <span className="relative inline-block">Beres
+              {t("heroTitle2")} <span className="relative inline-block">{t("heroHigh2")}
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 120 10" fill="none" aria-hidden="true">
                   <path d="M2 8C30 2 90 2 118 8" stroke="oklch(0.769 0.16 70.08)" strokeWidth="3.5" strokeLinecap="round"/>
                 </svg>
@@ -114,16 +116,14 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              NIB, PT, CV, Halal, BPOM, sampai AMDAL —{" "}
-              <strong className="text-foreground font-semibold">diproses tim ahli, legal 100%, garansi uang kembali.</strong>{" "}
-              Mulai dari Rp 350 ribu, tercepat 1 hari kerja.
+              {t("heroSubtitle")}
             </p>
 
             <ul className="mt-8 space-y-3.5">
               {[
-                { icon: Clock, text: "NIB 1 hari • PT 3 hari • Tanpa ribet antre instansi" },
-                { icon: ShieldCheck, text: "Jalur resmi pemerintah — dokumen sah & terverifikasi" },
-                { icon: BadgeCheck, text: "Garansi 100% uang kembali jika izin gagal terbit" },
+                { icon: Clock, text: t("heroBullet1") },
+                { icon: ShieldCheck, text: t("heroBullet2") },
+                { icon: BadgeCheck, text: t("heroBullet3") },
               ].map((item, i) => (
                 <motion.li
                   key={i}
@@ -162,7 +162,7 @@ export function Hero() {
                   ))}
                   <span className="text-sm font-bold ml-1">4.9</span>
                 </div>
-                <p className="text-xs text-muted-foreground">dari 890+ ulasan klien</p>
+                <p className="text-xs text-muted-foreground">{t("heroReviews")}</p>
               </div>
             </div>
           </motion.div>
@@ -208,11 +208,9 @@ export function Hero() {
                   >
                     <CheckCircle2 className="h-9 w-9 text-primary" />
                   </motion.div>
-                  <h3 className="text-xl font-bold">Anda Terdaftar! 🎉</h3>
+                  <h3 className="text-xl font-bold">{t("successTitle")}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto">
-                    Terima kasih, <strong className="text-foreground">{form.name}</strong>! Konsultan senior kami akan
-                    menghubungi WhatsApp Anda <strong className="text-foreground">dalam 1x24 jam</strong> (biasanya
-                    &lt; 15 menit di jam kerja).
+                    {t("successBody").replace("{name}", form.name)}
                   </p>
                   <Button
                     variant="outline"
@@ -222,20 +220,20 @@ export function Hero() {
                       setForm({ name: "", whatsapp: "", businessType: "", businessDesc: "", package: "Belum tahu" });
                     }}
                   >
-                    Daftarkan Usaha Lain
+                    {t("btnAnother")}
                   </Button>
                 </div>
               ) : (
                 <>
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-lg font-bold">Konsultasi Gratis 15 Menit</h2>
+                      <h2 className="text-lg font-bold">{t("formTitle")}</h2>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Tanpa biaya, tanpa komitmen — langsung dari konsultan senior.
+                        {t("formSubtitle")}
                       </p>
                     </div>
                     <div className="hidden sm:block text-right shrink-0">
-                      <p className="text-2xl font-extrabold text-primary">Gratis</p>
+                      <p className="text-2xl font-extrabold text-primary">{t("labelFree")}</p>
                       <p className="text-[10px] text-muted-foreground line-through">Rp 500rb</p>
                     </div>
                   </div>
@@ -243,7 +241,7 @@ export function Hero() {
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-name">Nama Lengkap *</Label>
+                        <Label htmlFor="hero-name">{t("labelName")}</Label>
                         <Input
                           id="hero-name"
                           placeholder="cth: Budi Santoso"
@@ -255,7 +253,7 @@ export function Hero() {
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-wa">No. WhatsApp *</Label>
+                        <Label htmlFor="hero-wa">{t("labelWa")}</Label>
                         <Input
                           id="hero-wa"
                           type="tel"
@@ -271,10 +269,10 @@ export function Hero() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-sector">Jenis Usaha</Label>
+                        <Label htmlFor="hero-sector">{t("labelSector")}</Label>
                         <Select value={form.businessType} onValueChange={(v) => setForm({ ...form, businessType: v })}>
                           <SelectTrigger id="hero-sector" className="h-11">
-                            <SelectValue placeholder="Pilih sektor" />
+                            <SelectValue placeholder={t("phSector")} />
                           </SelectTrigger>
                           <SelectContent>
                             {SECTORS.map((s) => (
@@ -286,15 +284,15 @@ export function Hero() {
                         </Select>
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="hero-package">Kebutuhan</Label>
+                        <Label htmlFor="hero-package">{t("labelNeed")}</Label>
                         <Select value={form.package} onValueChange={(v) => setForm({ ...form, package: v })}>
                           <SelectTrigger id="hero-package" className="h-11">
-                            <SelectValue placeholder="Pilih paket" />
+                            <SelectValue placeholder={t("phNeed")} />
                           </SelectTrigger>
                           <SelectContent>
                             {PACKAGES.map((p) => (
                               <SelectItem key={p} value={p}>
-                                {p === "Belum tahu" ? "Belum tahu / konsultasi dulu" : `Paket ${p}`}
+                                {p === "Belum tahu" ? t("pkgNotSure") : t("pkgPrefix").replace("{p}", p)}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -303,7 +301,7 @@ export function Hero() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label htmlFor="hero-desc">Ceritakan singkat usaha Anda (opsional)</Label>
+                      <Label htmlFor="hero-desc">{t("labelDesc")}</Label>
                       <Textarea
                         id="hero-desc"
                         placeholder="cth: Saya mau buka kafe di Bandung, sudah punya tempat, belum punya badan usaha..."
@@ -322,11 +320,11 @@ export function Hero() {
                       {submitting ? (
                         <>
                           <Loader2 className="h-5 w-5 animate-spin" />
-                          Mengirim...
+                          {t("btnSending")}
                         </>
                       ) : (
                         <>
-                          Daftar Konsultasi Gratis
+                          {t("btnSubmit")}
                           <ChevronDown className="h-5 w-5 rotate-[-90deg]" />
                         </>
                       )}
@@ -334,7 +332,7 @@ export function Hero() {
 
                     <p className="text-[11px] text-center text-muted-foreground flex items-center justify-center gap-1.5">
                       <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                      Data Anda aman & tidak dibagikan ke pihak ketiga
+                      {t("privacyNote")}
                     </p>
                   </form>
                 </>

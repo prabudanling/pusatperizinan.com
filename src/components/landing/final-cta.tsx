@@ -25,9 +25,11 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SECTORS, WHATSAPP_NUMBER, WHATSAPP_DISPLAY } from "@/lib/landing-data";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 export function FinalCta() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     whatsapp: "",
@@ -73,17 +75,15 @@ export function FinalCta() {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block rounded-full bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 shadow-md shadow-primary/25">
-              SLOT TERBATAS PER HARI
+              {t("ctaBadge")}
             </span>
             <h2 className="mt-5 text-3xl md:text-[2.75rem] font-extrabold tracking-tight leading-[1.12]">
-              Bisnis Anda Sudah Jalan?
+              {t("ctaT1")}
               <br />
-              <span className="text-gradient-brand">Pastikan Legalnya Sekarang.</span>
+              <span className="text-gradient-brand">{t("ctaTHigh")}</span>
             </h2>
             <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-              Setiap hari tanpa izin resmi = risiko denda, sanksi, dan hilangnya peluang tender serta
-              pendanaan. Konsultasi gratis 15 menit — kami petakan semua yang Anda butuhkan, Anda bebas
-              putuskan setelahnya.
+              {t("ctaSub")}
             </p>
 
             <div className="mt-8 space-y-4">
@@ -115,7 +115,7 @@ export function FinalCta() {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="h-5 w-5" />
-                  Chat WhatsApp Sekarang
+                  {t("ctaWaBtn")}
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full font-bold">
@@ -146,26 +146,24 @@ export function FinalCta() {
                     >
                       <CheckCircle2 className="h-9 w-9 text-primary" />
                     </motion.div>
-                    <h3 className="text-xl font-bold">Permintaan Diterima! 🎉</h3>
+                    <h3 className="text-xl font-bold">{t("ctaSuccessTitle")}</h3>
                     <p className="mt-3 text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
-                      Konsultan kami menghubungi Anda via WhatsApp{" "}
-                      <strong className="text-foreground">maksimal 1x24 jam</strong>. Sambil menunggu, coba fitur{" "}
-                      <a href="#cek-izin" className="text-primary font-semibold hover:underline">
-                        Cek Izin AI
-                      </a>{" "}
-                      ya!
+                      {t("ctaSuccessBody")}
                     </p>
+                    <a href="#cek-izin" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+                      {t("navCheckAI")} →
+                    </a>
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-xl font-bold">Book Konsultasi Gratis</h3>
+                    <h3 className="text-xl font-bold">{t("ctaFormTitle")}</h3>
                     <p className="text-sm text-muted-foreground mt-1.5">
-                      Isi 30 detik — konsultan senior kami yang menghubungi Anda.
+                      {t("ctaFormSub")}
                     </p>
 
                     <form onSubmit={submit} className="mt-6 space-y-4">
                       <div className="space-y-1.5">
-                        <Label htmlFor="cta-name">Nama Lengkap *</Label>
+                        <Label htmlFor="cta-name">{t("labelName")}</Label>
                         <Input
                           id="cta-name"
                           placeholder="cth: Budi Santoso"
@@ -177,7 +175,7 @@ export function FinalCta() {
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="cta-wa">No. WhatsApp *</Label>
+                        <Label htmlFor="cta-wa">{t("labelWa")}</Label>
                         <Input
                           id="cta-wa"
                           type="tel"
@@ -190,13 +188,13 @@ export function FinalCta() {
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="cta-sector">Jenis Usaha</Label>
+                        <Label htmlFor="cta-sector">{t("labelSector")}</Label>
                         <Select
                           value={form.businessType}
                           onValueChange={(v) => setForm({ ...form, businessType: v })}
                         >
                           <SelectTrigger id="cta-sector" className="h-11">
-                            <SelectValue placeholder="Pilih sektor usaha" />
+                            <SelectValue placeholder={t("phSector")} />
                           </SelectTrigger>
                           <SelectContent>
                             {SECTORS.map((s) => (
@@ -208,7 +206,7 @@ export function FinalCta() {
                         </Select>
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="cta-desc">Ceritakan kebutuhan Anda (opsional)</Label>
+                        <Label htmlFor="cta-desc">{t("labelDesc")}</Label>
                         <textarea
                           id="cta-desc"
                           rows={3}
@@ -226,15 +224,15 @@ export function FinalCta() {
                         {submitting ? (
                           <>
                             <Loader2 className="h-5 w-5 animate-spin" />
-                            Mengirim...
+                            {t("btnSending")}
                           </>
                         ) : (
-                          "Booking Konsultasi Gratis"
+                          t("ctaSubmit")
                         )}
                       </Button>
                       <p className="text-[11px] text-center text-muted-foreground flex items-center justify-center gap-1.5">
                         <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                        100% gratis • Tanpa komitmen • Data aman
+                        {t("ctaPrivacy")}
                       </p>
                     </form>
                   </>

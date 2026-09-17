@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 // ============================================================
 // PUSATPERIZINAN.COM — Kursus Email Gratis 7 Hari
@@ -63,6 +64,7 @@ const DAYS = [
 
 export function EmailCourse() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -133,15 +135,14 @@ export function EmailCourse() {
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-1 text-xs font-bold text-amber-300">
               <GraduationCap className="h-3.5 w-3.5" />
-              Kursus Email Gratis — 100% Tanpa Biaya
+              {t("courseBadge")}
             </span>
             <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              7 Hari Menguasai Perizinan{" "}
-              <span className="text-amber-400">Usaha Indonesia</span>
+              {t("courseT1")}{" "}
+              <span className="text-amber-400">{t("courseTHigh")}</span>
             </h2>
             <p className="mt-4 text-emerald-100/75 text-lg leading-relaxed">
-              Setiap pagi, satu materi ringkas 5 menit + checklist praktis langsung ke email Anda.
-              Ditulis tim ahli regulasi kami — bukan teori, tapi yang benar-benar dipakai di lapangan.
+              {t("courseSub")}
             </p>
 
             <ol className="mt-8 space-y-3.5">
@@ -190,7 +191,7 @@ export function EmailCourse() {
               <div className="text-center py-8">
                 <CheckCircle2 className="h-16 w-16 text-emerald-400 mx-auto" aria-hidden />
                 <h3 className="mt-5 text-xl font-extrabold text-white">
-                  Selamat datang di kelas!
+                  {t("courseSuccessTitle")}
                 </h3>
                 <p className="mt-3 text-sm text-emerald-100/75 leading-relaxed">
                   Materi <strong className="text-white">Hari 1</strong> sedang meluncur ke{" "}
@@ -209,10 +210,10 @@ export function EmailCourse() {
               <form onSubmit={submit} className="space-y-5">
                 <div>
                   <h3 className="text-lg font-extrabold text-white">
-                    Daftar Gratis Sekarang
+                    {t("courseFormTitle")}
                   </h3>
                   <p className="text-xs text-emerald-100/60 mt-1">
-                    8 hari × 5 menit = bisnis Anda 100% legal & bebas khawatir denda.
+                    {t("courseFormSub")}
                   </p>
                 </div>
 

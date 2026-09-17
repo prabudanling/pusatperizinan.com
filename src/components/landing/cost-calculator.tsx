@@ -17,6 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { SERVICES, WHATSAPP_NUMBER } from "@/lib/landing-data";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/lib/i18n/language-provider";
 
 // ---------- Parsing helpers (single source of truth: SERVICES data) ----------
 function parsePriceToIdr(price: string): number {
@@ -51,6 +52,7 @@ type ScaleId = (typeof SCALES)[number]["id"];
 
 export function CostCalculator() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [scale, setScale] = useState<ScaleId>("bisnis");
   const [name, setName] = useState("");
@@ -141,12 +143,11 @@ export function CostCalculator() {
             Gratis &amp; Tanpa Daftar
           </Badge>
           <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Kalkulator Biaya Perizinan —{" "}
-            <span className="text-gradient-brand">Hitung Dulu, Putuskan Kemudian</span>
+            {t("calcT1")}{" "}
+            <span className="text-gradient-brand">{t("calcTHigh")}</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Pilih izin yang Anda butuhkan, sistem langsung menghitung estimasi biaya &amp; waktu.
-            Transparan sejak menit pertama — tanpa biaya tersembunyi.
+            {t("calcSub")}
           </p>
         </div>
 
