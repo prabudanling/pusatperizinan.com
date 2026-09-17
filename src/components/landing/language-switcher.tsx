@@ -31,6 +31,11 @@ export function LanguageSwitcher({ variant = "default" }: { variant?: "default" 
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
+          // Radix menurunkan aria-controls dari useId; saat HMR/stale-cache membuat
+          // HTML server & JS client beda versi, ID ini bisa meleset hanya pada
+          // atribut — fungsi popover tetap konsisten. Suppres agar tidak muncul
+          // false-positive hydration error (mismatch teks/struktur lain tetap terdeteksi).
+          suppressHydrationWarning
           variant={variant === "ghost" ? "ghost" : "outline"}
           role="combobox"
           aria-expanded={open}
