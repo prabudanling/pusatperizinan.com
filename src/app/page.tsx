@@ -13,11 +13,13 @@ import { WhyUs } from "@/components/landing/why-us";
 import { Process } from "@/components/landing/process";
 import { Pricing } from "@/components/landing/pricing";
 import { Testimonials } from "@/components/landing/testimonials";
+import { TeamSection } from "@/components/landing/team";
 import { Comparison } from "@/components/landing/comparison";
 import { Faq } from "@/components/landing/faq";
 import { FinalCta } from "@/components/landing/final-cta";
 import { Footer } from "@/components/landing/footer";
 import { ChatWidget } from "@/components/landing/chat-widget";
+import { AdminDeploy } from "@/components/landing/admin-deploy";
 
 // ============================================================
 // PUSATPERIZINAN.COM — Landing Page Utama
@@ -45,6 +47,7 @@ export default function Home() {
         <Process />
         <Pricing />
         <Testimonials />
+        <TeamSection />
         <Comparison />
         <Faq />
         <FinalCta />
@@ -52,6 +55,8 @@ export default function Home() {
       </main>
       <Footer />
       <ChatWidget />
+      {/* Panel deploy privat — hanya aktif via /?admin=1, tidak tampil di publik */}
+      <AdminDeploy />
     </div>
   );
 }

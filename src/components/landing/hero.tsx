@@ -26,7 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { SECTORS } from "@/lib/landing-data";
+import { SECTORS, WHATSAPP_NUMBER } from "@/lib/landing-data";
 import { useLanguage } from "@/lib/i18n/language-provider";
 
 const PACKAGES = ["UMKM", "Bisnis", "Enterprise", "Belum tahu"];
@@ -76,10 +76,16 @@ export function Hero() {
         });
       }
     } catch {
+      // Hosting statis (tanpa Node.js): API tidak tersedia —
+      // fallback MULUS ke WhatsApp resmi agar lead tetap masuk, tidak pernah hangus.
+      const waText = encodeURIComponent(
+        `Halo PusatPerizinan.com! Saya ${form.name || "(nama)"} (${form.whatsapp || "via form"}).\nJenis usaha: ${form.businessType || "-"}.\nKebutuhan: ${form.businessDesc || "-"}.\nPaket: ${form.package}.\nMohon konsultasi lanjutan. Terima kasih!`
+      );
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`, "_blank", "noopener,noreferrer");
+      setDone(true);
       toast({
-        title: t("toastConn"),
-        description: "Periksa internet Anda dan coba lagi.",
-        variant: "destructive",
+        title: t("toastSuccess"),
+        description: "Pesanan Anda diteruskan via WhatsApp — konsultan kami segera merespons.",
       });
     } finally {
       setSubmitting(false);

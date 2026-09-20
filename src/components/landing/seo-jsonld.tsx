@@ -4,6 +4,7 @@
 // ============================================================
 
 import { SERVICES, FAQS, TESTIMONIALS } from "@/lib/landing-data";
+import { FOUNDER, TEAM } from "@/lib/team-data";
 import { PERMIT_GUIDES, SECTOR_GUIDES } from "@/lib/seo-content";
 import { BLOG_ARTICLES } from "@/lib/blog-content";
 import { LANGUAGES } from "@/lib/i18n/languages";
@@ -64,6 +65,21 @@ export function SeoJsonLd() {
     priceRange: "Rp 350.000 - Rp 45.000.000",
     currenciesAccepted: "IDR",
     paymentAccepted: "Bank Transfer",
+    // Founder + tim konsultan (branding Task 19)
+    founder: {
+      "@type": "Person",
+      name: FOUNDER.name,
+      jobTitle: FOUNDER.title.id,
+      description: FOUNDER.bio.id,
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+    },
+    employee: TEAM.map((m) => ({
+      "@type": "Person",
+      name: m.name,
+      jobTitle: m.title.id,
+      description: m.bio.id,
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+    })),
     // 30 bahasa teratas dunia — situs multibahasa (switcher + hreflang)
     availableLanguage: LANGUAGES.map((l) => ({
       "@type": "Language",

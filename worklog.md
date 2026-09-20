@@ -436,4 +436,32 @@ Work Log:
 Stage Summary:
 - Nomor official baru 0812-6999-9910 (6281269999910) aktif di SELURUH 5 jalur konversi + SEO JSON-LD + README + pengetahuan RIZKI AI
 - 13 file kontak disentuh (7 kode + README) tanpa sisa; lint 0/0; browser zero-error
-- Catatan teknik: sweep penggantian nomor harus multi-varian format (081x…, 6281x…, +62-81x…, spasi/strip) — format JSON-LD "+62-813-…" hampir lolos
+- Catatan teknik: sweep penggantian nomor harus multi-varian format (081x…, 6281x…, +62-81x…, +62-81x…, spasi/strip) — format JSON-LD "+62-813-…" hampir lolos
+
+---
+Task ID: 21
+Agent: Z.ai Code (main)
+Task: Static export tanpa Node.js untuk idwebhost + fix "download susah" + hapus link deploy footer
+
+Work Log:
+- DIAGNOSIS DOWNLOAD: curl /download/pusatperizinan-sharedhosting.tar.gz → 404; public/download/ KOSONG; worklog berhenti di Task 10 → TERKONFIRMASI SANDBOX REGRESI ke snapshot Task 10 (team-data, scripts/, server.js, .htaccess, admin, pack — semua hilang). Root cause "kenapa file downloadnya susah" = file 404, bukan bug UI
+- RECOVERY dalam Task 21: branding konsultan Task 19 di-rebuild (src/lib/team-data.ts + src/components/landing/team.tsx: FOUNDER Tuan Haji Gugun Gunara + Drs. H. Arif Rachman Hakim + Dadang/Ratna/Bambang/Rangga; JSON-LD founder+employee; section #tim 6 kartu)
+- STATIC EXPORT (inti Task 21, tanpa Node.js):
+  - next.config.ts: kondisional BUILD_STATIC=1 → output:"export" + images.unoptimized; dev tetap standalone
+  - scripts/build-static.mjs: geser src/app/api → .api-static-hold → next build (BUILD_STATIC=1) → tempel .htaccess → kembalikan api (try/finally aman)
+  - src/app/not-found.tsx baru → diekspor jadi out/404.html (branded, WA CTA)
+  - .htaccess baru (root): DirectoryIndex, ErrorDocument 404 /404.html, mod_deflate gzip, expires/cache immutable utk aset hash, no-cache HTML, security headers, MIME, HTTPS redirect opsional (komentar) — kompatibel Apache/LiteSpeed cPanel
+  - Patch fallback statis: hero.tsx & final-cta.tsx catch → window.open WA 6281269999910 dgn pesan lead terformat + setDone (lead tidak pernah hangus tanpa server); stats-bar & cost-calculator & chat-widget & license-checker sudah punya fallback aman
+  - page.tsx: + TeamSection (setelah Testimonials) + AdminDeploy
+- ADMIN DEPLOY PRIVAT: src/components/landing/admin-deploy.tsx (?admin=1, password PusatPerizinan2026!, fetch pack-info.json, anchor download asli, collapsible, bottom-left) — footer TETAP BERSIH (0 link deploy, diverifikasi)
+- PACK UPLOAD-ONLY: scripts/deploy-pack.mjs (staging out/ minus download/, tempel .htaccess+DEPLOY-IDWEBHOST.md+ISI-PACK.txt, tar tmp→rename, verifikasi index/404/htaccess dalam tar, md5, salinan ke out/download/); DEPLOY-IDWEBHOST.md panduan idwebhost cPanel 8 langkah + troubleshooting; package.json += build:static & pack
+- BUILD & PACK SUKSES: next build 8.4s (3 halaman statis, Turbopack) → out/ 3.2MB; pack pusatperizinan-static-hosting.tar.gz = 0.89MB / 48 file / MD5 0a44067f60acc7cc5bd42e10cdd152ea / builtAt 2026-09-20T14:42:47Z
+- VERIFIKASI: tar berisi index.html+.htaccess+404.html+chunks ✓; md5 public/download == out/download == hasil curl unduhan ✓; curl 200 semua: /, pack.tar.gz (930.021B), pack-info.json, ISI-PACK.txt, DEPLOY-IDWEBHOST.md ✓; smoke test artefak statis via python http.server: 8 path semuanya 200 (simulasi serving idwebhost) ✓; lint 0 error 0 warning ✓
+- E2E BROWSER: / render penuh 0 error; #tim = 6 kartu; footer 0 link deploy; founder+Arif+WA 6281269999910 di DOM & JSON-LD; ?admin=1 → gerbang password → unlock → info pack (0.89MB/48/MD5) + anchor /download/pusatperizinan-static-hosting.tar.gz [download] ✓; mobile 390px: panel terbaca penuh, overflowX=false; console bersih; dev server sehat post-build (prisma query normal)
+
+Stage Summary:
+- ROOT CAUSE download susah = sandbox regressed ke Task 10 → public/download hilang (404). Sekarang TERATASI permanen dgn pack baru + 2 jalur unduh (Admin ?admin=1 dan /download/ langsung), terverifikasi md5-identik end-to-end
+- Situs kini 100% STATIC EXPORT: out/ = HTML+CSS+JS murni + .htaccess — TANPA Node.js/PHP/database di hosting. User cukup: cPanel → File Manager → public_html → Upload → Extract → selesai (±5 menit)
+- Semua jalur konversi tetap hidup di hosting statis via fallback WA otomatis (form hero/CTA, AI chat, cek izin, kalkulator); stats pakai nilai fallback
+- Update konten ke depan = rebuild (npm run build:static && npm run pack) → upload ulang; terdokumentasi di DEPLOY-IDWEBHOST.md
+- Konsultan Task 19 hidup kembali (founder GG featured + 5 konsultan) dan ter-bake ke HTML statis + JSON-LD

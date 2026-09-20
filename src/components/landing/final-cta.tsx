@@ -57,7 +57,17 @@ export function FinalCta() {
         toast({ title: "Gagal mengirim", description: json.error, variant: "destructive" });
       }
     } catch {
-      toast({ title: "Koneksi bermasalah", description: "Coba lagi.", variant: "destructive" });
+      // Hosting statis (tanpa Node.js): API tidak tersedia —
+      // fallback MULUS ke WhatsApp resmi agar lead tetap masuk.
+      const waText = encodeURIComponent(
+        `Halo PusatPerizinan.com! Saya ${form.name || "(nama)"} (${form.whatsapp || "via form"}).\nJenis usaha: ${form.businessType || "-"}.\nKebutuhan: ${form.businessDesc || "-"}.\nPaket: ${form.package}.\nMohon konsultasi lanjutan. Terima kasih!`
+      );
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`, "_blank", "noopener,noreferrer");
+      setDone(true);
+      toast({
+        title: "Berhasil! 🎉",
+        description: "Pesanan Anda diteruskan via WhatsApp — konsultan kami segera merespons.",
+      });
     } finally {
       setSubmitting(false);
     }
