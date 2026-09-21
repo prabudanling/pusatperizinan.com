@@ -179,7 +179,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "与印尼证券交易所同一楼层 • 在线服务全印尼",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara，保留所有权利。",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen，保留所有权利。",
     footerMade: "以 ❤️ 助力印尼中小企业腾飞",
     // Chat
     chatTitle: "RIZKI — AI 顾问",
@@ -366,7 +366,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "インドネシア証券取引所と同じフロア • インドネシア全土をオンラインでサポート",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. All rights reserved.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. All rights reserved.",
     footerMade: "❤️を込めて — インドネシア中小企業の発展のために",
     // Chat
     chatTitle: "RIZKI — AIコンサルタント",
@@ -553,7 +553,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "인도네시아 증권거래소와 같은 층 • 인도네시아 전역 온라인 서비스",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. 모든 권리 보유.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. 모든 권리 보유.",
     footerMade: "인도네시아 중소기업의 발전을 위해 ❤️을 담아 제작",
     // Chat
     chatTitle: "RIZKI — AI 컨설턴트",
@@ -740,7 +740,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Cùng tầng với Sở Giao dịch Chứng khoán Indonesia • Phục vụ toàn Indonesia trực tuyến",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Mọi quyền được bảo lưu.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Mọi quyền được bảo lưu.",
     footerMade: "Tạo ra với ❤️ dành cho sự phát triển của doanh nghiệp nhỏ và vừa Indonesia",
     // Chat
     chatTitle: "RIZKI — Chuyên gia AI",
@@ -927,7 +927,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "ชั้นเดียวกับตลาดหลักทรัพย์อินโดนีเซีย • บริการออนไลน์ทั่วอินโดนีเซีย",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara สงวนลิขสิทธิ์",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen สงวนลิขสิทธิ์",
     footerMade: "สร้างด้วย ❤️ เพื่อความก้าวหน้าของ SME อินโดนีเซีย",
     // Chat
     chatTitle: "RIZKI — ที่ปรึกษา AI",
@@ -1114,7 +1114,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Kaparehong palapag ng Indonesia Stock Exchange • Naglilingkod sa buong Indonesia online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Lahat ng karapatan ay nakalaan.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Lahat ng karapatan ay nakalaan.",
     footerMade: "Ginawa nang may ❤️ para sa progreso ng mga MSME ng Indonesia",
     // Chat
     chatTitle: "RIZKI — AI Consultant",
@@ -1301,7 +1301,7 @@ export const TRANSLATIONS_A: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Setingkat dengan Bursa Saham Indonesia • Berkhidmat ke seluruh Indonesia secara atas talian",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Hak cipta terpelihara.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Hak cipta terpelihara.",
     footerMade: "Dibina dengan ❤️ untuk kemajuan PKS/UMKM Indonesia",
     // Chat
     chatTitle: "RIZKI — Perunding AI",

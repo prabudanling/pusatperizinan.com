@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "PusatPerizinan.com", url: SITE_URL }],
   creator: "PusatPerizinan.com",
-  publisher: "PT Pusat Perizinan Digital Nusantara",
+  publisher: "PT Digital Bisnis Manajemen",
   alternates: {
     canonical: "/",
     // hreflang untuk 30 bahasa teratas dunia (?lang=xx diproses client-side)
@@ -100,9 +100,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/logo-icon.png",
+    shortcut: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
   manifest: "/manifest.json",
   openGraph: {
@@ -115,10 +115,10 @@ export const metadata: Metadata = {
       "Konsultan perizinan #1 Indonesia dari kantor SCBD. NIB 1 hari, PT 3 hari, Halal, BPOM, PBG/SLF, AMDAL, PMA, Izin Umroh/Haji (PPIU/PPIH), IATA, Arab Saudi (MISA), RKAB tambang — garansi 100%. Melayani 38 provinsi & 514 kabupaten/kota.",
     images: [
       {
-        url: "/logo.svg",
-        width: 512,
-        height: 512,
-        alt: "Logo PusatPerizinan.com — Konsultan Perizinan Usaha Indonesia",
+        url: "/logo.png",
+        width: 1005,
+        height: 831,
+        alt: "Logo PusatPerizinan.com — Top Konsultan Perizinan Usaha Indonesia",
       },
     ],
   },
@@ -127,7 +127,7 @@ export const metadata: Metadata = {
     title: "PusatPerizinan.com — Konsultan Perizinan Usaha #1 Indonesia",
     description:
       "NIB 1 hari, PT 3 hari, garansi 100%. Panduan perizinan terlengkap Indonesia + Cek Izin AI gratis.",
-    images: ["/logo.svg"],
+    images: ["/logo.png"],
   },
   formatDetection: {
     telephone: true,

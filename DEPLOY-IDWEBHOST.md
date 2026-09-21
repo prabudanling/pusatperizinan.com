@@ -15,7 +15,7 @@
 | `_next/`                   | Aset CSS + JS + font (nama file ber-hash, cache permanen)     |
 | `.htaccess`                | Routing, 404, kompresi GZIP, cache browser (Apache/LiteSpeed) |
 | `robots.txt`, `sitemap.xml`| SEO                                                           |
-| `manifest.json`, `logo.svg`| PWA & ikon                                                    |
+| `manifest.json`, `logo.png`, `logo-icon.png` | PWA & ikon                                                |
 | `download/`                | Salinan paket ini (boleh dihapus di hosting)                  |
 | `ISI-PACK.txt`             | Checklist isi paket                                           |
 | `DEPLOY-IDWEBHOST.md`      | File panduan ini                                              |
@@ -96,5 +96,5 @@ Alur update:
 
 ---
 
-**PT Pusat Perizinan Digital Nusantara** · pusatperizinan.com · WA 0812-6999-9910
+**PT Digital Bisnis Manajemen** · pusatperizinan.com · WA 0812-6999-9910
 *Dibangun otomatis oleh pipeline deploy statis — jangan menyerah sebelum semua selesai.* 💪

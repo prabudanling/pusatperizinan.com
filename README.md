@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/logo.svg" alt="Logo PusatPerizinan.com" width="88" />
+<img src="public/logo.png" alt="Logo PusatPerizinan.com" width="120" />
 
 # 🛡️ PusatPerizinan.com
 
@@ -68,7 +68,7 @@
 
 ## 1. Tentang Proyek
 
-**PusatPerizinan.com** adalah website perusahaan konsultan perizinan usaha milik **PT Pusat Perizinan Digital Nusantara**, yang berkantor di **Indonesia Stock Exchange Building, Tower 2, Lantai 5, SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190** — bersebelahan dengan Bursa Efek Indonesia (IDX).
+**PusatPerizinan.com** adalah website perusahaan konsultan perizinan usaha milik **PT Digital Bisnis Manajemen**, yang berkantor di **Indonesia Stock Exchange Building, Tower 2, Lantai 5, SCBD Lot 13, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190** — bersebelahan dengan Bursa Efek Indonesia (IDX).
 
 Proyek ini bukan sekadar landing page. Ia adalah **mesin akuisisi klien satu halaman (single-page revenue engine)** yang menggabungkan:
 
@@ -191,7 +191,9 @@ pusatperizinan/
 │                                        LicenseCheck, Subscriber, Testimonial
 ├── 🗄️  db/                            ← File database SQLite
 ├── 🌐 public/
-│   ├── logo.svg                      ← Perisai emerald + dokumen + badge gold
+│   ├── logo.png                      ← Logo resmi PP Top Konsultan (transparan)
+│   ├── logo-icon.png                 ← Emblem PP persegi (favicon/header)
+│   ├── logo-icon-white.png           ← Emblem putih (footer gelap)
 │   ├── sitemap.xml                   ← Sitemap + hreflang + lastmod
 │   └── robots.txt                    ← Allow all + referensi sitemap
 └── 💻 src/
@@ -612,7 +614,7 @@ Semua deklaratif: tambah objek di <code>SERVICES</code>/<code>PROVINCES</code>/<
 ## 18. Lisensi & Kredit
 
 ```
-© 2026 PT Pusat Perizinan Digital Nusantara. Seluruh hak cipta dilindungi.
+© 2026 PT Digital Bisnis Manajemen. Seluruh hak cipta dilindungi.
 Kode sumber & desain: proprietary — dilarang direproduksi tanpa izin tertulis.
 ```
 

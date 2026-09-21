@@ -39,7 +39,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:pr-6">
             <a href="#beranda" className="flex items-center gap-2.5">
-              <img src="/logo.svg" alt="Logo PusatPerizinan.com" className="h-10 w-10" />
+              <img src="/logo-icon-white.png" alt="Logo PusatPerizinan.com" className="h-10 w-10" />
               <span className="font-bold text-lg text-white">
                 Pusat<span className="text-emerald-400">Perizinan</span>
                 <span className="text-amber-400">.com</span>

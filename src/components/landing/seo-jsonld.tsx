@@ -27,10 +27,10 @@ export function SeoJsonLd() {
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}/#organization`,
     name: "PusatPerizinan.com",
-    alternateName: "PT Pusat Perizinan Digital Nusantara",
+    alternateName: "PT Digital Bisnis Manajemen",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
-    image: `${SITE_URL}/logo.svg`,
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/logo.png`,
     description:
       "Konsultan perizinan usaha #1 Indonesia. Jasa pengurusan NIB, pendirian PT/CV/PMA, OSS-RBA, sertifikasi halal, izin BPOM, PBG/SLF, AMDAL, izin umroh (PPIU) & haji (PPIH), registrasi IATA, izin usaha Arab Saudi (MISA), RKAB & perizinan tambang — melayani 38 provinsi & 514 kabupaten/kota dengan garansi 100% uang kembali.",
     telephone: "+62-812-6999-9910",

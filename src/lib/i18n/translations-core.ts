@@ -170,7 +170,7 @@ const id: Translation = {
   footerNote:
     "Satu lantai dengan Bursa Efek Indonesia • Melayani seluruh Indonesia online",
   footerRights:
-    "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Seluruh hak cipta dilindungi.",
+    "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Seluruh hak cipta dilindungi.",
   footerMade: "Dibuat dengan ❤️ untuk kemajuan UMKM Indonesia",
   // Chat
   chatTitle: "RIZKI — Konsultan AI",
@@ -354,7 +354,7 @@ const en: Translation = {
   footerNote:
     "Same floor as the Indonesia Stock Exchange • Serving all of Indonesia online",
   footerRights:
-    "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. All rights reserved.",
+    "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. All rights reserved.",
   footerMade: "Made with ❤️ for the progress of Indonesian SMEs",
   // Chat
   chatTitle: "RIZKI — AI Consultant",

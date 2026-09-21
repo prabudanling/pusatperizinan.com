@@ -465,3 +465,24 @@ Stage Summary:
 - Semua jalur konversi tetap hidup di hosting statis via fallback WA otomatis (form hero/CTA, AI chat, cek izin, kalkulator); stats pakai nilai fallback
 - Update konten ke depan = rebuild (npm run build:static && npm run pack) → upload ulang; terdokumentasi di DEPLOY-IDWEBHOST.md
 - Konsultan Task 19 hidup kembali (founder GG featured + 5 konsultan) dan ter-bake ke HTML statis + JSON-LD
+
+---
+Task ID: 22
+Agent: Z.ai Code (main)
+Task: Ganti logo resmi (PP Top Konsultan) + ganti nama PT → PT Digital Bisnis Manajemen
+
+Work Log:
+- ASSET: user upload "Master LOGO Pusat Perizinan NEW OK (2).png" (1393×1152 RGBA, 90.9% transparan, 0% bg hitam — aman) + foto kantor pusatperizinan-com.jpg (referensi)
+- scripts/process-logo.mjs (sharp): trim transparan (→1005×831) → deteksi emblem via gap baris kosong (emblem rows 0..535, teks mulai 566; fix bug crop pertama yang memotong area "TOP KONSULTAN" — solusi: salin bbox emblem ke kanvas persegi transparan terpisah) → 3 output:
+  - public/logo.png (logo penuh, 306KB)
+  - public/logo-icon.png (emblem PP persegi 512px, 81KB — header/favicon/404)
+  - public/logo-icon-white.png (emblem putih, 44KB — footer gelap)
+- SWEEP logo.svg (13 ref di 8 file): layout.tsx (icons→logo-icon.png, OG→logo.png 1005×831, twitter→logo.png), seo-jsonld.tsx (logo/image→logo.png), header.tsx→logo-icon.png, footer.tsx→logo-icon-white.png, not-found.tsx→logo-icon.png, manifest.json (icons: logo-icon.png any + logo-icon-white.png maskable), sitemap.xml (image:loc), README.md (3 spot), DEPLOY-IDWEBHOST.md + deploy-pack.mjs (tabel ISI-PACK); public/logo.svg DIHAPUS; verifikasi rg 0 sisa
+- GANTI NAMA PT: "PT Pusat Perizinan Digital Nusantara" → "PT Digital Bisnis Manajemen" = 37 penggantian di 10 file (layout publisher, JSON-LD alternateName, team.tsx, README ×2, DEPLOY-IDWEBHOST, translations-a/b/c/d/core ×30 footerRights); team.tsx ternary duplikat disederhanakan
+- REBUILD: stop dev → rm out → build-static (sukses, 3 halaman) → deploy-pack → PACK BARU: 1.31MB / 50 file / MD5 c99a92472d5a685f27973a7069b513ce / builtAt 2026-09-21T04:30:59Z; restart dev (supervisor)
+- VERIFIKASI: lint 0/0; out/ berisi 3 logo baru; out/index.html berisi PT baru + ref logo baru; curl pack 200 (1.373.863B); browser E2E: header emblem PP tampil + favicon logo-icon.png, footer emblem PUTIH tampil di bg gelap + "© 2026 PusatPerizinan.com — PT Digital Bisnis Manajemen", JSON-LD alternateName PT baru, 404 branded dgn emblem PP, admin ?admin=1 OK, console 0 error
+
+Stage Summary:
+- Identitas resmi baru terpasang penuh: logo PP laurel "Top Konsultan" (3 varian teroptimasi) + nama PT Digital Bisnis Manajemen di 37 titik (UI, SEO, PWA, 30 bahasa)
+- Pack statis idwebhost direbuild dgn identitas baru: pusatperizinan-static-hosting.tar.gz 1.31MB/50 file/MD5 c99a92472d5a685f27973a7069b513ce — siap diunduh via /?admin=1
+- scripts/process-logo.mjs dapat dipakai ulang jika user upload varian logo lain

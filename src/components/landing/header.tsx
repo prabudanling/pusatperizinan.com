@@ -43,7 +43,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-[72px]">
           {/* Logo */}
           <a href="#beranda" className="flex items-center gap-2.5 shrink-0" aria-label="PusatPerizinan.com - Beranda">
-            <img src="/logo.svg" alt="Logo PusatPerizinan.com" className="h-9 w-9" />
+            <img src="/logo-icon.png" alt="Logo PusatPerizinan.com" className="h-9 w-9" />
             <div className="leading-tight">
               <span className="font-bold text-[15px] md:text-base tracking-tight text-foreground">
                 Pusat<span className="text-primary">Perizinan</span>

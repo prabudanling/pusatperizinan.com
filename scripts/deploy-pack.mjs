@@ -85,7 +85,8 @@ STRUKTUR UTAMA
   .htaccess               → routing, 404, kompresi GZIP, cache browser
   robots.txt              → instruksi mesin pencari
   sitemap.xml             → peta situs SEO
-  manifest.json, logo.svg → PWA & ikon
+  manifest.json, logo.png  → PWA & ikon
+  logo-icon.png            → emblem persegi (favicon/header)
   download/               → salinan paket ini (boleh dihapus di hosting)
   DEPLOY-IDWEBHOST.md     → panduan lengkap langkah upload
   ISI-PACK.txt            → file yang sedang Anda baca

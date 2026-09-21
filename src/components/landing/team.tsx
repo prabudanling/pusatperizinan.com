@@ -117,7 +117,7 @@ export function TeamSection() {
 
         <p className="mt-8 text-center text-xs text-muted-foreground">
           {t("footerRights").replace("{year}", String(new Date().getFullYear()))} ·{" "}
-          {lang === "en" ? "PT Pusat Perizinan Digital Nusantara" : "PT Pusat Perizinan Digital Nusantara"}
+          PT Digital Bisnis Manajemen
         </p>
       </div>
     </section>

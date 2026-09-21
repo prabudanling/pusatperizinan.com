@@ -170,7 +170,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "En el mismo piso que la Bolsa de Valores de Indonesia • Atendemos toda Indonesia en línea",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Todos los derechos reservados.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Todos los derechos reservados.",
     footerMade: "Hecho con ❤️ para el progreso de las pymes de Indonesia",
     // Chat
     chatTitle: "RIZKI — Consultor IA",
@@ -354,7 +354,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Au même étage que la Bourse d'Indonésie • Nous servons toute l'Indonésie en ligne",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Tous droits réservés.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Tous droits réservés.",
     footerMade: "Fait avec ❤️ pour le progrès des PME indonésiennes",
     // Chat
     chatTitle: "RIZKI — Consultant IA",
@@ -538,7 +538,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Im selben Stockwerk wie die Börse Indonesiens • Wir betreuen ganz Indonesien online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Alle Rechte vorbehalten.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Alle Rechte vorbehalten.",
     footerMade: "Mit ❤️ für den Fortschritt der indonesischen KMU",
     // Chat
     chatTitle: "RIZKI — KI-Berater",
@@ -722,7 +722,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Allo stesso piano della Borsa Valori Indonesiana • Serviamo tutta l'Indonesia online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Tutti i diritti riservati.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Tutti i diritti riservati.",
     footerMade: "Fatto con ❤️ per il progresso delle PMI indonesiane",
     // Chat
     chatTitle: "RIZKI — Consulente IA",
@@ -906,7 +906,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Op dezelfde verdieping als de Indonesische beurs • We bedienen heel Indonesië online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Alle rechten voorbehouden.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Alle rechten voorbehouden.",
     footerMade: "Gemaakt met ❤️ voor de vooruitgang van Indonesische mkb-bedrijven",
     // Chat
     chatTitle: "RIZKI — AI-Consultant",
@@ -1090,7 +1090,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "No mesmo andar da Bolsa de Valores da Indonésia • Atendemos toda a Indonésia online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Todos os direitos reservados.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Todos os direitos reservados.",
     footerMade: "Feito com ❤️ para o crescimento das PMEs da Indonésia",
     // Chat
     chatTitle: "RIZKI — Consultor de IA",
@@ -1274,7 +1274,7 @@ export const TRANSLATIONS_C: Partial<Record<LangCode, Translation>> = {
     footerNote:
       "Στον ίδιο όροφο με το Χρηματιστήριο της Ινδονησίας • Εξυπηρετούμε όλη την Ινδονησία online",
     footerRights:
-      "© {year} PusatPerizinan.com — PT Pusat Perizinan Digital Nusantara. Με επιφύλαξη παντός δικαιώματος.",
+      "© {year} PusatPerizinan.com — PT Digital Bisnis Manajemen. Με επιφύλαξη παντός δικαιώματος.",
     footerMade: "Φτιάχτηκε με ❤️ για την πρόοδο των ΜΜΕ της Ινδονησίας",
     // Chat
     chatTitle: "RIZKI — AI Σύμβουλος",

@@ -7,7 +7,7 @@
 export default function NotFound() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-background px-4 py-16 text-center">
-      <img src="/logo.svg" alt="Logo PusatPerizinan.com" className="h-16 w-16 mb-6" />
+      <img src="/logo-icon.png" alt="Logo PusatPerizinan.com" className="h-16 w-16 mb-6" />
       <p className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Error 404</p>
       <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">
         Halaman Tidak Ditemukan
